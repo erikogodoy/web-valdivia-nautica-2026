@@ -22,6 +22,7 @@ const config: Config = {
       },
       fontFamily: {
         sans: ["var(--font-inter)", "system-ui", "sans-serif"],
+        cabin: ["var(--font-cabin)", "sans-serif"],
         serif: ["var(--font-serif)", "Georgia", "serif"],
       },
       backdropBlur: {
