@@ -1,13 +1,15 @@
 'use client';
 
-import React from 'react';
-import { Anchor, Sparkles, ChevronDown } from 'lucide-react';
+import React, { useState } from 'react';
+import { Anchor, Calendar, ChevronDown } from 'lucide-react';
 
 interface HeroProps {
   onOpenModal: (type?: string) => void;
 }
 
 export default function Hero({ onOpenModal }: HeroProps) {
+  const [showProgramNotice, setShowProgramNotice] = useState(false);
+
   return (
     <section id="hero" className="relative h-screen min-h-[650px] w-full flex items-center justify-center overflow-hidden bg-poster-midnight">
       
@@ -37,7 +39,7 @@ export default function Hero({ onOpenModal }: HeroProps) {
           </span>
         </div>
 
-        {/* Exact Official Hero SVG Logo (VN26_logo.svg) Scaled Down & Yellow Matched to CTA */}
+        {/* Exact Official Hero SVG Logo (VN26_logo.svg) Scaled Down */}
         <h1 className="mb-6 flex flex-col items-center justify-center">
           <span className="sr-only">Feria Valdivia Náutica 2026 — Capital Náutica del Sur de Chile</span>
           <img
@@ -52,24 +54,45 @@ export default function Hero({ onOpenModal }: HeroProps) {
           "El agua es desarrollo, territorio e identidad."
         </p>
 
-        {/* Action CTAs */}
+        {/* Hero Central CTAs: QUIERO EXPONER + PROGRAMACIÓN (Pronto) */}
         <div className="flex flex-col sm:flex-row items-center gap-4 w-full justify-center max-w-md">
           <button
             onClick={() => onOpenModal('expositor')}
             className="w-full sm:w-auto px-8 py-4 text-xs font-bold uppercase tracking-wider text-poster-midnight bg-poster-gold rounded-xl shadow-2xl shadow-poster-gold/30 hover:bg-poster-goldHover hover:scale-[1.03] transition-all flex items-center justify-center gap-2"
           >
             <Anchor className="w-4 h-4" />
-            Quiero Exponer (Stands)
+            Quiero Exponer
           </button>
 
           <button
-            onClick={() => onOpenModal('sponsor')}
+            onClick={() => setShowProgramNotice(true)}
             className="w-full sm:w-auto px-8 py-4 text-xs font-bold uppercase tracking-wider text-white glass-panel border-poster-cyan/50 rounded-xl hover:bg-poster-cyan/20 transition-all flex items-center justify-center gap-2 backdrop-blur-md"
           >
-            <Sparkles className="w-4 h-4 text-poster-cyan" />
-            Ser Sponsor
+            <Calendar className="w-4 h-4 text-poster-cyan" />
+            Programación (Pronto)
           </button>
         </div>
+
+        {/* Program Notice Light Modal */}
+        {showProgramNotice && (
+          <div className="fixed inset-0 z-50 bg-black/70 backdrop-blur-sm flex items-center justify-center p-4">
+            <div className="glass-panel p-6 sm:p-8 rounded-2xl max-w-md w-full text-center border-poster-cyan/40 shadow-2xl">
+              <Calendar className="w-10 h-10 text-poster-gold mx-auto mb-4" />
+              <h3 className="text-xl font-serif font-bold text-white mb-2">
+                Programación 2026 en Desarrollo
+              </h3>
+              <p className="text-xs sm:text-sm text-slate-300 mb-6 leading-relaxed">
+                El cronograma de charlas del SEM, regatas de remo y campeonatos de pesca se anunciará próximamente. Si deseas recibir las novedades en tu correo, contáctanos.
+              </p>
+              <button
+                onClick={() => setShowProgramNotice(false)}
+                className="w-full py-3 px-4 bg-poster-gold text-poster-midnight text-xs font-bold uppercase tracking-wider rounded-xl hover:bg-poster-goldHover transition-colors"
+              >
+                Entendido
+              </button>
+            </div>
+          </div>
+        )}
 
         {/* Scroll Indicator at Bottom */}
         <div className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-1 text-slate-400 hover:text-white transition-colors cursor-pointer">
