@@ -2,7 +2,6 @@
 
 import React from 'react';
 import { Anchor, Sparkles, ChevronDown } from 'lucide-react';
-import { HeroLogo2026 } from './Logos';
 
 interface HeroProps {
   onOpenModal: (type?: string) => void;
@@ -38,10 +37,14 @@ export default function Hero({ onOpenModal }: HeroProps) {
           </span>
         </div>
 
-        {/* Main Official Logo Lockup 2026 inside Semantic H1 for 100/100 SEO */}
-        <h1 className="mb-8 flex flex-col items-center justify-center" aria-label="Feria Valdivia Náutica 2026">
-          <span className="sr-only">Valdivia Náutica 2026 — Capital Náutica del Sur de Chile</span>
-          <HeroLogo2026 className="h-28 sm:h-40 md:h-48" />
+        {/* Exact Official Hero Logo PNG Image inside Semantic H1 for 100/100 SEO */}
+        <h1 className="mb-8 flex flex-col items-center justify-center">
+          <span className="sr-only">Feria Valdivia Náutica 2026 — Capital Náutica del Sur de Chile</span>
+          <img
+            src="/images/logo-hero-2026.png"
+            alt="Valdivia Náutica 2026"
+            className="h-28 sm:h-44 md:h-52 w-auto object-contain drop-shadow-2xl"
+          />
         </h1>
 
         {/* Slogan */}

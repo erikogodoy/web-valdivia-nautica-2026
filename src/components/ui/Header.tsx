@@ -2,9 +2,9 @@
 
 import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
+import Image from 'next/image';
 import { usePathname } from 'next/navigation';
-import { Menu, X, Anchor } from 'lucide-react';
-import { HeaderLogo } from './Logos';
+import { Menu, X } from 'lucide-react';
 
 interface HeaderProps {
   onOpenModal: (type?: string) => void;
@@ -45,19 +45,23 @@ export default function Header({ onOpenModal }: HeaderProps) {
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
         isScrolled
           ? 'glass-nav py-3 shadow-2xl'
-          : 'bg-gradient-to-b from-poster-midnight/90 to-transparent py-5'
+          : 'bg-gradient-to-b from-poster-midnight/90 to-transparent py-4'
       }`}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between">
           
-          {/* Official Header Isologotype (Calle-Calle Bridge + Sailboat + Title) */}
+          {/* Exact Official Header Logo PNG Image */}
           <Link 
             href="/" 
             className="flex items-center group focus:outline-none rounded-lg p-1"
             aria-label="Valdivia Náutica 2026 Inicio"
           >
-            <HeaderLogo className="h-10 sm:h-12 text-white group-hover:scale-105 transition-transform" />
+            <img
+              src="/images/logo-header.png"
+              alt="Feria Valdivia Náutica"
+              className="h-10 sm:h-12 w-auto object-contain group-hover:scale-105 transition-transform"
+            />
           </Link>
 
           {/* Navigation Links */}
