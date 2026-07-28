@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Syne:wght@600;700;800&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -23,6 +25,11 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-rendering: optimizeLegibility;
+}
+
+/* Explicit Syne Display Font Class */
+.font-syne {
+  font-family: 'Syne', var(--font-syne), sans-serif !important;
 }
 
 /* Lenis Smooth Scroll Styles */
