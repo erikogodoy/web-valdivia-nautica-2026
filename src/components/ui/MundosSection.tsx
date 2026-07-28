@@ -79,7 +79,7 @@ export default function MundosSection() {
           <span className="text-xs uppercase tracking-widest text-cyanic-400 font-bold mb-2 block">
             Ejes del Evento
           </span>
-          <h2 className="text-3xl sm:text-5xl font-serif font-bold text-white mb-4">
+          <h2 className="text-3xl sm:text-5xl font-syne font-bold text-white mb-4">
             Siete mundos, un solo territorio
           </h2>
           <p className="text-slate-300 text-base sm:text-lg">
@@ -99,7 +99,7 @@ export default function MundosSection() {
                 }`}
               >
                 <div className="flex items-center justify-between mb-6">
-                  <span className="font-serif text-3xl font-bold text-cyanic-400/60">{m.num}</span>
+                  <span className="font-syne text-3xl font-bold text-cyanic-400/60">{m.num}</span>
                   <div className="w-12 h-12 rounded-lg bg-naval-800/80 flex items-center justify-center text-cyanic-400">
                     <Icon className="w-6 h-6" />
                   </div>

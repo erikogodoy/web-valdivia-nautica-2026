@@ -26,7 +26,7 @@ export default function ExpoPescaPage() {
               <Fish className="w-4 h-4 text-copper-500" />
               Expo Pesca — Valdivia Náutica 2026
             </div>
-            <h1 className="text-4xl sm:text-6xl font-serif font-bold text-white mb-6">
+            <h1 className="text-4xl sm:text-6xl font-syne font-bold text-white mb-6">
               El Universo de la Pesca <span className="text-river-gradient">en un Solo Lugar</span>
             </h1>
             <p className="text-lg text-slate-300 max-w-3xl mx-auto leading-relaxed mb-8">
@@ -46,14 +46,14 @@ export default function ExpoPescaPage() {
         {/* Championships & Program */}
         <section className="py-16 bg-naval-900/40 border-y border-white/5">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <h2 className="text-3xl font-serif font-bold text-white text-center mb-12">
+            <h2 className="text-3xl font-syne font-bold text-white text-center mb-12">
               Pilares de Expo Pesca 2026
             </h2>
 
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
               <div className="glass-panel p-8 rounded-2xl border-copper-500/20">
                 <Trophy className="w-8 h-8 text-copper-500 mb-4" />
-                <h3 className="font-serif text-xl font-bold text-white mb-2">Campeonatos de Pesca</h3>
+                <h3 className="font-syne text-xl font-bold text-white mb-2">Campeonatos de Pesca</h3>
                 <p className="text-sm text-slate-300 leading-relaxed">
                   Competencias oficiales en dos modalidades: <strong>Pesca desde Orilla</strong> en los ríos de la cuenca y <strong>Pesca Embarcada</strong>. Categorías para aficionados y clubes experimentados.
                 </p>
@@ -61,7 +61,7 @@ export default function ExpoPescaPage() {
 
               <div className="glass-panel p-8 rounded-2xl border-cyanic-500/20">
                 <Anchor className="w-8 h-8 text-cyanic-400 mb-4" />
-                <h3 className="font-serif text-xl font-bold text-white mb-2">Feria de Equipamiento & Marcas</h3>
+                <h3 className="font-syne text-xl font-bold text-white mb-2">Feria de Equipamiento & Marcas</h3>
                 <p className="text-sm text-slate-300 leading-relaxed">
                   Muestra comercial de cañas, señuelos, vestuario técnico, sonar/ecoadondas, kayakes de pesca y embarcaciones menores con asesoría de especialistas.
                 </p>
@@ -69,7 +69,7 @@ export default function ExpoPescaPage() {
 
               <div className="glass-panel p-8 rounded-2xl border-slate-400/20">
                 <Compass className="w-8 h-8 text-slate-300 mb-4" />
-                <h3 className="font-serif text-xl font-bold text-white mb-2">Charlas & Conservación</h3>
+                <h3 className="font-syne text-xl font-bold text-white mb-2">Charlas & Conservación</h3>
                 <p className="text-sm text-slate-300 leading-relaxed">
                   Clínicas de atado de moscas, talleres de pesca sustentable y ponencias que posicionan a la Región de Los Ríos como el destino privilegiado del sur.
                 </p>

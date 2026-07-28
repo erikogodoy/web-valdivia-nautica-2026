@@ -26,7 +26,7 @@ const cabin = Cabin({
 
 const playfair = Playfair_Display({
   subsets: ['latin'],
-  variable: '--font-serif',
+  variable: '--font-syne',
   display: 'swap',
 });
 

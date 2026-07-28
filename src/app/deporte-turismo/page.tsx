@@ -25,7 +25,7 @@ export default function DeporteTurismoPage() {
               <Sailboat className="w-4 h-4 text-poster-gold" />
               La Cara Ciudadana — Deporte & Turismo
             </div>
-            <h1 className="text-4xl sm:text-6xl font-serif font-bold text-white mb-6">
+            <h1 className="text-4xl sm:text-6xl font-syne font-bold text-white mb-6">
               Vivir y Recorrer Valdivia <span className="text-poster-river">Desde sus Ríos</span>
             </h1>
             <p className="text-lg text-slate-300 max-w-3xl mx-auto leading-relaxed mb-8">
@@ -39,7 +39,7 @@ export default function DeporteTurismoPage() {
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
               <div className="glass-panel p-8 rounded-2xl">
                 <Sailboat className="w-8 h-8 text-poster-gold mb-4" />
-                <h3 className="font-serif text-xl font-bold text-white mb-2">Remo & Kayak Tradicional</h3>
+                <h3 className="font-syne text-xl font-bold text-white mb-2">Remo & Kayak Tradicional</h3>
                 <p className="text-sm text-slate-300">
                   Exhibiciones en vivo de los clubes centenarios de remo valdiviano y clínicas de kayak abiertas al público.
                 </p>
@@ -47,7 +47,7 @@ export default function DeporteTurismoPage() {
 
               <div className="glass-panel p-8 rounded-2xl">
                 <Compass className="w-8 h-8 text-poster-cyan mb-4" />
-                <h3 className="font-serif text-xl font-bold text-white mb-2">Paseos Fluviales & Rutas</h3>
+                <h3 className="font-syne text-xl font-bold text-white mb-2">Paseos Fluviales & Rutas</h3>
                 <p className="text-sm text-slate-300">
                   Navegaciones por el río Calle-Calle y el Santuario de la Naturaleza Carlos Anwandter en Parque Saval.
                 </p>
@@ -55,7 +55,7 @@ export default function DeporteTurismoPage() {
 
               <div className="glass-panel p-8 rounded-2xl">
                 <Heart className="w-8 h-8 text-white mb-4" />
-                <h3 className="font-serif text-xl font-bold text-white mb-2">Gastronomía & Cerveza Ribereña</h3>
+                <h3 className="font-syne text-xl font-bold text-white mb-2">Gastronomía & Cerveza Ribereña</h3>
                 <p className="text-sm text-slate-300">
                   Muestra gastronómica del sur de Chile a orillas del río con productores locales.
                 </p>

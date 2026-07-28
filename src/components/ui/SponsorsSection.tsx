@@ -84,7 +84,7 @@ export default function SponsorsSection({ onOpenModal }: SponsorsSectionProps) {
           <span className="text-xs uppercase tracking-widest text-copper-500 font-bold mb-2 block">
             Auspicios & Patrocinios
           </span>
-          <h2 className="text-3xl sm:text-5xl font-serif font-bold text-white mb-4">
+          <h2 className="text-3xl sm:text-5xl font-syne font-bold text-white mb-4">
             Cinco metales, cinco formas de estar
           </h2>
           <p className="text-slate-300 text-base sm:text-lg">
@@ -105,7 +105,7 @@ export default function SponsorsSection({ onOpenModal }: SponsorsSectionProps) {
                 <div className={`inline-block px-3 py-1 rounded-md text-xs font-mono font-bold mb-4 ${t.color}`}>
                   {t.metal}
                 </div>
-                <h3 className="font-serif text-xl font-bold text-white mb-2">{t.name}</h3>
+                <h3 className="font-syne text-xl font-bold text-white mb-2">{t.name}</h3>
                 <div className="text-lg font-bold text-copper-500 mb-6">{t.price}</div>
 
                 <ul className="space-y-3 mb-8">

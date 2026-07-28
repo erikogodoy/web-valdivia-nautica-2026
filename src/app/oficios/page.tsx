@@ -25,7 +25,7 @@ export default function OficiosPage() {
               <Hammer className="w-4 h-4 text-poster-cyan" />
               Patrimonio Vivo — Oficios de Ribera
             </div>
-            <h1 className="text-4xl sm:text-6xl font-serif font-bold text-white mb-6">
+            <h1 className="text-4xl sm:text-6xl font-syne font-bold text-white mb-6">
               El Trabajo y los Saberes <span className="text-poster-river">Heredados del Agua</span>
             </h1>
             <p className="text-lg text-slate-300 max-w-3xl mx-auto leading-relaxed mb-8">
@@ -39,7 +39,7 @@ export default function OficiosPage() {
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
               <div className="glass-panel p-8 rounded-2xl">
                 <Hammer className="w-8 h-8 text-poster-gold mb-4" />
-                <h3 className="font-serif text-xl font-bold text-white mb-2">Carpintería de Ribera</h3>
+                <h3 className="font-syne text-xl font-bold text-white mb-2">Carpintería de Ribera</h3>
                 <p className="text-sm text-slate-300">
                   Demostraciones en directo del arte de maquetación y construcción artesanal de embarcaciones en madera.
                 </p>
@@ -47,7 +47,7 @@ export default function OficiosPage() {
 
               <div className="glass-panel p-8 rounded-2xl">
                 <GraduationCap className="w-8 h-8 text-poster-cyan mb-4" />
-                <h3 className="font-serif text-xl font-bold text-white mb-2">Formación & Nuevas Generaciones</h3>
+                <h3 className="font-syne text-xl font-bold text-white mb-2">Formación & Nuevas Generaciones</h3>
                 <p className="text-sm text-slate-300">
                   Transmisión de conocimientos a estudiantes de liceos técnicos y centros de formación profesional.
                 </p>
@@ -55,7 +55,7 @@ export default function OficiosPage() {
 
               <div className="glass-panel p-8 rounded-2xl">
                 <HeartHandshake className="w-8 h-8 text-white mb-4" />
-                <h3 className="font-serif text-xl font-bold text-white mb-2">Pesca Artesanal & Comunidad</h3>
+                <h3 className="font-syne text-xl font-bold text-white mb-2">Pesca Artesanal & Comunidad</h3>
                 <p className="text-sm text-slate-300">
                   Reconocimiento al oficio tradicional que alimenta a mercados locales y comunidades ribereñas.
                 </p>

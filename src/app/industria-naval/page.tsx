@@ -25,7 +25,7 @@ export default function IndustriaNavalPage() {
               <Ship className="w-4 h-4 text-poster-cyan" />
               Construir & Navegar — Industria Naval
             </div>
-            <h1 className="text-4xl sm:text-6xl font-serif font-bold text-white mb-6">
+            <h1 className="text-4xl sm:text-6xl font-syne font-bold text-white mb-6">
               El Pilar Productivo de la <span className="text-poster-river">Industria Naval Chilena</span>
             </h1>
             <p className="text-lg text-slate-300 max-w-3xl mx-auto leading-relaxed mb-8">
@@ -48,7 +48,7 @@ export default function IndustriaNavalPage() {
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
               <div className="glass-panel p-8 rounded-2xl">
                 <Building2 className="w-8 h-8 text-poster-cyan mb-4" />
-                <h3 className="font-serif text-xl font-bold text-white mb-2">Astilleros & Mantenimiento</h3>
+                <h3 className="font-syne text-xl font-bold text-white mb-2">Astilleros & Mantenimiento</h3>
                 <p className="text-sm text-slate-300">
                   Exhibición de ingeniería naval, remolcadores, catamaranes, ferrys y soluciones de mantenimiento especializado para el sur austral.
                 </p>
@@ -56,7 +56,7 @@ export default function IndustriaNavalPage() {
 
               <div className="glass-panel p-8 rounded-2xl">
                 <ShieldCheck className="w-8 h-8 text-poster-gold mb-4" />
-                <h3 className="font-serif text-xl font-bold text-white mb-2">Proveedores & Insumos</h3>
+                <h3 className="font-syne text-xl font-bold text-white mb-2">Proveedores & Insumos</h3>
                 <p className="text-sm text-slate-300">
                   Empresas de electricidad marina, sistemas hidráulicos, pintura anticorrosiva, motores y certificación de seguridad.
                 </p>
@@ -64,7 +64,7 @@ export default function IndustriaNavalPage() {
 
               <div className="glass-panel p-8 rounded-2xl">
                 <Anchor className="w-8 h-8 text-white mb-4" />
-                <h3 className="font-serif text-xl font-bold text-white mb-2">Visitas Guiadas a Astilleros</h3>
+                <h3 className="font-syne text-xl font-bold text-white mb-2">Visitas Guiadas a Astilleros</h3>
                 <p className="text-sm text-slate-300">
                   Programa exclusivo para delegaciones y estudiantes técnicos a las instalaciones navales de Valdivia.
                 </p>

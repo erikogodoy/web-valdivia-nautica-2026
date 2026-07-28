@@ -25,7 +25,7 @@ export default function EventoPage() {
             <span className="text-xs uppercase tracking-widest text-cyanic-400 font-bold mb-3 block">
               El Evento
             </span>
-            <h1 className="text-4xl sm:text-6xl font-serif font-bold text-white mb-6">
+            <h1 className="text-4xl sm:text-6xl font-syne font-bold text-white mb-6">
               Valdivia Náutica 2026: <span className="text-river-gradient">Tres Días en Torno al Agua</span>
             </h1>
             <p className="text-lg text-slate-300 max-w-3xl mx-auto leading-relaxed">
@@ -40,7 +40,7 @@ export default function EventoPage() {
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
               
               <div>
-                <h2 className="text-3xl font-serif font-bold text-white mb-6">
+                <h2 className="text-3xl font-syne font-bold text-white mb-6">
                   ¿Por qué Valdivia es el territorio natural?
                 </h2>
                 <p className="text-slate-300 text-base leading-relaxed mb-4">
@@ -52,18 +52,18 @@ export default function EventoPage() {
 
                 <div className="grid grid-cols-2 gap-4 pt-4 border-t border-white/10">
                   <div>
-                    <span className="block text-3xl font-serif font-bold text-cyanic-400">3 Días</span>
+                    <span className="block text-3xl font-syne font-bold text-cyanic-400">3 Días</span>
                     <span className="text-xs text-slate-400 uppercase font-semibold">4 · 5 · 6 Diciembre 2026</span>
                   </div>
                   <div>
-                    <span className="block text-3xl font-serif font-bold text-copper-500">Parque Saval</span>
+                    <span className="block text-3xl font-syne font-bold text-copper-500">Parque Saval</span>
                     <span className="text-xs text-slate-400 uppercase font-semibold">Isla Teja, Valdivia</span>
                   </div>
                 </div>
               </div>
 
               <div className="glass-panel p-8 rounded-2xl border-white/10 space-y-6">
-                <h3 className="text-2xl font-serif font-bold text-white">
+                <h3 className="text-2xl font-syne font-bold text-white">
                   Impacto para la Región de Los Ríos
                 </h3>
 

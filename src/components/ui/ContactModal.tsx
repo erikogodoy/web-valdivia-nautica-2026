@@ -61,7 +61,7 @@ export default function ContactModal({
 
         {/* Modal Header */}
         <div className="mb-6">
-          <h3 className="font-serif text-2xl font-bold text-white mb-2">
+          <h3 className="font-syne text-2xl font-bold text-white mb-2">
             {formType === 'expositor' && 'Solicitud de Stand — Expositor'}
             {formType === 'sponsor' && `Solicitud de Auspicio ${initialLevel ? `(${initialLevel})` : ''}`}
             {formType === 'sem' && 'Inscripción SEM 2026'}

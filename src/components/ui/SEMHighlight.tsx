@@ -24,7 +24,7 @@ export default function SEMHighlight({ onOpenModal }: SEMHighlightProps) {
               Salón de Electromovilidad Marítima
             </div>
 
-            <h2 className="text-3xl sm:text-5xl font-serif font-bold text-white mb-6 leading-tight">
+            <h2 className="text-3xl sm:text-5xl font-syne font-bold text-white mb-6 leading-tight">
               SEM 2026: La revolución limpia del transporte fluvial y acuático
             </h2>
 
@@ -68,7 +68,7 @@ export default function SEMHighlight({ onOpenModal }: SEMHighlightProps) {
                 Sudamérica 2026
               </div>
 
-              <h3 className="font-serif text-2xl font-bold text-white mb-6">
+              <h3 className="font-syne text-2xl font-bold text-white mb-6">
                 Ejes Temáticos SEM
               </h3>
 

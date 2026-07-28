@@ -14,7 +14,7 @@ export default function InclusiveMessage() {
             Una Feria Para Todos
           </div>
 
-          <h2 className="text-3xl sm:text-5xl font-serif font-bold text-white mb-6 leading-tight">
+          <h2 className="text-3xl sm:text-5xl font-syne font-bold text-white mb-6 leading-tight">
             En Valdivia, el agua no es solo paisaje.{' '}
             <span className="text-river-gradient block mt-2">Es desarrollo, territorio e identidad.</span>
           </h2>

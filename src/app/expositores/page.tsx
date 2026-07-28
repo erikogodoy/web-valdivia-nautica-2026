@@ -24,7 +24,7 @@ export default function ExpositoresPage() {
             <span className="text-xs uppercase tracking-widest text-copper-500 font-bold mb-3 block">
               Feria & Espacio B2B
             </span>
-            <h1 className="text-4xl sm:text-6xl font-serif font-bold text-white mb-6">
+            <h1 className="text-4xl sm:text-6xl font-syne font-bold text-white mb-6">
               Sé Expositor en <span className="text-river-gradient">Valdivia Náutica 2026</span>
             </h1>
             <p className="text-lg text-slate-300 max-w-3xl mx-auto leading-relaxed mb-8">
@@ -44,14 +44,14 @@ export default function ExpositoresPage() {
         {/* Benefits Grid */}
         <section className="py-16 bg-naval-900/40 border-y border-white/5">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <h2 className="text-3xl font-serif font-bold text-white text-center mb-12">
+            <h2 className="text-3xl font-syne font-bold text-white text-center mb-12">
               ¿Por qué expones en Parque Saval?
             </h2>
 
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
               <div className="glass-panel p-8 rounded-2xl">
                 <Building2 className="w-8 h-8 text-cyanic-400 mb-4" />
-                <h3 className="font-serif text-xl font-bold text-white mb-2">Networking B2B Directo</h3>
+                <h3 className="font-syne text-xl font-bold text-white mb-2">Networking B2B Directo</h3>
                 <p className="text-sm text-slate-300">
                   Espacios diseñados para reuniones de negocios entre proveedores de insumos marítimos, astilleros y compradores del sector público y privado.
                 </p>
@@ -59,7 +59,7 @@ export default function ExpositoresPage() {
 
               <div className="glass-panel p-8 rounded-2xl">
                 <Globe2 className="w-8 h-8 text-copper-500 mb-4" />
-                <h3 className="font-serif text-xl font-bold text-white mb-2">Comitivas Internacionales</h3>
+                <h3 className="font-syne text-xl font-bold text-white mb-2">Comitivas Internacionales</h3>
                 <p className="text-sm text-slate-300">
                   Participación confirmed de delegaciones internacionales (como la misión comercial de República Checa) interesadas en el mercado náutico chileno.
                 </p>
@@ -67,7 +67,7 @@ export default function ExpositoresPage() {
 
               <div className="glass-panel p-8 rounded-2xl">
                 <ShieldCheck className="w-8 h-8 text-slate-300 mb-4" />
-                <h3 className="font-serif text-xl font-bold text-white mb-2">Infraestructura de Nivel</h3>
+                <h3 className="font-syne text-xl font-bold text-white mb-2">Infraestructura de Nivel</h3>
                 <p className="text-sm text-slate-300">
                   Stands modulares con conectividad eléctrica, seguridad 24/7 y acceso directo a la ribera para exhibiciones en agua.
                 </p>
