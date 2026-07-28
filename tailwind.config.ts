@@ -9,30 +9,23 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        naval: {
-          950: "#020B14",
-          900: "#071728",
-          800: "#0F2942",
-          700: "#1A3E60",
-          600: "#2B5885",
+        poster: {
+          midnight: "#040D2D",
+          dark: "#061545",
+          blue: "#0D3692",
+          cyan: "#00D2FF",
+          cyanDeep: "#0077EE",
+          gold: "#FFB800",
+          goldHover: "#E6A600",
+          sand: "#E5C396",
         },
-        cyanic: {
-          500: "#00A896",
-          400: "#02C39A",
-          300: "#38EF7D",
-        },
-        copper: {
-          500: "#D4A373",
-          400: "#E0B785",
-        },
-        foam: "#F4F7F6",
       },
       fontFamily: {
         sans: ["var(--font-inter)", "system-ui", "sans-serif"],
         serif: ["var(--font-serif)", "Georgia", "serif"],
       },
       backdropBlur: {
-        glass: "16px",
+        glass: "20px",
       },
     },
   },

@@ -3,61 +3,93 @@
 @tailwind utilities;
 
 :root {
-  --bg-dark: #030d17;
-  --bg-card: rgba(10, 37, 64, 0.45);
-  --border-glass: rgba(255, 255, 255, 0.08);
-  --cyan-glow: rgba(2, 195, 154, 0.2);
+  --poster-midnight: #040d2d;
+  --poster-blue: #0d3692;
+  --poster-cyan: #00d2ff;
+  --poster-gold: #ffb800;
+  --bg-glass: rgba(6, 21, 69, 0.65);
+  --border-glass: rgba(0, 210, 255, 0.18);
 }
 
 html {
-  scroll-behavior: smooth;
   color-scheme: dark;
 }
 
 body {
-  background-color: var(--bg-dark);
-  color: #f4f7f6;
+  background-color: var(--poster-midnight);
+  color: #f8fafc;
   font-family: var(--font-inter), system-ui, -apple-system, sans-serif;
   overflow-x: hidden;
 }
 
-/* Glassmorphism Utilities */
+/* Lenis Smooth Scroll Styles */
+html.lenis, html.lenis body {
+  height: auto;
+}
+
+.lenis.lenis-smooth {
+  scroll-behavior: auto !important;
+}
+
+.lenis.lenis-smooth [data-lenis-prevent] {
+  overscroll-behavior: contain;
+}
+
+.lenis.lenis-stopped {
+  overflow: hidden;
+}
+
+/* Glassmorphism Styles Inspired by Poster Deep Blue */
 .glass-panel {
-  background: var(--bg-card);
-  backdrop-filter: blur(16px);
-  -webkit-backdrop-filter: blur(16px);
+  background: var(--bg-glass);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
   border: 1px solid var(--border-glass);
 }
 
 .glass-nav {
-  background: rgba(3, 13, 23, 0.82);
-  backdrop-filter: blur(20px);
-  -webkit-backdrop-filter: blur(20px);
-  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+  background: rgba(4, 13, 45, 0.88);
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+  border-bottom: 1px solid rgba(0, 210, 255, 0.15);
 }
 
-/* Text Gradients (Sur & Náutica Elegance) */
-.text-river-gradient {
-  background: linear-gradient(135deg, #ffffff 0%, #02C39A 50%, #00A896 100%);
+/* Poster Sinuous River Water Flow Animation */
+@keyframes riverFlow {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+.text-poster-river {
+  background: linear-gradient(135deg, #ffffff 0%, #00d2ff 40%, #ffb800 100%);
+  background-size: 200% 200%;
+  animation: riverFlow 8s ease infinite;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
 
-.text-gold-accent {
-  color: #D4A373;
+.text-poster-gold {
+  color: var(--poster-gold);
 }
 
-/* Custom Scrollbar */
+/* Custom Water Scrollbar */
 ::-webkit-scrollbar {
   width: 8px;
 }
 ::-webkit-scrollbar-track {
-  background: #030d17;
+  background: #040d2d;
 }
 ::-webkit-scrollbar-thumb {
-  background: #0f2942;
+  background: #0d3692;
   border-radius: 4px;
 }
 ::-webkit-scrollbar-thumb:hover {
-  background: #02C39A;
+  background: #00d2ff;
 }

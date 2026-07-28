@@ -2,6 +2,7 @@ import type { Metadata } from 'next';
 import { Inter, Playfair_Display } from 'next/font/google';
 import './globals.css';
 import SchemaMarkup from '@/components/seo/SchemaMarkup';
+import SmoothScrollProvider from '@/components/ui/SmoothScrollProvider';
 
 const inter = Inter({
   subsets: ['latin'],
@@ -18,7 +19,7 @@ const playfair = Playfair_Display({
 export const metadata: Metadata = {
   title: 'Valdivia Náutica 2026 — Capital Náutica de Chile',
   description:
-    'Feria de industria naval, electromovilidad marítima (SEM), pesca artesanal, deportes náuticos y oficios de ribera. 4 al 6 de diciembre de 2026 en Parque Saval, Valdivia.',
+    'Feria de industria naval, electromovilidad marítima (SEM), pesca y acuicultura, deportes y aventura, comunidad, educación, turismo y patrimonio. 4 al 6 de diciembre de 2026 en Parque Saval, Valdivia.',
   keywords: [
     'Valdivia Náutica 2026',
     'Feria Náutica Valdivia',
@@ -64,8 +65,10 @@ export default function RootLayout({
       <head>
         <SchemaMarkup />
       </head>
-      <body className="min-h-screen bg-naval-950 text-slate-100 flex flex-col font-sans selection:bg-cyanic-400 selection:text-naval-950">
-        {children}
+      <body className="min-h-screen bg-poster-midnight text-slate-100 flex flex-col font-sans selection:bg-poster-cyan selection:text-poster-midnight">
+        <SmoothScrollProvider>
+          {children}
+        </SmoothScrollProvider>
       </body>
     </html>
   );

@@ -3,8 +3,9 @@
 import React, { useState } from 'react';
 import Header from '@/components/ui/Header';
 import Hero from '@/components/ui/Hero';
-import TresDimensiones from '@/components/ui/TresDimensiones';
+import OrganizersBar from '@/components/ui/OrganizersBar';
 import InclusiveMessage from '@/components/ui/InclusiveMessage';
+import TresDimensiones from '@/components/ui/TresDimensiones';
 import MundosSection from '@/components/ui/MundosSection';
 import AudienceTabs from '@/components/ui/AudienceTabs';
 import SEMHighlight from '@/components/ui/SEMHighlight';
@@ -42,25 +43,28 @@ export default function Home() {
 
       {/* Semantic Main Content */}
       <main className="flex-grow">
-        {/* 1. Hero Section */}
+        {/* 1. Hero Section (Inspirado directamente en el Afiche Oficial 2026) */}
         <Hero onOpenModal={handleOpenModal} />
 
-        {/* 2. Manifiesto & Propósito Inclusive: "Una Feria Para Todos" */}
+        {/* 2. Barra de Marcas & Auspiciadores Oficiales (Municipalidad, UACh, ASENAV, THEMS, etc.) */}
+        <OrganizersBar />
+
+        {/* 3. Manifiesto & Propósito Inclusivo: "Una Feria Para Todos" */}
         <InclusiveMessage />
 
-        {/* 3. Las Tres Dimensiones: Desarrollo, Territorio, Identidad */}
+        {/* 4. Las Tres Dimensiones: Desarrollo, Territorio, Identidad */}
         <TresDimensiones />
 
-        {/* 4. Siete Mundos Detail */}
+        {/* 5. Siete Mundos Detail */}
         <MundosSection />
 
-        {/* 5. Perfil de Audiencia (Para Ti) */}
+        {/* 6. Perfil de Audiencia (Para Ti) */}
         <AudienceTabs onOpenModal={handleOpenModal} />
 
-        {/* 6. Salón de Electromovilidad Marítima (SEM) */}
+        {/* 7. Salón de Electromovilidad Marítima (SEM) */}
         <SEMHighlight onOpenModal={handleOpenModal} />
 
-        {/* 7. Categorías de Auspicio (Litio, Cobalto, Manganeso, Níquel, Cadmio) */}
+        {/* 8. Categorías de Auspicio (Litio, Cobalto, Manganeso, Níquel, Cadmio) */}
         <SponsorsSection onOpenModal={handleOpenModal} />
       </main>
 
