@@ -72,13 +72,10 @@ export default function InterestHub() {
     <section className="py-20 bg-poster-midnight relative z-20">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
-        {/* Header */}
-        <div className="text-center max-w-3xl mx-auto mb-14">
-          <span className="text-xs font-bold uppercase tracking-[0.2em] text-poster-gold block mb-2">
-            Explora según tu Pasión
-          </span>
-          <h2 className="text-3xl sm:text-5xl font-serif font-bold text-white mb-4">
-            ¿Qué te atrae del <span className="text-poster-river">Universo del Agua</span>?
+        {/* Clean Header without Pre-title Badge */}
+        <div className="text-left max-w-3xl mb-12">
+          <h2 className="text-3xl sm:text-5xl font-sans font-extrabold text-white mb-4 tracking-tight">
+            ¿Qué te atrae del <span className="text-poster-cyan">Universo del Agua</span>?
           </h2>
           <p className="text-sm sm:text-base text-slate-300">
             Haz clic en la temática que más te interese para ir directamente a la sección con todos los detalles.

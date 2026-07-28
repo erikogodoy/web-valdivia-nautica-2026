@@ -3,12 +3,12 @@
 import React, { useState } from 'react';
 import Header from '@/components/ui/Header';
 import Hero from '@/components/ui/Hero';
-import OrganizersBar from '@/components/ui/OrganizersBar';
 import NarrativeIntro from '@/components/ui/NarrativeIntro';
 import InterestHub from '@/components/ui/InterestHub';
 import TresDimensiones from '@/components/ui/TresDimensiones';
 import AudienceTabs from '@/components/ui/AudienceTabs';
 import SponsorsSection from '@/components/ui/SponsorsSection';
+import OrganizersBar from '@/components/ui/OrganizersBar';
 import Footer from '@/components/ui/Footer';
 import ContactModal from '@/components/ui/ContactModal';
 
@@ -45,23 +45,23 @@ export default function Home() {
         {/* 1. Hero Visual & Coordenadas */}
         <Hero onOpenModal={handleOpenModal} />
 
-        {/* 2. Marquesina de Instituciones Patrocinadoras */}
-        <OrganizersBar />
-
-        {/* 3. Presentación Narrativa de 1 Párrafo Elocuente */}
+        {/* 2. Presentación Narrativa en Azul Afiche #0025b5 */}
         <NarrativeIntro />
 
-        {/* 4. Hub de Descubrimiento Inmediato por Pasión (Pesca, SEM, Industria, Remo, Turismo, Oficios) */}
+        {/* 3. Hub de Descubrimiento Inmediato por Pasión (Pesca, SEM, Industria, Remo, Turismo, Oficios) */}
         <InterestHub />
 
-        {/* 5. Las Tres Dimensiones: Desarrollo, Territorio, Identidad */}
+        {/* 4. Las Tres Dimensiones: Desarrollo, Territorio, Identidad */}
         <TresDimensiones />
 
-        {/* 6. Guía por Perfil de Usuario */}
+        {/* 5. Guía por Perfil de Usuario */}
         <AudienceTabs onOpenModal={handleOpenModal} />
 
-        {/* 7. Niveles de Patrocinio */}
+        {/* 6. Niveles de Patrocinio */}
         <SponsorsSection onOpenModal={handleOpenModal} />
+
+        {/* 7. Marquesina de Instituciones Organizadoras y Patrocinadoras (Ubicada justo arriba del Footer) */}
+        <OrganizersBar />
       </main>
 
       {/* Footer */}

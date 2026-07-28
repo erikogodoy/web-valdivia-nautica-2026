@@ -43,7 +43,7 @@ const AUDIENCES = [
     label: 'Sponsors & Marcas',
     icon: Award,
     heading: 'Sé protagonista del mayor hito náutico del sur de Chile',
-    description: 'Posiciona a tu empresa en las categorías de patrocinio basadas en los metales de la transición energética (Litio, Cobalto, Manganeso, Níquel, Cadmio).',
+    description: 'Posiciona a tu empresa en las categorías de patrocinio basadas en los metales de la transición energética (Litio, Cobalto, Níquel).',
     highlights: [
       'Presencia estelar en medios nacionales y plataformas digitales',
       'Pases VIP a seminarios del Salón de Electromovilidad Marítima (SEM)',
@@ -77,15 +77,13 @@ export default function AudienceTabs({ onOpenModal }: AudienceTabsProps) {
   const Icon = currentAudience.icon;
 
   return (
-    <section id="audiencia" className="py-24 bg-naval-900/40 relative border-y border-white/5">
+    <section id="audiencia" className="py-20 bg-poster-midnight relative border-y border-white/5">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
-        <div className="text-center max-w-3xl mx-auto mb-14">
-          <span className="text-xs uppercase tracking-widest text-copper-500 font-bold mb-2 block">
-            Información por Perfil
-          </span>
-          <h2 className="text-3xl sm:text-5xl font-serif font-bold text-white mb-4">
-            Diseñado según tus intereses
+        {/* Left Aligned Header without Pre-title Badge */}
+        <div className="text-left max-w-3xl mb-12">
+          <h2 className="text-3xl sm:text-5xl font-sans font-extrabold text-white mb-4 tracking-tight">
+            Diseñado según tus <span className="text-poster-cyan">Intereses</span>
           </h2>
           <p className="text-slate-300 text-base">
             Selecciona tu perfil para conocer qué ofrece Valdivia Náutica 2026 para ti.
@@ -93,7 +91,7 @@ export default function AudienceTabs({ onOpenModal }: AudienceTabsProps) {
         </div>
 
         {/* Tab Buttons Navigation */}
-        <div className="flex flex-wrap justify-center gap-3 mb-12">
+        <div className="flex flex-wrap justify-start gap-3 mb-10">
           {AUDIENCES.map((tab) => {
             const TabIcon = tab.icon;
             const isActive = activeTab === tab.id;
@@ -101,13 +99,13 @@ export default function AudienceTabs({ onOpenModal }: AudienceTabsProps) {
               <button
                 key={tab.id}
                 onClick={() => setActiveTab(tab.id)}
-                className={`flex items-center gap-2 px-6 py-3 rounded-xl font-medium text-sm transition-all ${
+                className={`flex items-center gap-2 px-6 py-3 rounded-xl font-bold text-xs uppercase tracking-wider transition-all ${
                   isActive
-                    ? 'bg-cyanic-400 text-naval-950 shadow-lg shadow-cyanic-400/20 font-bold scale-[1.02]'
-                    : 'glass-panel text-slate-300 hover:text-white hover:bg-naval-800/80'
+                    ? 'bg-poster-gold text-poster-midnight shadow-lg shadow-poster-gold/20 scale-[1.02]'
+                    : 'glass-panel text-slate-300 hover:text-white hover:bg-white/10'
                 }`}
               >
-                <TabIcon className={`w-4 h-4 ${isActive ? 'text-naval-950' : 'text-cyanic-400'}`} />
+                <TabIcon className={`w-4 h-4 ${isActive ? 'text-poster-midnight' : 'text-poster-cyan'}`} />
                 {tab.label}
               </button>
             );
@@ -115,14 +113,14 @@ export default function AudienceTabs({ onOpenModal }: AudienceTabsProps) {
         </div>
 
         {/* Active Content Display Card */}
-        <div className="glass-panel p-8 sm:p-12 rounded-2xl border-white/10 max-w-4xl mx-auto shadow-2xl">
+        <div className="glass-panel p-8 sm:p-12 rounded-2xl border-white/10 max-w-5xl shadow-2xl">
           <div className="flex flex-col md:flex-row md:items-start justify-between gap-8 mb-8">
             <div>
-              <div className="inline-flex items-center gap-2 text-xs uppercase tracking-widest text-cyanic-400 font-bold mb-3">
-                <Icon className="w-5 h-5" />
+              <div className="inline-flex items-center gap-2 text-xs uppercase tracking-widest text-poster-cyan font-bold mb-3">
+                <Icon className="w-5 h-5 text-poster-cyan" />
                 {currentAudience.label}
               </div>
-              <h3 className="text-2xl sm:text-3xl font-serif font-bold text-white mb-4">
+              <h3 className="text-2xl sm:text-3xl font-sans font-bold text-white mb-4">
                 {currentAudience.heading}
               </h3>
               <p className="text-slate-300 text-base leading-relaxed">
@@ -134,7 +132,7 @@ export default function AudienceTabs({ onOpenModal }: AudienceTabsProps) {
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-10 pt-6 border-t border-white/10">
             {currentAudience.highlights.map((item, idx) => (
               <div key={idx} className="flex items-start gap-3">
-                <CheckCircle className="w-5 h-5 text-cyanic-400 flex-shrink-0 mt-0.5" />
+                <CheckCircle className="w-5 h-5 text-poster-cyan flex-shrink-0 mt-0.5" />
                 <span className="text-sm text-slate-200">{item}</span>
               </div>
             ))}
@@ -143,7 +141,7 @@ export default function AudienceTabs({ onOpenModal }: AudienceTabsProps) {
           <div className="flex justify-end">
             <button
               onClick={() => onOpenModal(currentAudience.ctaAction)}
-              className="px-8 py-3.5 text-xs font-bold uppercase tracking-wider text-naval-950 bg-cyanic-400 rounded-xl hover:bg-cyanic-300 transition-all flex items-center gap-2 shadow-lg shadow-cyanic-400/20"
+              className="px-8 py-3.5 text-xs font-bold uppercase tracking-wider text-poster-midnight bg-poster-gold rounded-xl hover:bg-poster-goldHover transition-all flex items-center gap-2 shadow-lg shadow-poster-gold/20"
             >
               {currentAudience.ctaText}
               <ArrowRight className="w-4 h-4" />
