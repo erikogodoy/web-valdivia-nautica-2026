@@ -37,13 +37,13 @@ export default function Hero({ onOpenModal }: HeroProps) {
           </span>
         </div>
 
-        {/* Exact Official Hero Logo PNG Image inside Semantic H1 for 100/100 SEO */}
+        {/* Exact Official Hero SVG Logo (VN_26 logo.svg) from Downloads */}
         <h1 className="mb-8 flex flex-col items-center justify-center">
           <span className="sr-only">Feria Valdivia Náutica 2026 — Capital Náutica del Sur de Chile</span>
           <img
-            src="/images/logo-hero-2026.png"
+            src="/images/logo-hero-2026.svg"
             alt="Valdivia Náutica 2026"
-            className="h-28 sm:h-44 md:h-52 w-auto object-contain drop-shadow-2xl"
+            className="h-32 sm:h-48 md:h-56 w-auto object-contain drop-shadow-2xl"
           />
         </h1>
 

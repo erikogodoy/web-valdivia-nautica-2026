@@ -2,7 +2,6 @@
 
 import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
-import Image from 'next/image';
 import { usePathname } from 'next/navigation';
 import { Menu, X } from 'lucide-react';
 
@@ -51,14 +50,14 @@ export default function Header({ onOpenModal }: HeaderProps) {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between">
           
-          {/* Exact Official Header Logo PNG Image */}
+          {/* Exact Official Header SVG Logo from Downloads */}
           <Link 
             href="/" 
             className="flex items-center group focus:outline-none rounded-lg p-1"
             aria-label="Valdivia Náutica 2026 Inicio"
           >
             <img
-              src="/images/logo-header.png"
+              src="/images/logo-header.svg"
               alt="Feria Valdivia Náutica"
               className="h-10 sm:h-12 w-auto object-contain group-hover:scale-105 transition-transform"
             />
