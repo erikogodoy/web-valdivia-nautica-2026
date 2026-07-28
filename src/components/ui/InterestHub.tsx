@@ -2,6 +2,7 @@
 
 import React from 'react';
 import Link from 'next/link';
+import { motion } from 'framer-motion';
 import { Fish, Zap, Ship, Sailboat, Compass, Hammer, ArrowRight } from 'lucide-react';
 
 const INTERESTS = [
@@ -11,7 +12,7 @@ const INTERESTS = [
     icon: Fish,
     tag: 'EXPO PESCA 2026',
     title: '¿Te apasiona la Pesca?',
-    description: 'Campeonatos de orilla y embarcada, equipamiento, marcas, marcas de señuelos y náutica deportiva menor.',
+    description: 'Campeonatos de orilla y embarcada, equipamiento, marcas de señuelos y náutica deportiva menor.',
     color: 'border-poster-gold/40 hover:border-poster-gold text-poster-gold',
     btnBg: 'bg-poster-gold text-poster-midnight hover:bg-poster-goldHover',
   },
@@ -69,26 +70,36 @@ const INTERESTS = [
 
 export default function InterestHub() {
   return (
-    <section className="py-20 bg-poster-midnight relative z-20">
+    <section className="py-24 bg-poster-midnight relative z-20 overflow-hidden">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
-        {/* Clean Header without Pre-title Badge */}
-        <div className="text-left max-w-3xl mb-12">
-          <h2 className="text-3xl sm:text-5xl font-sans font-extrabold text-white mb-4 tracking-tight">
+        {/* Animated Header */}
+        <motion.div 
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: '-50px' }}
+          transition={{ duration: 0.6 }}
+          className="text-left max-w-3xl mb-14"
+        >
+          <h2 className="text-3xl sm:text-5xl font-syne font-bold text-white mb-4 tracking-tight">
             ¿Qué te atrae del <span className="text-poster-cyan">Universo del Agua</span>?
           </h2>
-          <p className="text-sm sm:text-base text-slate-300">
+          <p className="text-sm sm:text-base text-slate-300 font-sans">
             Haz clic en la temática que más te interese para ir directamente a la sección con todos los detalles.
           </p>
-        </div>
+        </motion.div>
 
-        {/* Grid of 6 Interest Hub Cards */}
+        {/* Grid of 6 Interest Hub Cards with Staggered Scroll Animation */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {INTERESTS.map((item) => {
+          {INTERESTS.map((item, index) => {
             const Icon = item.icon;
             return (
-              <div
+              <motion.div
                 key={item.id}
+                initial={{ opacity: 0, y: 40 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, margin: '-30px' }}
+                transition={{ duration: 0.5, delay: index * 0.1, ease: 'easeOut' }}
                 className={`glass-panel p-6 sm:p-8 rounded-2xl border transition-all duration-300 hover:scale-[1.02] flex flex-col justify-between ${item.color}`}
               >
                 <div>
@@ -105,7 +116,7 @@ export default function InterestHub() {
                     {item.title}
                   </h3>
 
-                  <p className="text-xs sm:text-sm text-slate-300 leading-relaxed mb-6">
+                  <p className="text-xs sm:text-sm text-slate-300 leading-relaxed mb-6 font-sans">
                     {item.description}
                   </p>
                 </div>
@@ -117,7 +128,7 @@ export default function InterestHub() {
                   Explorar Sección
                   <ArrowRight className="w-4 h-4" />
                 </Link>
-              </div>
+              </motion.div>
             );
           })}
         </div>
