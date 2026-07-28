@@ -4,11 +4,10 @@ import React, { useState } from 'react';
 import Header from '@/components/ui/Header';
 import Hero from '@/components/ui/Hero';
 import OrganizersBar from '@/components/ui/OrganizersBar';
-import InclusiveMessage from '@/components/ui/InclusiveMessage';
+import NarrativeIntro from '@/components/ui/NarrativeIntro';
+import InterestHub from '@/components/ui/InterestHub';
 import TresDimensiones from '@/components/ui/TresDimensiones';
-import MundosSection from '@/components/ui/MundosSection';
 import AudienceTabs from '@/components/ui/AudienceTabs';
-import SEMHighlight from '@/components/ui/SEMHighlight';
 import SponsorsSection from '@/components/ui/SponsorsSection';
 import Footer from '@/components/ui/Footer';
 import ContactModal from '@/components/ui/ContactModal';
@@ -38,37 +37,34 @@ export default function Home() {
 
   return (
     <>
-      {/* Semantic Header */}
+      {/* Header */}
       <Header onOpenModal={handleOpenModal} />
 
-      {/* Semantic Main Content */}
+      {/* Main Narrative Flow */}
       <main className="flex-grow">
-        {/* 1. Hero Section (Inspirado directamente en el Afiche Oficial 2026) */}
+        {/* 1. Hero Visual & Coordenadas */}
         <Hero onOpenModal={handleOpenModal} />
 
-        {/* 2. Barra de Marcas & Auspiciadores Oficiales (Municipalidad, UACh, ASENAV, THEMS, etc.) */}
+        {/* 2. Marquesina de Instituciones Patrocinadoras */}
         <OrganizersBar />
 
-        {/* 3. Manifiesto & Propósito Inclusivo: "Una Feria Para Todos" */}
-        <InclusiveMessage />
+        {/* 3. Presentación Narrativa de 1 Párrafo Elocuente */}
+        <NarrativeIntro />
 
-        {/* 4. Las Tres Dimensiones: Desarrollo, Territorio, Identidad */}
+        {/* 4. Hub de Descubrimiento Inmediato por Pasión (Pesca, SEM, Industria, Remo, Turismo, Oficios) */}
+        <InterestHub />
+
+        {/* 5. Las Tres Dimensiones: Desarrollo, Territorio, Identidad */}
         <TresDimensiones />
 
-        {/* 5. Siete Mundos Detail */}
-        <MundosSection />
-
-        {/* 6. Perfil de Audiencia (Para Ti) */}
+        {/* 6. Guía por Perfil de Usuario */}
         <AudienceTabs onOpenModal={handleOpenModal} />
 
-        {/* 7. Salón de Electromovilidad Marítima (SEM) */}
-        <SEMHighlight onOpenModal={handleOpenModal} />
-
-        {/* 8. Categorías de Auspicio (Litio, Cobalto, Manganeso, Níquel, Cadmio) */}
+        {/* 7. Niveles de Patrocinio */}
         <SponsorsSection onOpenModal={handleOpenModal} />
       </main>
 
-      {/* Semantic Footer */}
+      {/* Footer */}
       <Footer onOpenModal={handleOpenModal} />
 
       {/* Interactive Modal */}
