@@ -32,15 +32,15 @@ export default function Hero({ onOpenModal }: HeroProps) {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center flex flex-col items-center justify-center h-full pt-16">
         
         {/* Top Date & Sede Badge */}
-        <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full glass-panel border-poster-cyan/40 mb-6 backdrop-blur-md">
+        <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full glass-panel border-poster-cyan/40 mb-8 backdrop-blur-md">
           <span className="w-2 h-2 rounded-full bg-poster-gold animate-ping" />
           <span className="text-xs uppercase tracking-[0.25em] font-bold text-white">
             4 · 5 · 6 DICIEMBRE 2026 | PARQUE SAVAL, VALDIVIA
           </span>
         </div>
 
-        {/* Exact Official Hero SVG Logo (VN26_logo.svg) Scaled Down */}
-        <h1 className="mb-6 flex flex-col items-center justify-center">
+        {/* Exact Official Hero SVG Logo (VN26_logo.svg) */}
+        <h1 className="mb-10 flex flex-col items-center justify-center">
           <span className="sr-only">Feria Valdivia Náutica 2026 — Capital Náutica del Sur de Chile</span>
           <img
             src="/images/logo-hero-2026.svg"
@@ -48,11 +48,6 @@ export default function Hero({ onOpenModal }: HeroProps) {
             className="h-20 sm:h-32 md:h-36 max-w-[85vw] w-auto object-contain drop-shadow-2xl transition-all"
           />
         </h1>
-
-        {/* Slogan */}
-        <p className="text-lg sm:text-2xl md:text-3xl font-semibold text-poster-cyan mb-8 max-w-3xl drop-shadow-lg font-serif">
-          "El agua es desarrollo, territorio e identidad."
-        </p>
 
         {/* Hero Central CTAs: QUIERO EXPONER + PROGRAMACIÓN (Pronto) */}
         <div className="flex flex-col sm:flex-row items-center gap-4 w-full justify-center max-w-md">
@@ -78,7 +73,7 @@ export default function Hero({ onOpenModal }: HeroProps) {
           <div className="fixed inset-0 z-50 bg-black/70 backdrop-blur-sm flex items-center justify-center p-4">
             <div className="glass-panel p-6 sm:p-8 rounded-2xl max-w-md w-full text-center border-poster-cyan/40 shadow-2xl">
               <Calendar className="w-10 h-10 text-poster-gold mx-auto mb-4" />
-              <h3 className="text-xl font-serif font-bold text-white mb-2">
+              <h3 className="text-xl font-syne font-bold text-white mb-2">
                 Programación 2026 en Desarrollo
               </h3>
               <p className="text-xs sm:text-sm text-slate-300 mb-6 leading-relaxed">
