@@ -9,7 +9,7 @@ interface HeroProps {
 
 export default function Hero({ onOpenModal }: HeroProps) {
   return (
-    <section id="hero" className="relative h-screen min-h-[700px] w-full flex items-center justify-center overflow-hidden bg-poster-midnight">
+    <section id="hero" className="relative h-screen min-h-[650px] w-full flex items-center justify-center overflow-hidden bg-poster-midnight">
       
       {/* Background Video with AutoPlay, Loop, Muted, PlaysInline */}
       <video
@@ -30,25 +30,25 @@ export default function Hero({ onOpenModal }: HeroProps) {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center flex flex-col items-center justify-center h-full pt-16">
         
         {/* Top Date & Sede Badge */}
-        <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full glass-panel border-poster-cyan/40 mb-8 backdrop-blur-md">
+        <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full glass-panel border-poster-cyan/40 mb-6 backdrop-blur-md">
           <span className="w-2 h-2 rounded-full bg-poster-gold animate-ping" />
           <span className="text-xs uppercase tracking-[0.25em] font-bold text-white">
             4 · 5 · 6 DICIEMBRE 2026 | PARQUE SAVAL, VALDIVIA
           </span>
         </div>
 
-        {/* Exact Official Hero SVG Logo (VN_26 logo.svg) from Downloads */}
-        <h1 className="mb-8 flex flex-col items-center justify-center">
+        {/* Exact Official Hero SVG Logo (VN26_logo.svg) Scaled Down & Yellow Matched to CTA */}
+        <h1 className="mb-6 flex flex-col items-center justify-center">
           <span className="sr-only">Feria Valdivia Náutica 2026 — Capital Náutica del Sur de Chile</span>
           <img
             src="/images/logo-hero-2026.svg"
             alt="Valdivia Náutica 2026"
-            className="h-32 sm:h-48 md:h-56 w-auto object-contain drop-shadow-2xl"
+            className="h-20 sm:h-32 md:h-36 max-w-[85vw] w-auto object-contain drop-shadow-2xl transition-all"
           />
         </h1>
 
         {/* Slogan */}
-        <p className="text-lg sm:text-2xl md:text-3xl font-semibold text-poster-cyan mb-10 max-w-3xl drop-shadow-lg font-serif">
+        <p className="text-lg sm:text-2xl md:text-3xl font-semibold text-poster-cyan mb-8 max-w-3xl drop-shadow-lg font-serif">
           "El agua es desarrollo, territorio e identidad."
         </p>
 
