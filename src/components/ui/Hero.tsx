@@ -1,7 +1,8 @@
 'use client';
 
 import React from 'react';
-import { Anchor, Sparkles, ChevronDown, Waves } from 'lucide-react';
+import { Anchor, Sparkles, ChevronDown } from 'lucide-react';
+import { HeroLogo2026 } from './Logos';
 
 interface HeroProps {
   onOpenModal: (type?: string) => void;
@@ -9,7 +10,7 @@ interface HeroProps {
 
 export default function Hero({ onOpenModal }: HeroProps) {
   return (
-    <section id="hero" className="relative h-screen min-h-[650px] w-full flex items-center justify-center overflow-hidden bg-poster-midnight">
+    <section id="hero" className="relative h-screen min-h-[700px] w-full flex items-center justify-center overflow-hidden bg-poster-midnight">
       
       {/* Background Video with AutoPlay, Loop, Muted, PlaysInline */}
       <video
@@ -30,35 +31,21 @@ export default function Hero({ onOpenModal }: HeroProps) {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center flex flex-col items-center justify-center h-full pt-16">
         
         {/* Top Date & Sede Badge */}
-        <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full glass-panel border-poster-cyan/40 mb-6 backdrop-blur-md">
+        <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full glass-panel border-poster-cyan/40 mb-8 backdrop-blur-md">
           <span className="w-2 h-2 rounded-full bg-poster-gold animate-ping" />
           <span className="text-xs uppercase tracking-[0.25em] font-bold text-white">
             4 · 5 · 6 DICIEMBRE 2026 | PARQUE SAVAL, VALDIVIA
           </span>
         </div>
 
-        {/* Main Logo & Year Title */}
-        <div className="mb-6 flex flex-col items-center justify-center">
-          <div className="flex items-center justify-center gap-3 mb-2">
-            <div className="w-12 h-12 rounded-2xl bg-gradient-to-br from-poster-cyan to-poster-blue flex items-center justify-center text-white shadow-2xl shadow-poster-cyan/40">
-              <Waves className="w-7 h-7 text-white" />
-            </div>
-            <span className="text-xs uppercase tracking-[0.4em] font-bold text-poster-cyan">
-              FERIA INTERNACIONAL
-            </span>
-          </div>
-
-          <h1 className="text-5xl sm:text-7xl md:text-8xl font-bold tracking-tight text-white font-sans leading-none drop-shadow-2xl">
-            VALDIVIA <span className="text-white">NĀUTICA</span>
-          </h1>
-
-          <span className="text-6xl sm:text-8xl md:text-9xl font-bold tracking-tighter text-poster-gold font-sans leading-none mt-1 drop-shadow-2xl">
-            2026
-          </span>
-        </div>
+        {/* Main Official Logo Lockup 2026 inside Semantic H1 for 100/100 SEO */}
+        <h1 className="mb-8 flex flex-col items-center justify-center" aria-label="Feria Valdivia Náutica 2026">
+          <span className="sr-only">Valdivia Náutica 2026 — Capital Náutica del Sur de Chile</span>
+          <HeroLogo2026 className="h-28 sm:h-40 md:h-48" />
+        </h1>
 
         {/* Slogan */}
-        <p className="text-lg sm:text-2xl md:text-3xl font-semibold text-poster-cyan mb-8 max-w-3xl drop-shadow-lg font-serif">
+        <p className="text-lg sm:text-2xl md:text-3xl font-semibold text-poster-cyan mb-10 max-w-3xl drop-shadow-lg font-serif">
           "El agua es desarrollo, territorio e identidad."
         </p>
 

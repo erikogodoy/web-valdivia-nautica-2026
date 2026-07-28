@@ -1,9 +1,10 @@
 'use client';
 
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
-import { Waves, Menu, X, Anchor, Compass, Zap, Fish, Sailboat, Hammer, Building2 } from 'lucide-react';
+import { Menu, X, Anchor } from 'lucide-react';
+import { HeaderLogo } from './Logos';
 
 interface HeaderProps {
   onOpenModal: (type?: string) => void;
@@ -22,33 +23,44 @@ const NAV_LINKS = [
 ];
 
 export default function Header({ onOpenModal }: HeaderProps) {
+  const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const pathname = usePathname();
 
+  useEffect(() => {
+    const handleScroll = () => {
+      if (window.scrollY > 50) {
+        setIsScrolled(true);
+      } else {
+        setIsScrolled(false);
+      }
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
   return (
-    <header className="fixed top-0 left-0 right-0 z-50 glass-nav transition-all duration-300">
+    <header
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
+        isScrolled
+          ? 'glass-nav py-3 shadow-2xl'
+          : 'bg-gradient-to-b from-poster-midnight/90 to-transparent py-5'
+      }`}
+    >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center justify-between h-20">
+        <div className="flex items-center justify-between">
           
-          {/* Logo & Brand */}
+          {/* Official Header Isologotype (Calle-Calle Bridge + Sailboat + Title) */}
           <Link 
             href="/" 
-            className="flex items-center gap-3 group focus:outline-none rounded-lg p-1"
+            className="flex items-center group focus:outline-none rounded-lg p-1"
+            aria-label="Valdivia Náutica 2026 Inicio"
           >
-            <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-poster-cyan to-poster-blue flex items-center justify-center text-white shadow-lg shadow-poster-cyan/20 group-hover:scale-105 transition-transform">
-              <Waves className="w-6 h-6 text-white" />
-            </div>
-            <div className="flex flex-col">
-              <span className="font-bold tracking-tight text-white group-hover:text-poster-cyan transition-colors text-lg font-sans">
-                VALDIVIA NĀUTICA
-              </span>
-              <span className="text-[9px] uppercase tracking-widest text-poster-gold font-bold -mt-1">
-                4 · 5 · 6 DICIEMBRE 2026
-              </span>
-            </div>
+            <HeaderLogo className="h-10 sm:h-12 text-white group-hover:scale-105 transition-transform" />
           </Link>
 
-          {/* Navigation Links - Semantic <nav> with clean routes for Google Sitelinks */}
+          {/* Navigation Links */}
           <nav aria-label="Navegación principal" className="hidden lg:flex items-center gap-5">
             {NAV_LINKS.map((link) => {
               const isActive = pathname === link.href;
@@ -59,7 +71,7 @@ export default function Header({ onOpenModal }: HeaderProps) {
                   className={`text-xs font-bold uppercase tracking-wider transition-colors py-1 border-b-2 ${
                     isActive
                       ? 'text-poster-gold border-poster-gold'
-                      : 'text-slate-300 hover:text-poster-cyan border-transparent'
+                      : 'text-slate-200 hover:text-poster-cyan border-transparent'
                   }`}
                 >
                   {link.label}
@@ -72,13 +84,13 @@ export default function Header({ onOpenModal }: HeaderProps) {
           <div className="hidden lg:flex items-center gap-3">
             <button
               onClick={() => onOpenModal('expositor')}
-              className="px-4 py-2 text-[11px] font-bold uppercase tracking-wider text-poster-cyan border border-poster-cyan/30 rounded-lg hover:bg-poster-cyan/10 hover:border-poster-cyan transition-all"
+              className="px-4 py-2 text-[11px] font-bold uppercase tracking-wider text-poster-cyan border border-poster-cyan/40 rounded-lg hover:bg-poster-cyan/10 hover:border-poster-cyan transition-all backdrop-blur-md"
             >
               Quiero Exponer
             </button>
             <button
               onClick={() => onOpenModal('sponsor')}
-              className="px-4 py-2 text-[11px] font-bold uppercase tracking-wider text-poster-midnight bg-poster-gold rounded-lg shadow-md shadow-poster-gold/20 hover:bg-poster-goldHover transition-all"
+              className="px-4 py-2 text-[11px] font-bold uppercase tracking-wider text-poster-midnight bg-poster-gold rounded-lg shadow-lg shadow-poster-gold/20 hover:bg-poster-goldHover transition-all"
             >
               Ser Sponsor
             </button>
@@ -88,7 +100,7 @@ export default function Header({ onOpenModal }: HeaderProps) {
           <div className="lg:hidden flex items-center">
             <button
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-              className="p-2 text-slate-300 hover:text-white rounded-lg focus:outline-none"
+              className="p-2 text-slate-200 hover:text-white rounded-lg focus:outline-none"
               aria-label="Abrir menú"
             >
               {isMobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
