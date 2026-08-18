@@ -1,5 +1,5 @@
 import type { Metadata } from 'next';
-import { Inter, Syne, Cabin, Playfair_Display } from 'next/font/google';
+import { Inter, Archivo, Cabin } from 'next/font/google';
 import './globals.css';
 import SchemaMarkup from '@/components/seo/SchemaMarkup';
 import SmoothScrollProvider from '@/components/ui/SmoothScrollProvider';
@@ -10,10 +10,10 @@ const inter = Inter({
   display: 'swap',
 });
 
-const syne = Syne({
+const archivo = Archivo({
   subsets: ['latin'],
-  variable: '--font-syne',
-  weight: ['700', '800'],
+  variable: '--font-archivo',
+  weight: ['500', '600', '700', '800', '900'],
   display: 'swap',
 });
 
@@ -21,12 +21,6 @@ const cabin = Cabin({
   subsets: ['latin'],
   variable: '--font-cabin',
   weight: ['400', '500', '600', '700'],
-  display: 'swap',
-});
-
-const playfair = Playfair_Display({
-  subsets: ['latin'],
-  variable: '--font-syne',
   display: 'swap',
 });
 
@@ -75,7 +69,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="es" className={`${inter.variable} ${syne.variable} ${cabin.variable} ${playfair.variable}`}>
+    <html lang="es" className={`${inter.variable} ${archivo.variable} ${cabin.variable}`}>
       <head>
         <SchemaMarkup />
       </head>

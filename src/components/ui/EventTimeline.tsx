@@ -3,16 +3,12 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { 
-  Calendar, 
   Clock, 
   MapPin, 
-  Tag, 
   Zap, 
   Fish, 
   Sailboat, 
   Hammer, 
-  UtensilsCrossed, 
-  Sparkles,
   ChevronRight,
   Bell
 } from 'lucide-react';
@@ -47,7 +43,7 @@ const SCHEDULE_DAYS: Record<string, { label: string; date: string; summary: stri
         categoryLabel: 'Protocolar',
         location: 'Auditorio Central Parque Saval',
         description: 'Apertura con autoridades regionales, ministerios de Transportes y Energía, astilleros y delegaciones extranjeras.',
-        badge: 'Acceso Invitados & Acreditados',
+        badge: 'Invitados & Acreditados',
       },
       {
         id: 'v2',
@@ -68,7 +64,7 @@ const SCHEDULE_DAYS: Record<string, { label: string; date: string; summary: stri
         categoryLabel: 'Industria B2B',
         location: 'Hangar Principal',
         description: 'Encuentros comerciales programados entre armadores, astilleros locales y empresas tecnológicas marítimas.',
-        badge: 'Solo Empresas Registradas',
+        badge: 'Empresas Registradas',
       },
       {
         id: 'v4',
@@ -153,7 +149,7 @@ const SCHEDULE_DAYS: Record<string, { label: string; date: string; summary: stri
         categoryLabel: 'Familia & Deporte',
         location: 'Muelle Fluvial Saval',
         description: 'Salidas guiadas gratuitas para niños y jóvenes con instructores certificados de la región.',
-        badge: 'Cupos Limitados por Orden de Llegada',
+        badge: 'Cupos por Orden de Llegada',
       },
       {
         id: 'd3',
@@ -190,31 +186,27 @@ export default function EventTimeline({ onOpenModal }: EventTimelineProps) {
   });
 
   return (
-    <section id="programa" className="py-24 bg-gradient-to-b from-poster-midnight via-[#00122e] to-poster-midnight text-white relative overflow-hidden border-t border-white/10">
+    <section id="programa" className="py-20 bg-gradient-to-b from-poster-midnight via-[#00122e] to-poster-midnight text-white relative overflow-hidden border-t border-white/10">
       
       {/* Background Decor */}
       <div className="absolute top-1/2 left-10 w-96 h-96 bg-poster-gold/5 rounded-full blur-3xl pointer-events-none" />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         
-        {/* Section Header */}
-        <div className="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-6">
+        {/* Section Header (Clean without pre-title pill) */}
+        <div className="flex flex-col md:flex-row md:items-end justify-between mb-10 gap-6">
           <div>
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-poster-gold/10 border border-poster-gold/30 text-poster-gold text-xs font-mono font-semibold uppercase tracking-wider mb-4">
-              <Calendar className="w-3.5 h-3.5" />
-              <span>Bitácora Oficial del Evento</span>
-            </div>
-            <h2 className="text-3xl sm:text-5xl font-syne font-bold text-white tracking-tight">
+            <h2 className="text-3xl sm:text-5xl font-archivo font-extrabold text-white tracking-tight">
               Cronograma de <span className="text-poster-cyan">Actividades</span>
             </h2>
-            <p className="text-slate-300 text-sm sm:text-base mt-2 max-w-xl font-sans">
+            <p className="text-slate-300 text-sm sm:text-base mt-2 max-w-xl font-sans leading-relaxed">
               Planifica tu visita según los horarios, conferencias del SEM, regatas y espectáculos en Parque Saval.
             </p>
           </div>
 
           <button
             onClick={() => onOpenModal('general')}
-            className="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-white/10 hover:bg-white/20 border border-white/20 text-xs font-mono font-bold uppercase tracking-wider text-slate-200 hover:text-white transition-all self-start md:self-end"
+            className="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-white/10 hover:bg-white/20 border border-white/20 text-xs font-bold uppercase tracking-wider text-slate-200 hover:text-white transition-all self-start md:self-end"
           >
             <Bell className="w-4 h-4 text-poster-gold" />
             <span>Recibir Notificaciones del Programa</span>
@@ -222,7 +214,7 @@ export default function EventTimeline({ onOpenModal }: EventTimelineProps) {
         </div>
 
         {/* Day Switcher Tabs (Viernes · Sábado · Domingo) */}
-        <div className="grid grid-cols-3 gap-3 mb-8 max-w-2xl">
+        <div className="grid grid-cols-3 gap-3 mb-6 max-w-xl">
           {(['viernes', 'sabado', 'domingo'] as const).map((dayKey) => {
             const isSelected = activeDay === dayKey;
             const dayInfo = SCHEDULE_DAYS[dayKey];
@@ -230,16 +222,16 @@ export default function EventTimeline({ onOpenModal }: EventTimelineProps) {
               <button
                 key={dayKey}
                 onClick={() => setActiveDay(dayKey)}
-                className={`py-4 px-3 rounded-2xl flex flex-col items-center justify-center transition-all border ${
+                className={`py-3.5 px-3 rounded-2xl flex flex-col items-center justify-center transition-all border ${
                   isSelected
-                    ? 'bg-poster-dark border-poster-cyan shadow-xl shadow-poster-cyan/20 scale-[1.03]'
+                    ? 'bg-poster-dark border-poster-cyan shadow-lg shadow-poster-cyan/20 scale-[1.02]'
                     : 'bg-poster-dark/40 border-white/10 hover:border-white/30 text-slate-400'
                 }`}
               >
-                <span className={`text-xs font-mono uppercase tracking-wider ${isSelected ? 'text-poster-cyan font-bold' : 'text-slate-400'}`}>
+                <span className={`text-xs uppercase tracking-wider ${isSelected ? 'text-poster-cyan font-bold' : 'text-slate-300'}`}>
                   {dayInfo.label}
                 </span>
-                <span className="text-[10px] text-slate-400 font-mono mt-0.5">
+                <span className="text-[11px] text-slate-400 font-sans mt-0.5">
                   Parque Saval
                 </span>
               </button>
@@ -248,26 +240,26 @@ export default function EventTimeline({ onOpenModal }: EventTimelineProps) {
         </div>
 
         {/* Day Summary Banner */}
-        <div className="p-4 rounded-2xl bg-white/5 border border-white/10 mb-8 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+        <div className="p-4 rounded-2xl bg-white/5 border border-white/10 mb-6 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
           <div className="flex items-center gap-3">
-            <span className="w-2.5 h-2.5 rounded-full bg-poster-gold shrink-0" />
-            <span className="text-xs sm:text-sm text-slate-200 font-mono">
-              <strong className="text-white">{currentDayData.date}:</strong> {currentDayData.summary}
+            <span className="w-2 h-2 rounded-full bg-poster-gold shrink-0" />
+            <span className="text-xs sm:text-sm text-slate-200 font-sans">
+              <strong className="text-white font-semibold">{currentDayData.date}:</strong> {currentDayData.summary}
             </span>
           </div>
         </div>
 
         {/* Category Filter Chips */}
-        <div className="flex flex-wrap gap-2 mb-10">
+        <div className="flex flex-wrap gap-2 mb-8">
           {CATEGORIES.map((cat) => {
             const isSelected = categoryFilter === cat.id;
             return (
               <button
                 key={cat.id}
                 onClick={() => setCategoryFilter(cat.id)}
-                className={`px-3.5 py-1.5 rounded-xl text-xs font-mono transition-all border ${
+                className={`px-3.5 py-1.5 rounded-xl text-xs font-sans transition-all border ${
                   isSelected
-                    ? 'bg-poster-gold text-poster-midnight font-bold border-poster-gold shadow-md'
+                    ? 'bg-poster-gold text-poster-midnight font-bold border-poster-gold shadow-sm'
                     : 'bg-poster-dark/60 text-slate-300 border-white/10 hover:border-white/30 hover:text-white'
                 }`}
               >
@@ -284,12 +276,12 @@ export default function EventTimeline({ onOpenModal }: EventTimelineProps) {
             initial={{ opacity: 0, y: 15 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -15 }}
-            transition={{ duration: 0.3 }}
-            className="space-y-4"
+            transition={{ duration: 0.25 }}
+            className="space-y-3.5"
           >
             {filteredEvents.length === 0 ? (
-              <div className="p-12 text-center rounded-3xl bg-poster-dark/60 border border-white/10">
-                <p className="text-slate-400 font-mono text-sm">
+              <div className="p-10 text-center rounded-3xl bg-poster-dark/60 border border-white/10">
+                <p className="text-slate-400 text-sm">
                   No hay actividades programadas en esta categoría para este día.
                 </p>
               </div>
@@ -297,7 +289,7 @@ export default function EventTimeline({ onOpenModal }: EventTimelineProps) {
               filteredEvents.map((ev) => (
                 <div
                   key={ev.id}
-                  className={`p-6 sm:p-7 rounded-2xl transition-all duration-300 border flex flex-col md:flex-row md:items-center justify-between gap-6 ${
+                  className={`p-6 rounded-2xl transition-all duration-200 border flex flex-col md:flex-row md:items-center justify-between gap-6 ${
                     ev.isLiveHighlight
                       ? 'bg-gradient-to-r from-[#06294d] via-poster-dark to-poster-dark border-poster-cyan/50 shadow-xl shadow-poster-cyan/10'
                       : 'bg-poster-dark/70 border-white/10 hover:border-white/25'
@@ -306,11 +298,11 @@ export default function EventTimeline({ onOpenModal }: EventTimelineProps) {
                   {/* Left: Time & Badges */}
                   <div className="flex items-start gap-4 md:w-1/4 shrink-0">
                     <div className="flex flex-col">
-                      <div className="flex items-center gap-1.5 text-poster-gold font-mono font-bold text-sm sm:text-base">
+                      <div className="flex items-center gap-1.5 text-poster-gold font-bold text-sm sm:text-base">
                         <Clock className="w-4 h-4" />
                         <span>{ev.time}</span>
                       </div>
-                      <div className="flex items-center gap-1 text-slate-400 text-xs font-mono mt-1">
+                      <div className="flex items-center gap-1 text-slate-400 text-xs mt-1">
                         <MapPin className="w-3.5 h-3.5 text-poster-cyan" />
                         <span>{ev.location}</span>
                       </div>
@@ -320,16 +312,16 @@ export default function EventTimeline({ onOpenModal }: EventTimelineProps) {
                   {/* Center: Title & Description */}
                   <div className="flex-grow">
                     <div className="flex flex-wrap items-center gap-2 mb-2">
-                      <span className="text-[10px] font-mono uppercase tracking-widest px-2.5 py-0.5 rounded-full bg-white/10 border border-white/10 text-poster-cyan font-bold">
+                      <span className="text-[10px] uppercase tracking-wider px-2.5 py-0.5 rounded-full bg-white/10 border border-white/10 text-poster-cyan font-bold">
                         {ev.categoryLabel}
                       </span>
                       {ev.badge && (
-                        <span className="text-[10px] font-mono px-2 py-0.5 rounded-md bg-poster-gold/10 text-poster-gold border border-poster-gold/20">
+                        <span className="text-[10px] px-2 py-0.5 rounded-md bg-poster-gold/10 text-poster-gold border border-poster-gold/20 font-medium">
                           {ev.badge}
                         </span>
                       )}
                     </div>
-                    <h3 className="text-lg sm:text-xl font-syne font-bold text-white mb-1.5">
+                    <h3 className="text-lg font-archivo font-extrabold text-white mb-1">
                       {ev.title}
                     </h3>
                     <p className="text-xs sm:text-sm text-slate-300 leading-relaxed font-sans">
@@ -341,7 +333,7 @@ export default function EventTimeline({ onOpenModal }: EventTimelineProps) {
                   <div className="shrink-0 flex items-center justify-end">
                     <button
                       onClick={() => onOpenModal(ev.category === 'sem' ? 'sem' : 'general')}
-                      className="px-4 py-2 rounded-xl bg-white/5 hover:bg-poster-cyan hover:text-poster-midnight border border-white/15 text-xs font-mono font-bold uppercase tracking-wider transition-all flex items-center gap-1.5"
+                      className="px-4 py-2 rounded-xl bg-white/5 hover:bg-poster-cyan hover:text-poster-midnight border border-white/15 text-xs font-bold uppercase tracking-wider transition-all flex items-center gap-1.5"
                     >
                       <span>Inscribirme</span>
                       <ChevronRight className="w-3.5 h-3.5" />

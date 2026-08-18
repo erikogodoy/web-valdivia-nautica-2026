@@ -10,7 +10,6 @@ import {
   UtensilsCrossed, 
   Hammer, 
   Waves, 
-  Navigation,
   Sparkles,
   Info
 } from 'lucide-react';
@@ -29,7 +28,7 @@ const ZONES = [
       'Ruedas de negocios con delegaciones internacionales',
       'Stands de proveedores marítimos e ingeniería',
     ],
-    facilities: ['Acceso para personas con movilidad reducida', 'Acreditaciones B2B', 'Wifi libre'],
+    facilities: ['Acceso universal', 'Acreditaciones B2B', 'Wifi libre'],
     x: '42%',
     y: '48%',
   },
@@ -63,7 +62,7 @@ const ZONES = [
       'Largada y meta de las regatas de remo valdiviano',
       'Bautizos náuticos en kayak para público general',
     ],
-    facilities: ['Salvavidas y personal de seguridad', 'Muelle flotante universal', 'Guardería náutica'],
+    facilities: ['Personal de seguridad', 'Muelle flotante universal', 'Guardería náutica'],
     x: '20%',
     y: '72%',
   },
@@ -80,7 +79,7 @@ const ZONES = [
       'Degustación de cervezas artesanales valdivianas',
       'Música en vivo al atardecer',
     ],
-    facilities: ['Mesas al aire libre y techadas', 'Puntos limpios de reciclaje', 'Baños'],
+    facilities: ['Mesas al aire libre y techadas', 'Puntos limpios', 'Baños'],
     x: '75%',
     y: '65%',
   },
@@ -97,7 +96,7 @@ const ZONES = [
       'Clínicas de lanzamiento y atado de moscas',
       'Pesaje de campeonatos de pesca de orilla',
     ],
-    facilities: ['Gradas para demostraciones', 'Zona de venta directa', 'Información de campeonatos'],
+    facilities: ['Gradas para demostraciones', 'Venta directa', 'Información de torneos'],
     x: '30%',
     y: '25%',
   },
@@ -110,25 +109,21 @@ export default function InteractiveVenueMap() {
   const ZoneIcon = currentZone.icon;
 
   return (
-    <section id="mapa" className="py-24 bg-poster-midnight relative overflow-hidden border-t border-white/10">
+    <section id="mapa" className="py-20 bg-poster-midnight relative overflow-hidden border-t border-white/10">
       
       {/* Background Decor */}
       <div className="absolute bottom-0 left-1/3 w-96 h-96 bg-poster-cyan/5 rounded-full blur-3xl pointer-events-none" />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         
-        {/* Section Header */}
-        <div className="flex flex-col md:flex-row md:items-end justify-between mb-14 gap-6">
+        {/* Section Header (Clean without pre-title pill) */}
+        <div className="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-6">
           <div>
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/5 border border-white/10 text-poster-cyan text-xs font-mono font-semibold uppercase tracking-wider mb-4">
-              <Navigation className="w-3.5 h-3.5" />
-              <span>Sede Oficial: Parque Saval & Río Calle-Calle</span>
-            </div>
-            <h2 className="text-3xl sm:text-5xl font-syne font-bold text-white tracking-tight">
+            <h2 className="text-3xl sm:text-5xl font-archivo font-extrabold text-white tracking-tight">
               Mapa del <span className="text-poster-gold">Recinto</span>
             </h2>
-            <p className="text-slate-300 text-sm sm:text-base mt-2 max-w-xl font-sans">
-              Explora las zonas temáticas, los pabellones cerrados, el muelle fluvial y el patio de experiencias.
+            <p className="text-slate-300 text-sm sm:text-base mt-2 max-w-xl font-sans leading-relaxed">
+              Explora las zonas temáticas, los pabellones cerrados, el muelle fluvial y el patio de experiencias en Parque Saval.
             </p>
           </div>
 
@@ -140,9 +135,9 @@ export default function InteractiveVenueMap() {
                 <button
                   key={zone.id}
                   onClick={() => setActiveZoneId(zone.id)}
-                  className={`px-3 py-1.5 rounded-xl text-xs font-mono transition-all flex items-center gap-1.5 border ${
+                  className={`px-3 py-1.5 rounded-xl text-xs font-sans transition-all flex items-center gap-1.5 border ${
                     isSelected
-                      ? 'bg-poster-cyan text-poster-midnight font-bold border-poster-cyan shadow-lg shadow-poster-cyan/20'
+                      ? 'bg-poster-cyan text-poster-midnight font-bold border-poster-cyan shadow-md shadow-poster-cyan/20'
                       : 'bg-poster-dark/60 text-slate-300 border-white/10 hover:border-white/30 hover:text-white'
                   }`}
                 >
@@ -158,7 +153,7 @@ export default function InteractiveVenueMap() {
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-stretch">
           
           {/* Left: Stylized Visual Map Representation */}
-          <div className="lg:col-span-7 rounded-3xl bg-[#031428] border border-white/15 p-6 sm:p-8 relative min-h-[380px] sm:min-h-[460px] flex flex-col justify-between overflow-hidden shadow-2xl">
+          <div className="lg:col-span-7 rounded-3xl bg-[#031428] border border-white/15 p-6 sm:p-8 relative min-h-[380px] sm:min-h-[440px] flex flex-col justify-between overflow-hidden shadow-2xl">
             
             {/* Water River Curve Graphic in SVG */}
             <svg
@@ -185,11 +180,11 @@ export default function InteractiveVenueMap() {
 
             {/* Top Map Labels */}
             <div className="flex items-center justify-between relative z-10">
-              <div className="flex items-center gap-2 px-3 py-1 rounded-lg bg-black/40 backdrop-blur-md border border-white/10 text-slate-300 text-[11px] font-mono">
+              <div className="flex items-center gap-2 px-3 py-1 rounded-lg bg-black/40 backdrop-blur-md border border-white/10 text-slate-300 text-xs">
                 <Layers className="w-3.5 h-3.5 text-poster-cyan" />
                 <span>Vista Espacial del Evento</span>
               </div>
-              <span className="text-[11px] font-mono text-poster-cyan/80">
+              <span className="text-xs text-poster-cyan/80">
                 Isla Teja, Valdivia
               </span>
             </div>
@@ -211,24 +206,21 @@ export default function InteractiveVenueMap() {
                     }`}
                   >
                     <Icon className="w-4 h-4" />
-                    <span className="text-xs font-mono font-bold whitespace-nowrap hidden sm:inline">
+                    <span className="text-xs font-bold whitespace-nowrap hidden sm:inline">
                       {zone.name}
                     </span>
-                    {isSelected && (
-                      <span className="w-2 h-2 rounded-full bg-poster-midnight animate-ping" />
-                    )}
                   </button>
                 );
               })}
             </div>
 
             {/* Bottom Map River Tag */}
-            <div className="flex items-center justify-between relative z-10 pt-2 border-t border-white/10 text-[11px] font-mono text-slate-400">
+            <div className="flex items-center justify-between relative z-10 pt-2 border-t border-white/10 text-xs text-slate-400">
               <span className="flex items-center gap-1 text-poster-cyan">
                 <Waves className="w-3.5 h-3.5" />
-                <span>Río Calle-Calle / Ribera Activa</span>
+                <span>Río Calle-Calle</span>
               </span>
-              <span>Centro de Ferias Parque Saval</span>
+              <span>Parque Saval</span>
             </div>
           </div>
 
@@ -245,22 +237,22 @@ export default function InteractiveVenueMap() {
               <div>
                 {/* Zone Header */}
                 <div className="flex items-center justify-between mb-4">
-                  <div className="flex items-center gap-2">
+                  <div className="flex items-center gap-2.5">
                     <div className="w-9 h-9 rounded-xl bg-poster-cyan/10 border border-poster-cyan/30 flex items-center justify-center text-poster-cyan">
                       <ZoneIcon className="w-4 h-4" />
                     </div>
                     <div>
-                      <div className="text-[11px] font-mono uppercase tracking-wider text-poster-cyan font-bold">
+                      <div className="text-xs uppercase tracking-wider text-poster-cyan font-bold">
                         {currentZone.category}
                       </div>
-                      <div className="text-xs text-slate-400 font-mono">
+                      <div className="text-xs text-slate-400">
                         {currentZone.coords}
                       </div>
                     </div>
                   </div>
                 </div>
 
-                <h3 className="text-2xl sm:text-3xl font-syne font-bold text-white mb-3">
+                <h3 className="text-2xl sm:text-3xl font-archivo font-extrabold text-white mb-3">
                   {currentZone.name}
                 </h3>
 
@@ -269,8 +261,8 @@ export default function InteractiveVenueMap() {
                 </p>
 
                 {/* Key Activities in this Zone */}
-                <div className="space-y-2.5 mb-6">
-                  <div className="text-xs font-mono uppercase tracking-widest text-slate-400 font-semibold flex items-center gap-1.5">
+                <div className="space-y-2 mb-6">
+                  <div className="text-xs uppercase tracking-wider text-slate-400 font-bold flex items-center gap-1.5">
                     <Sparkles className="w-3.5 h-3.5 text-poster-gold" />
                     <span>Qué encontrarás aquí:</span>
                   </div>
@@ -285,13 +277,13 @@ export default function InteractiveVenueMap() {
 
               {/* Facilities Badge Bar */}
               <div className="pt-4 border-t border-white/10">
-                <div className="flex items-center gap-1.5 text-[11px] text-slate-400 font-mono mb-2">
+                <div className="flex items-center gap-1.5 text-xs text-slate-400 mb-2">
                   <Info className="w-3.5 h-3.5 text-poster-cyan" />
                   <span>Servicios y accesibilidad:</span>
                 </div>
                 <div className="flex flex-wrap gap-1.5">
                   {currentZone.facilities.map((fac, idx) => (
-                    <span key={idx} className="text-[10px] font-mono px-2.5 py-1 rounded-md bg-poster-midnight border border-white/10 text-slate-300">
+                    <span key={idx} className="text-xs px-2.5 py-1 rounded-md bg-poster-midnight border border-white/10 text-slate-300">
                       {fac}
                     </span>
                   ))}

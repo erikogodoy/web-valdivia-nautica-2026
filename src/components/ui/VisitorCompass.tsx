@@ -7,11 +7,9 @@ import {
   Building2, 
   Zap, 
   Fish, 
-  Compass, 
   CheckCircle2, 
   MapPin, 
   Clock, 
-  ArrowRight, 
   Ticket,
   CalendarCheck
 } from 'lucide-react';
@@ -121,7 +119,7 @@ const PERSONAS = [
       const el = document.getElementById('programa');
       if (el) el.scrollIntoView({ behavior: 'smooth' });
     },
-    ctaIcon: ArrowRight,
+    ctaIcon: CalendarCheck,
   },
 ];
 
@@ -133,30 +131,20 @@ export default function VisitorCompass({ onOpenModal }: VisitorCompassProps) {
   const CtaIcon = current.ctaIcon;
 
   return (
-    <section id="brujula" className="py-24 bg-poster-midnight relative overflow-hidden">
+    <section id="brujula" className="py-20 bg-poster-midnight relative overflow-hidden">
       {/* Background radial accent */}
       <div className="absolute top-0 right-1/4 w-96 h-96 bg-poster-cyan/5 rounded-full blur-3xl pointer-events-none" />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         
-        {/* Section Header */}
-        <div className="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-6">
-          <div>
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-poster-gold/10 border border-poster-gold/30 text-poster-gold text-xs font-mono font-semibold uppercase tracking-wider mb-4">
-              <Compass className="w-3.5 h-3.5" />
-              <span>La Brújula del Visitante</span>
-            </div>
-            <h2 className="text-3xl sm:text-5xl font-syne font-bold text-white tracking-tight">
-              Personaliza tu <span className="text-poster-cyan">Experiencia</span>
-            </h2>
-            <p className="text-slate-300 text-sm sm:text-base mt-2 max-w-xl font-sans">
-              Elige tu perfil y descubre al instante la ruta recomendada, horarios y beneficios diseñados para ti.
-            </p>
-          </div>
-
-          <div className="text-xs font-mono text-slate-400">
-            [ 4 Perfiles Clave Disponibles ]
-          </div>
+        {/* Section Header (Clean Without Pre-title Pill) */}
+        <div className="mb-10 max-w-2xl">
+          <h2 className="text-3xl sm:text-5xl font-archivo font-extrabold text-white tracking-tight">
+            Personaliza tu <span className="text-poster-cyan">Experiencia</span>
+          </h2>
+          <p className="text-slate-300 text-sm sm:text-base mt-2 font-sans leading-relaxed">
+            Elige tu perfil y descubre al instante la ruta recomendada, horarios y beneficios diseñados para ti.
+          </p>
         </div>
 
         {/* Persona Selector Tabs */}
@@ -168,27 +156,27 @@ export default function VisitorCompass({ onOpenModal }: VisitorCompassProps) {
               <button
                 key={p.id}
                 onClick={() => setActiveId(p.id)}
-                className={`p-4 rounded-2xl flex flex-col items-start gap-3 transition-all duration-300 text-left border ${
+                className={`p-4 rounded-2xl flex flex-col items-start gap-2.5 transition-all duration-200 text-left border ${
                   isSelected
-                    ? 'bg-poster-dark border-poster-gold shadow-xl shadow-poster-gold/10 scale-[1.02]'
+                    ? 'bg-poster-dark border-poster-gold shadow-lg shadow-poster-gold/10'
                     : 'bg-poster-dark/40 border-white/10 hover:border-white/25 hover:bg-poster-dark/60'
                 }`}
               >
                 <div className="flex items-center justify-between w-full">
-                  <div className={`w-9 h-9 rounded-xl flex items-center justify-center ${
+                  <div className={`w-8 h-8 rounded-lg flex items-center justify-center ${
                     isSelected ? 'bg-poster-gold text-poster-midnight' : 'bg-white/5 text-slate-300'
                   }`}>
                     <Icon className="w-4 h-4" />
                   </div>
                   {isSelected && (
-                    <span className="w-2 h-2 rounded-full bg-poster-gold animate-ping" />
+                    <span className="w-1.5 h-1.5 rounded-full bg-poster-gold" />
                   )}
                 </div>
                 <div>
-                  <div className={`text-xs font-mono uppercase tracking-wider ${isSelected ? 'text-poster-gold font-bold' : 'text-slate-400'}`}>
+                  <div className={`text-xs font-bold ${isSelected ? 'text-poster-gold' : 'text-slate-200'}`}>
                     {p.label}
                   </div>
-                  <div className="text-[11px] text-slate-300 mt-0.5 line-clamp-1">
+                  <div className="text-[11px] text-slate-400 mt-0.5 line-clamp-1">
                     {p.tag}
                   </div>
                 </div>
@@ -201,41 +189,41 @@ export default function VisitorCompass({ onOpenModal }: VisitorCompassProps) {
         <AnimatePresence mode="wait">
           <motion.div
             key={current.id}
-            initial={{ opacity: 0, y: 20 }}
+            initial={{ opacity: 0, y: 15 }}
             animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: -20 }}
-            transition={{ duration: 0.35, ease: 'easeOut' }}
-            className="p-8 sm:p-12 rounded-3xl bg-poster-dark/90 border border-white/15 shadow-2xl backdrop-blur-xl"
+            exit={{ opacity: 0, y: -15 }}
+            transition={{ duration: 0.3, ease: 'easeOut' }}
+            className="p-8 sm:p-10 rounded-3xl bg-poster-dark/90 border border-white/15 shadow-2xl backdrop-blur-xl"
           >
-            <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-start">
+            <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10 items-start">
               
               {/* Left Column: Title, Description & Action */}
               <div className="lg:col-span-7 flex flex-col justify-between h-full">
                 <div>
                   <div className="flex flex-wrap items-center gap-3 mb-4">
-                    <span className={`inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-mono font-semibold uppercase tracking-wider border ${current.badgeBg}`}>
+                    <span className={`inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-semibold border ${current.badgeBg}`}>
                       <PersonaIcon className="w-3.5 h-3.5" />
                       {current.tag}
                     </span>
-                    <span className="inline-flex items-center gap-1 text-slate-400 text-xs font-mono">
+                    <span className="inline-flex items-center gap-1 text-slate-400 text-xs font-sans">
                       <MapPin className="w-3.5 h-3.5 text-poster-cyan" />
                       Parque Saval
                     </span>
                   </div>
 
-                  <h3 className="text-2xl sm:text-4xl font-syne font-bold text-white mb-4 leading-tight">
+                  <h3 className="text-2xl sm:text-3xl font-archivo font-extrabold text-white mb-4 leading-snug">
                     {current.title}
                   </h3>
 
-                  <p className="text-slate-300 text-sm sm:text-base leading-relaxed mb-8">
+                  <p className="text-slate-300 text-sm sm:text-base leading-relaxed mb-6">
                     {current.description}
                   </p>
                 </div>
 
                 {/* Highlights List */}
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-3.5 mb-8 pt-6 border-t border-white/10">
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 mb-8 pt-5 border-t border-white/10">
                   {current.features.map((feat, idx) => (
-                    <div key={idx} className="flex items-start gap-2.5">
+                    <div key={idx} className="flex items-start gap-2">
                       <CheckCircle2 className="w-4 h-4 text-poster-cyan shrink-0 mt-0.5" />
                       <span className="text-xs text-slate-200 leading-snug">{feat}</span>
                     </div>
@@ -243,10 +231,10 @@ export default function VisitorCompass({ onOpenModal }: VisitorCompassProps) {
                 </div>
 
                 {/* CTA Button */}
-                <div className="pt-2">
+                <div>
                   <button
                     onClick={() => current.ctaAction(onOpenModal)}
-                    className="w-full sm:w-auto px-8 py-4 bg-poster-gold hover:bg-poster-goldHover text-poster-midnight text-xs font-bold font-mono uppercase tracking-wider rounded-xl transition-all shadow-xl shadow-poster-gold/20 hover:scale-[1.02] flex items-center justify-center gap-2.5"
+                    className="w-full sm:w-auto px-7 py-3.5 bg-poster-gold hover:bg-poster-goldHover text-poster-midnight text-xs font-bold uppercase tracking-wider rounded-xl transition-all shadow-lg shadow-poster-gold/20 hover:scale-[1.02] flex items-center justify-center gap-2"
                   >
                     <CtaIcon className="w-4 h-4" />
                     {current.ctaText}
@@ -255,18 +243,18 @@ export default function VisitorCompass({ onOpenModal }: VisitorCompassProps) {
               </div>
 
               {/* Right Column: Mini Schedule Timeline */}
-              <div className="lg:col-span-5 p-6 sm:p-7 rounded-2xl bg-white/5 border border-white/10 flex flex-col justify-between">
-                <div className="flex items-center justify-between mb-5 pb-3 border-b border-white/10">
-                  <span className="text-xs font-mono uppercase tracking-widest text-slate-400 font-semibold">
+              <div className="lg:col-span-5 p-6 rounded-2xl bg-white/5 border border-white/10 flex flex-col justify-between">
+                <div className="flex items-center justify-between mb-4 pb-3 border-b border-white/10">
+                  <span className="text-xs uppercase tracking-wider text-slate-400 font-bold">
                     Ruta Sugerida del Día
                   </span>
                   <Clock className="w-4 h-4 text-poster-gold" />
                 </div>
 
-                <div className="space-y-4">
+                <div className="space-y-3">
                   {current.scheduleHighlights.map((slot, sIdx) => (
                     <div key={sIdx} className="flex items-start gap-3 p-3 rounded-xl bg-poster-midnight/60 border border-white/5 hover:border-poster-cyan/30 transition-colors">
-                      <span className="text-[11px] font-mono font-bold text-poster-cyan shrink-0 pt-0.5">
+                      <span className="text-xs font-bold text-poster-cyan shrink-0 pt-0.5">
                         {slot.time}
                       </span>
                       <span className="text-xs text-slate-200 leading-snug">
@@ -276,9 +264,9 @@ export default function VisitorCompass({ onOpenModal }: VisitorCompassProps) {
                   ))}
                 </div>
 
-                <div className="mt-6 pt-4 border-t border-white/10 text-center">
-                  <span className="text-[11px] text-slate-400 font-mono">
-                    * Horarios sincronizados con el programa oficial 2026
+                <div className="mt-5 pt-3 border-t border-white/10 text-center">
+                  <span className="text-[11px] text-slate-400 font-sans">
+                    Horarios oficiales Parque Saval 2026
                   </span>
                 </div>
               </div>

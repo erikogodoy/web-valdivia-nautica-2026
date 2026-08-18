@@ -22,9 +22,9 @@ const config: Config = {
       },
       fontFamily: {
         sans: ["var(--font-inter)", "system-ui", "sans-serif"],
-        syne: ["var(--font-syne)", "sans-serif"],
+        syne: ["var(--font-archivo)", "var(--font-inter)", "system-ui", "sans-serif"],
+        archivo: ["var(--font-archivo)", "var(--font-inter)", "system-ui", "sans-serif"],
         cabin: ["var(--font-cabin)", "sans-serif"],
-        serif: ["var(--font-serif)", "Georgia", "serif"],
       },
       backdropBlur: {
         glass: "20px",
