@@ -3,10 +3,11 @@
 import React, { useState } from 'react';
 import Header from '@/components/ui/Header';
 import Hero from '@/components/ui/Hero';
-import NarrativeIntro from '@/components/ui/NarrativeIntro';
-import InterestHub from '@/components/ui/InterestHub';
-import TresDimensiones from '@/components/ui/TresDimensiones';
-import AudienceTabs from '@/components/ui/AudienceTabs';
+import ImpactManifesto from '@/components/ui/ImpactManifesto';
+import VisitorCompass from '@/components/ui/VisitorCompass';
+import WaterWorlds from '@/components/ui/WaterWorlds';
+import InteractiveVenueMap from '@/components/ui/InteractiveVenueMap';
+import EventTimeline from '@/components/ui/EventTimeline';
 import SponsorsSection from '@/components/ui/SponsorsSection';
 import OrganizersBar from '@/components/ui/OrganizersBar';
 import Footer from '@/components/ui/Footer';
@@ -37,34 +38,37 @@ export default function Home() {
 
   return (
     <>
-      {/* Header */}
+      {/* Dynamic Header */}
       <Header onOpenModal={handleOpenModal} />
 
-      {/* Main Narrative Flow */}
+      {/* Main Experience Flow */}
       <main className="flex-grow">
-        {/* 1. Hero Visual & Coordenadas */}
+        {/* 1. Hero Inmersivo Fluvial con Video, Coordenadas y Cuenta Regresiva */}
         <Hero onOpenModal={handleOpenModal} />
 
-        {/* 2. Presentación Narrativa en Azul Afiche #0025b5 */}
-        <NarrativeIntro />
+        {/* 2. Manifiesto Fluvial y Cifras de Impacto Dinámicas */}
+        <ImpactManifesto />
 
-        {/* 3. Hub de Descubrimiento Inmediato por Pasión (Pesca, SEM, Industria, Remo, Turismo, Oficios) */}
-        <InterestHub />
+        {/* 3. La Brújula del Visitante (Selector Interactivo por Perfil) */}
+        <VisitorCompass onOpenModal={handleOpenModal} />
 
-        {/* 4. Las Tres Dimensiones: Desarrollo, Territorio, Identidad */}
-        <TresDimensiones />
+        {/* 4. Mundos del Agua: Grilla Editorial Asimétrica con SEM 2026 Destacado */}
+        <WaterWorlds />
 
-        {/* 5. Guía por Perfil de Usuario */}
-        <AudienceTabs onOpenModal={handleOpenModal} />
+        {/* 5. Mapa Interactivo de la Sede: Parque Saval & Río Calle-Calle */}
+        <InteractiveVenueMap />
 
-        {/* 6. Niveles de Patrocinio */}
+        {/* 6. Cronograma / Bitácora Interactiva de Actividades por Días */}
+        <EventTimeline onOpenModal={handleOpenModal} />
+
+        {/* 7. Pabellón de Patrocinios B2B: Metales de Transición Energética */}
         <SponsorsSection onOpenModal={handleOpenModal} />
 
-        {/* 7. Marquesina de Instituciones Organizadoras y Patrocinadoras (Ubicada justo arriba del Footer) */}
+        {/* 8. Marquesina Institucional */}
         <OrganizersBar />
       </main>
 
-      {/* Footer */}
+      {/* Footer Editorial */}
       <Footer onOpenModal={handleOpenModal} />
 
       {/* Interactive Modal */}
