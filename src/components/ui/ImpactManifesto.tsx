@@ -122,7 +122,7 @@ export default function ImpactManifesto() {
             className="lg:col-span-5"
           >
             <p className="text-slate-300 text-base sm:text-lg leading-relaxed font-sans">
-              <strong className="text-white font-semibold">Valdivia Náutica 2026</strong> reúne a la industria naval, la electromovilidad marítima, el remo olímpico, los oficios tradicionales y la vida familiar en el Parque Saval.
+              <strong className="text-white font-semibold">Valdivia Náutica 2026</strong> es el gran encuentro del sur de Chile donde el río se transforma en el motor del futuro. Durante tres días en el Parque Saval, convergen la vanguardia de los astilleros navales, la revolución de la electromovilidad marítima (SEM), la pesca deportiva, el remo histórico y los oficios tradicionales; conectando a la industria, la ciencia, la gastronomía y la comunidad en una sola cuenca viva.
             </p>
           </motion.div>
         </div>
