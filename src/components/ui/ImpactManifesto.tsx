@@ -3,7 +3,18 @@
 import React from 'react';
 import Link from 'next/link';
 import { motion } from 'framer-motion';
-import { Waves, Building2, Flame, Sparkles, ArrowRight } from 'lucide-react';
+import { 
+  Waves, 
+  Building2, 
+  Flame, 
+  Zap, 
+  Fish, 
+  Sailboat, 
+  Ship, 
+  Users, 
+  Compass, 
+  Hammer 
+} from 'lucide-react';
 
 const STATS = [
   {
@@ -25,29 +36,59 @@ const STATS = [
   {
     icon: Waves,
     value: '7',
-    label: 'Mundos Conectados',
-    detail: 'El ecosistema completo del agua en el sur de Chile',
+    label: 'Mundos del Agua',
+    detail: 'El ecosistema fluvial y marítimo del sur',
     accent: 'text-white',
     border: 'border-white/30',
   },
 ];
 
-const MUNDOS_AFICHE = [
-  { name: 'Electromovilidad Marítima', href: '/sem', tag: 'SEM 2026' },
-  { name: 'Pesca y Acuicultura', href: '/expo-pesca', tag: 'Expo Pesca' },
-  { name: 'Deporte y Aventura', href: '/deporte-turismo', tag: 'Remo & Kayak' },
-  { name: 'Industria Naval y Servicios', href: '/industria-naval', tag: 'Astilleros & ASENAV' },
-  { name: 'Comunidad y Educación', href: '/valdivia', tag: 'UACh & Ciudad' },
-  { name: 'Turismo y Experiencias', href: '/valdivia', tag: 'Paseos Fluviales' },
-  { name: 'Ciencia, Patrimonio e Innovación', href: '/oficios', tag: 'Carpintería de Ribera' },
+const MUNDOS_7 = [
+  {
+    name: 'Electromovilidad Marítima',
+    href: '/sem',
+    icon: Zap,
+    color: 'text-poster-cyan',
+  },
+  {
+    name: 'Pesca y Acuicultura',
+    href: '/expo-pesca',
+    icon: Fish,
+    color: 'text-poster-gold',
+  },
+  {
+    name: 'Deporte y Aventura',
+    href: '/deporte-turismo',
+    icon: Sailboat,
+    color: 'text-poster-cyan',
+  },
+  {
+    name: 'Industria Naval y Servicios',
+    href: '/industria-naval',
+    icon: Ship,
+    color: 'text-white',
+  },
+  {
+    name: 'Comunidad y Educación',
+    href: '/valdivia',
+    icon: Users,
+    color: 'text-poster-cyan',
+  },
+  {
+    name: 'Turismo y Experiencias',
+    href: '/valdivia',
+    icon: Compass,
+    color: 'text-poster-gold',
+  },
+  {
+    name: 'Ciencia, Patrimonio e Innovación',
+    href: '/oficios',
+    icon: Hammer,
+    color: 'text-white',
+  },
 ];
 
 export default function ImpactManifesto() {
-  const scrollTo = (id: string) => {
-    const el = document.getElementById(id);
-    if (el) el.scrollIntoView({ behavior: 'smooth' });
-  };
-
   return (
     <section id="manifiesto" className="relative py-20 sm:py-28 bg-gradient-to-b from-poster-midnight via-[#001744] to-poster-midnight text-white overflow-hidden border-y border-white/10">
       {/* Subtle Background Glows */}
@@ -56,8 +97,8 @@ export default function ImpactManifesto() {
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         
-        {/* Editorial Top Headline */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-start mb-14">
+        {/* Headline & Narrative Statement (Without Yellow Quote) */}
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center mb-16">
           <motion.div 
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -78,21 +119,16 @@ export default function ImpactManifesto() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.15 }}
-            className="lg:col-span-5 flex flex-col justify-center pt-2"
+            className="lg:col-span-5"
           >
-            <p className="text-slate-300 text-base sm:text-lg leading-relaxed font-sans mb-5">
+            <p className="text-slate-300 text-base sm:text-lg leading-relaxed font-sans">
               <strong className="text-white font-semibold">Valdivia Náutica 2026</strong> reúne a la industria naval, la electromovilidad marítima, el remo olímpico, los oficios tradicionales y la vida familiar en el Parque Saval.
             </p>
-            <div className="p-4 rounded-xl bg-white/5 border border-white/10 backdrop-blur-sm">
-              <p className="text-xs sm:text-sm font-sans text-poster-gold leading-relaxed italic">
-                «Nuestra historia no se construyó dándole la espalda al río, sino navegando sus corrientes.»
-              </p>
-            </div>
           </motion.div>
         </div>
 
-        {/* 3 Main Metrics Cards (Clean 3-Column Grid) */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-5 mb-12">
+        {/* 3 Main Metrics Cards */}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-5 mb-20">
           {STATS.map((stat, i) => {
             const Icon = stat.icon;
             return (
@@ -124,52 +160,40 @@ export default function ImpactManifesto() {
           })}
         </div>
 
-        {/* Conceptual Display: Los 7 Mundos del Afiche Oficial */}
-        <motion.div
-          initial={{ opacity: 0, y: 25 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.55 }}
-          className="p-8 sm:p-10 rounded-3xl bg-gradient-to-r from-[#002277] via-[#051c55] to-[#002277] border border-poster-cyan/35 shadow-2xl relative overflow-hidden"
-        >
-          {/* Subtle river line ornament */}
-          <div className="absolute top-0 right-0 w-64 h-64 bg-poster-cyan/10 rounded-full blur-3xl pointer-events-none" />
-
-          <div className="flex flex-col lg:flex-row lg:items-center justify-between gap-6 mb-7 pb-6 border-b border-white/15">
-            <div>
-              <div className="text-xs font-archivo font-bold uppercase tracking-[0.2em] text-poster-gold mb-1">
-                Ecosistema Oficial · 7 Mundos en Parque Saval
-              </div>
-              <h3 className="text-2xl sm:text-3xl font-archivo font-extrabold text-white tracking-tight">
-                El universo que da vida a Valdivia Náutica
-              </h3>
-            </div>
-            <button
-              onClick={() => scrollTo('mundos')}
-              className="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-poster-cyan hover:text-white transition-colors shrink-0"
-            >
-              <span>Explorar cada mundo en detalle</span>
-              <ArrowRight className="w-4 h-4" />
-            </button>
+        {/* The 7 Official Worlds in a Clean Frameless Line with Icons on Top */}
+        <div className="pt-10 border-t border-white/10">
+          <div className="text-center mb-10">
+            <h3 className="text-xl sm:text-2xl font-archivo font-extrabold text-white uppercase tracking-wider">
+              Los 7 Mundos del Encuentro
+            </h3>
+            <p className="text-xs sm:text-sm text-slate-400 font-sans mt-1">
+              Los ejes que dan vida a Valdivia Náutica 2026 en Parque Saval
+            </p>
           </div>
 
-          {/* 7 Worlds Badge Flow based directly on the official poster */}
-          <div className="flex flex-wrap gap-2.5 sm:gap-3">
-            {MUNDOS_AFICHE.map((mundo, idx) => (
-              <Link
-                key={idx}
-                href={mundo.href}
-                className="group px-4 py-2.5 rounded-xl bg-white/10 hover:bg-poster-cyan hover:text-poster-midnight border border-white/15 hover:border-poster-cyan transition-all duration-200 flex items-center gap-2"
-              >
-                <span className="w-1.5 h-1.5 rounded-full bg-poster-gold group-hover:bg-poster-midnight transition-colors" />
-                <span className="text-xs sm:text-sm font-archivo font-bold tracking-wide uppercase">
-                  {mundo.name}
-                </span>
-              </Link>
-            ))}
-          </div>
+          <div className="grid grid-cols-2 sm:grid-cols-4 lg:grid-cols-7 gap-6 sm:gap-4 items-start">
+            {MUNDOS_7.map((mundo, idx) => {
+              const Icon = mundo.icon;
+              return (
+                <Link
+                  key={idx}
+                  href={mundo.href}
+                  className="group flex flex-col items-center text-center p-2 transition-transform duration-200 hover:-translate-y-1"
+                >
+                  {/* Clean Icon with Glow on Hover (No Heavy Box Frame) */}
+                  <div className="w-12 h-12 mb-3 flex items-center justify-center rounded-2xl bg-white/5 group-hover:bg-poster-cyan/15 transition-all duration-200">
+                    <Icon className={`w-6 h-6 ${mundo.color} group-hover:scale-110 transition-transform`} />
+                  </div>
 
-        </motion.div>
+                  {/* Clean Title Below */}
+                  <span className="text-xs sm:text-[13px] font-archivo font-bold uppercase tracking-wide text-slate-200 group-hover:text-poster-cyan transition-colors leading-snug">
+                    {mundo.name}
+                  </span>
+                </Link>
+              );
+            })}
+          </div>
+        </div>
 
       </div>
     </section>
