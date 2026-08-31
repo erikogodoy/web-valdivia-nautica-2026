@@ -186,8 +186,31 @@ export default function EventTimeline({ onOpenModal }: EventTimelineProps) {
   });
 
   return (
-    <section id="programa" className="py-20 bg-gradient-to-b from-poster-midnight via-[#00122e] to-poster-midnight text-white relative overflow-hidden border-t border-white/10">
+    <section id="programa" className="pt-0 pb-20 bg-gradient-to-b from-poster-midnight via-[#00122e] to-poster-midnight text-white relative overflow-hidden border-t border-white/10">
       
+      {/* TRUE FULL-WIDTH EDGE-TO-EDGE PHOTOGRAPHY 3: Regatas & Deportes en el Río Calle-Calle */}
+      <motion.div
+        initial={{ opacity: 0 }}
+        whileInView={{ opacity: 1 }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.8 }}
+        className="w-full h-[360px] sm:h-[460px] md:h-[540px] lg:h-[600px] relative overflow-hidden mb-16 border-b border-white/15"
+      >
+        <img
+          src="/images/valdivia-regata-remo.jpg"
+          alt="Regata de remo y deportes náuticos en el río Calle-Calle"
+          className="w-full h-full object-cover filter brightness-95"
+        />
+        <div className="absolute inset-0 bg-gradient-to-t from-poster-midnight via-transparent to-poster-midnight/40 pointer-events-none" />
+        <div className="absolute inset-0 bg-gradient-to-r from-poster-midnight/60 via-transparent to-poster-midnight/60 pointer-events-none" />
+
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-full flex items-end pb-8 relative z-10">
+          <span className="text-xs sm:text-sm font-archivo font-bold uppercase tracking-widest text-white/95 bg-black/60 backdrop-blur-md px-4 py-2 rounded-full border border-white/20 shadow-xl">
+            Regatas Históricas · Remo & Deportes Náuticos en Vivo
+          </span>
+        </div>
+      </motion.div>
+
       {/* Background Decor */}
       <div className="absolute top-1/2 left-10 w-96 h-96 bg-poster-gold/5 rounded-full blur-3xl pointer-events-none" />
 

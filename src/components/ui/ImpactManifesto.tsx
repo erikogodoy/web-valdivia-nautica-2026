@@ -92,12 +92,13 @@ export default function ImpactManifesto() {
   return (
     <section id="manifiesto" className="relative py-20 sm:py-28 bg-gradient-to-b from-poster-midnight via-[#001744] to-poster-midnight text-white overflow-hidden border-y border-white/10">
       {/* Subtle Background Glows */}
-      <div className="absolute top-1/2 left-0 -translate-y-1/2 w-96 h-96 bg-poster-cyan/10 rounded-full blur-3xl pointer-events-none" />
-      <div className="absolute top-1/2 right-0 -translate-y-1/2 w-96 h-96 bg-poster-gold/10 rounded-full blur-3xl pointer-events-none" />
+      <div className="absolute top-1/3 left-0 -translate-y-1/2 w-96 h-96 bg-poster-cyan/10 rounded-full blur-3xl pointer-events-none" />
+      <div className="absolute top-1/3 right-0 -translate-y-1/2 w-96 h-96 bg-poster-gold/10 rounded-full blur-3xl pointer-events-none" />
 
+      {/* 1. TOP CONTAINER: Headline + Paragraph + Metrics */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         
-        {/* Headline & Narrative Statement Stacked */}
+        {/* Headline & Narrative Statement */}
         <div className="max-w-5xl mb-16">
           <motion.h2 
             initial={{ opacity: 0, y: 20 }}
@@ -124,7 +125,7 @@ export default function ImpactManifesto() {
         </div>
 
         {/* 3 Main Metrics Cards */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-5 mb-20">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-5 mb-14">
           {STATS.map((stat, i) => {
             const Icon = stat.icon;
             return (
@@ -156,64 +157,91 @@ export default function ImpactManifesto() {
           })}
         </div>
 
-        {/* Full-Width Panoramic Photography Banner */}
-        <motion.div
-          initial={{ opacity: 0, scale: 0.98 }}
-          whileInView={{ opacity: 1, scale: 1 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
-          className="w-full h-64 sm:h-80 md:h-[400px] lg:h-[440px] rounded-3xl overflow-hidden relative mb-16 shadow-2xl border border-white/15 group"
-        >
-          <img
-            src="/images/valdivia-calle-calle-rio.jpg"
-            alt="Río Calle-Calle al amanecer con embarcaciones y remeros en Valdivia"
-            className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 filter brightness-95"
-          />
-          <div className="absolute inset-0 bg-gradient-to-t from-poster-midnight/80 via-transparent to-black/20 pointer-events-none" />
-          
-          <div className="absolute bottom-5 left-6 sm:bottom-6 sm:left-8 flex items-center gap-2">
-            <span className="text-[11px] sm:text-xs font-archivo font-bold uppercase tracking-widest text-white/90 bg-black/60 backdrop-blur-md px-3.5 py-1.5 rounded-full border border-white/15">
-              Río Calle-Calle · Valdivia, Chile
-            </span>
-          </div>
-        </motion.div>
+      </div>
 
-        {/* The 7 Official Worlds in a Clean Frameless Line with Icons on Top */}
-        <div>
-          <div className="text-center mb-10">
-            <h3 className="text-xl sm:text-2xl font-archivo font-extrabold text-white uppercase tracking-wider">
-              Los 7 Mundos del Encuentro
-            </h3>
-            <p className="text-xs sm:text-sm text-slate-400 font-sans mt-1">
-              Los ejes que dan vida a Valdivia Náutica 2026 en Parque Saval
-            </p>
-          </div>
+      {/* 2. TRUE FULL-WIDTH EDGE-TO-EDGE PHOTOGRAPHY 1: Río Calle-Calle (100vw Bleed) */}
+      <motion.div
+        initial={{ opacity: 0 }}
+        whileInView={{ opacity: 1 }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.8 }}
+        className="w-full h-[380px] sm:h-[480px] md:h-[580px] lg:h-[640px] relative overflow-hidden my-14 sm:my-20 border-y border-white/15"
+      >
+        <img
+          src="/images/valdivia-calle-calle-rio.jpg"
+          alt="Río Calle-Calle al amanecer en Valdivia"
+          className="w-full h-full object-cover filter brightness-95"
+        />
+        {/* Subtle cinematic gradient overlays */}
+        <div className="absolute inset-0 bg-gradient-to-t from-poster-midnight via-transparent to-poster-midnight/40 pointer-events-none" />
+        <div className="absolute inset-0 bg-gradient-to-r from-poster-midnight/60 via-transparent to-poster-midnight/60 pointer-events-none" />
 
-          <div className="grid grid-cols-2 sm:grid-cols-4 lg:grid-cols-7 gap-6 sm:gap-4 items-start">
-            {MUNDOS_7.map((mundo, idx) => {
-              const Icon = mundo.icon;
-              return (
-                <Link
-                  key={idx}
-                  href={mundo.href}
-                  className="group flex flex-col items-center text-center p-2 transition-transform duration-200 hover:-translate-y-1"
-                >
-                  {/* Clean Icon with Glow on Hover (No Heavy Box Frame) */}
-                  <div className="w-12 h-12 mb-3 flex items-center justify-center rounded-2xl bg-white/5 group-hover:bg-poster-cyan/15 transition-all duration-200">
-                    <Icon className={`w-6 h-6 ${mundo.color} group-hover:scale-110 transition-transform`} />
-                  </div>
+        {/* Clean cinematic corner badge */}
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-full flex items-end pb-8 relative z-10">
+          <span className="text-xs sm:text-sm font-archivo font-bold uppercase tracking-widest text-white/95 bg-black/60 backdrop-blur-md px-4 py-2 rounded-full border border-white/20 shadow-xl">
+            Río Calle-Calle · Sede Fluvial Oficial
+          </span>
+        </div>
+      </motion.div>
 
-                  {/* Clean Title Below */}
-                  <span className="text-xs sm:text-[13px] font-archivo font-bold uppercase tracking-wide text-slate-200 group-hover:text-poster-cyan transition-colors leading-snug">
-                    {mundo.name}
-                  </span>
-                </Link>
-              );
-            })}
-          </div>
+      {/* 3. MIDDLE CONTAINER: The 7 Official Worlds */}
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+        <div className="text-center mb-10">
+          <h3 className="text-2xl sm:text-3xl font-archivo font-extrabold text-white uppercase tracking-wider">
+            Los 7 Mundos del Encuentro
+          </h3>
+          <p className="text-xs sm:text-sm text-slate-400 font-sans mt-1">
+            Los ejes que dan vida a Valdivia Náutica 2026 en Parque Saval
+          </p>
         </div>
 
+        <div className="grid grid-cols-2 sm:grid-cols-4 lg:grid-cols-7 gap-6 sm:gap-4 items-start mb-6">
+          {MUNDOS_7.map((mundo, idx) => {
+            const Icon = mundo.icon;
+            return (
+              <Link
+                key={idx}
+                href={mundo.href}
+                className="group flex flex-col items-center text-center p-2 transition-transform duration-200 hover:-translate-y-1"
+              >
+                <div className="w-12 h-12 mb-3 flex items-center justify-center rounded-2xl bg-white/5 group-hover:bg-poster-cyan/15 transition-all duration-200">
+                  <Icon className={`w-6 h-6 ${mundo.color} group-hover:scale-110 transition-transform`} />
+                </div>
+
+                <span className="text-xs sm:text-[13px] font-archivo font-bold uppercase tracking-wide text-slate-200 group-hover:text-poster-cyan transition-colors leading-snug">
+                  {mundo.name}
+                </span>
+              </Link>
+            );
+          })}
+        </div>
       </div>
+
+      {/* 4. TRUE FULL-WIDTH EDGE-TO-EDGE PHOTOGRAPHY 2: Astilleros e Innovación SEM (100vw Bleed) */}
+      <motion.div
+        initial={{ opacity: 0 }}
+        whileInView={{ opacity: 1 }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.8 }}
+        className="w-full h-[380px] sm:h-[480px] md:h-[580px] lg:h-[640px] relative overflow-hidden mt-16 border-t border-white/15"
+      >
+        <img
+          src="/images/valdivia-astillero-catamaran.jpg"
+          alt="Astillero y catamarán eléctrico solar en Valdivia"
+          className="w-full h-full object-cover filter brightness-95"
+        />
+        {/* Subtle cinematic gradient overlays */}
+        <div className="absolute inset-0 bg-gradient-to-t from-poster-midnight via-transparent to-poster-midnight/50 pointer-events-none" />
+        <div className="absolute inset-0 bg-gradient-to-r from-poster-midnight/60 via-transparent to-poster-midnight/60 pointer-events-none" />
+
+        {/* Clean cinematic corner badge */}
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-full flex items-end pb-8 relative z-10">
+          <span className="text-xs sm:text-sm font-archivo font-bold uppercase tracking-widest text-white/95 bg-black/60 backdrop-blur-md px-4 py-2 rounded-full border border-white/20 shadow-xl">
+            Vanguardia Naval & Electromovilidad Marítima (SEM)
+          </span>
+        </div>
+      </motion.div>
+
     </section>
   );
 }
