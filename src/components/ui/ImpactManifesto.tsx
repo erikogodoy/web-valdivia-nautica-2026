@@ -156,8 +156,30 @@ export default function ImpactManifesto() {
           })}
         </div>
 
+        {/* Full-Width Panoramic Photography Banner */}
+        <motion.div
+          initial={{ opacity: 0, scale: 0.98 }}
+          whileInView={{ opacity: 1, scale: 1 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
+          className="w-full h-64 sm:h-80 md:h-[400px] lg:h-[440px] rounded-3xl overflow-hidden relative mb-16 shadow-2xl border border-white/15 group"
+        >
+          <img
+            src="/images/valdivia-calle-calle-rio.jpg"
+            alt="Río Calle-Calle al amanecer con embarcaciones y remeros en Valdivia"
+            className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 filter brightness-95"
+          />
+          <div className="absolute inset-0 bg-gradient-to-t from-poster-midnight/80 via-transparent to-black/20 pointer-events-none" />
+          
+          <div className="absolute bottom-5 left-6 sm:bottom-6 sm:left-8 flex items-center gap-2">
+            <span className="text-[11px] sm:text-xs font-archivo font-bold uppercase tracking-widest text-white/90 bg-black/60 backdrop-blur-md px-3.5 py-1.5 rounded-full border border-white/15">
+              Río Calle-Calle · Valdivia, Chile
+            </span>
+          </div>
+        </motion.div>
+
         {/* The 7 Official Worlds in a Clean Frameless Line with Icons on Top */}
-        <div className="pt-10 border-t border-white/10">
+        <div>
           <div className="text-center mb-10">
             <h3 className="text-xl sm:text-2xl font-archivo font-extrabold text-white uppercase tracking-wider">
               Los 7 Mundos del Encuentro
