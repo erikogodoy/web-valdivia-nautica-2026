@@ -46,7 +46,7 @@ export default function Home() {
         <Hero onOpenModal={handleOpenModal} />
 
         {/* 2. Manifiesto Fluvial, Cifras de Impacto Dinámicas y Slider Interactivo de los 7 Mundos */}
-        <ImpactManifesto />
+        <ImpactManifesto onOpenModal={handleOpenModal} />
 
         {/* 3. La Brújula del Visitante (Selector Interactivo por Perfil) */}
         <VisitorCompass onOpenModal={handleOpenModal} />
