@@ -15,8 +15,7 @@ import {
   Hammer,
   ChevronLeft,
   ChevronRight,
-  Sparkles,
-  Ticket
+  ArrowRight
 } from 'lucide-react';
 
 interface ImpactManifestoProps {
@@ -53,98 +52,70 @@ const STATS = [
 const WORLDS = [
   {
     id: 'sem',
-    number: '01',
     name: 'Electromovilidad Marítima',
-    tag: 'SEM 2026',
     modalType: 'sem',
-    location: 'Pabellón Central & Auditorio',
     title: 'La transición energética fluvial nace en los ríos del sur',
     desc: 'Salón de Electromovilidad Marítima co-organizado con la Universidad Austral de Chile (UACh) y THEMS. Conferencias con expertos internacionales, exhibición del catamarán solar en vivo en el Calle-Calle y rondas técnicas de descarbonización de flotas.',
-    tags: ['Catamarán Solar UACh', 'Hidrógeno Verde', 'Propulsión Eléctrica Marina', 'Descarbonización'],
     ctaText: 'Acreditación SEM 2026',
     icon: Zap,
     accent: 'poster-cyan',
   },
   {
     id: 'pesca',
-    number: '02',
     name: 'Pesca y Acuicultura',
-    tag: 'EXPO PESCA',
     modalType: 'general',
-    location: 'Explanada Sur & Ribera Fluvial',
     title: 'Pesca deportiva sustentable y saberes de la cuenca',
     desc: 'El gran punto de encuentro para pescadores aficionados y profesionales. Campeonatos de orilla y embarcada en la confluencia de los ríos Cruces y Calle-Calle, equipamiento de marcas líderes, señuelos de última generación y clínicas de atado de moscas.',
-    tags: ['Campeonato Embarcada', 'Torneo de Orilla', 'Equipamiento & Marcas', 'Pesca con Devolución'],
     ctaText: 'Información de Campeonatos',
     icon: Fish,
     accent: 'poster-gold',
   },
   {
     id: 'deporte',
-    number: '03',
     name: 'Deporte y Aventura',
-    tag: 'REMO & DEPORTE',
     modalType: 'general',
-    location: 'Muelle Fluvial & Cancha Calle-Calle',
     title: 'La capital del remo chileno en plena competencia',
     desc: 'Espectáculo náutico de primer nivel con los históricos clubes centenarios valdivianos (Phoenix, Arturo Prat, Centenario) y remeros olímpicos. Incluye bautizos náuticos abiertos de kayak para jóvenes y paseos fluviales guiados.',
-    tags: ['Regatas Oficiales Calle-Calle', 'Bautizos de Kayak Gratuitos', 'Clubes Centenarios', 'Clínicas Náuticas'],
-    ctaText: 'Ver Actividades en Río',
+    ctaText: 'Ver Actividades Deportivas',
     icon: Sailboat,
     accent: 'poster-cyan',
   },
   {
     id: 'naval',
-    number: '04',
     name: 'Industria Naval y Servicios',
-    tag: 'ASTILLEROS & B2B',
     modalType: 'expositor',
-    location: 'Hangar Principal Parque Saval',
     title: 'Vanguardia en construcción naval y proveeduría técnica',
     desc: 'Exhibición de la potente industria de astilleros encabezada por ASENAV, armadores comerciales, motores marinos de alta eficiencia, soluciones de telemetría y ruedas de negocios nacionales e internacionales.',
-    tags: ['Astilleros ASENAV', 'Rondas de Negocios B2B', 'Motores & Sistemas Navales', 'Proveedores Marítimos'],
     ctaText: 'Solicitar Stand B2B',
     icon: Ship,
     accent: 'white',
   },
   {
     id: 'comunidad',
-    number: '05',
     name: 'Comunidad y Educación',
-    tag: 'COMUNIDAD',
     modalType: 'general',
-    location: 'Plaza Central & Espacio Ciudadano',
     title: 'Integración ciudadana, escuelas y futuro fluvial',
     desc: 'Espacio de divulgación y encuentro donde universidades, centros de formación técnica, colegios de la región y organizaciones ciudadanas dialogan sobre la relación histórica y futura de Valdivia con sus ríos y humedales.',
-    tags: ['Vinculación Escolar', 'Proyectos Científicos UACh', 'Educación Ambiental', 'Futuro Sostenible'],
     ctaText: 'Participar con Escuela / Universidad',
     icon: Users,
     accent: 'poster-cyan',
   },
   {
     id: 'turismo',
-    number: '06',
     name: 'Turismo y Experiencias',
-    tag: 'TURISMO FLUVIAL',
     modalType: 'general',
-    location: 'Patio Gastronómico & Muelle Fluvial',
     title: 'Sabores ribereños, cerveza artesanal y navegación',
     desc: 'La experiencia sensorial de Valdivia: paseos en embarcaciones turísticas por el Santuario de la Naturaleza Carlos Anwandter, patio de gastronomía marina y fluvial en vivo, y degustación de cervecerías artesanales de Los Ríos.',
-    tags: ['Paseos al Santuario', 'Cocina en Vivo', 'Cerveza Artesanal Valdiviana', 'Música al Atardecer'],
     ctaText: 'Descubrir Experiencias',
     icon: Compass,
     accent: 'poster-gold',
   },
   {
     id: 'patrimonio',
-    number: '07',
     name: 'Ciencia, Patrimonio e Innovación',
-    tag: 'PATRIMONIO VIVO',
     modalType: 'general',
-    location: 'El Taller Vivo / Galpón de Tradiciones',
     title: 'Carpintería de ribera y memoria viva en madera nativa',
     desc: 'Demostraciones magistrales en directo donde maestros carpinteros de ribera construyen y calafatean embarcaciones tradicionales de madera. Un tributo al patrimonio vivo que define la identidad fluvial del sur austral.',
-    tags: ['Construcción en Vivo', 'Maestros de Ribera', 'Madera Nativa', 'Oficios Ancestrales'],
     ctaText: 'Ver Talleres de Oficios',
     icon: Hammer,
     accent: 'poster-gold',
@@ -314,7 +285,7 @@ export default function ImpactManifesto({ onOpenModal }: ImpactManifestoProps) {
                 key={mundo.id}
                 onClick={() => scrollToCard(idx)}
                 className={`group flex flex-col items-center text-center p-2.5 rounded-2xl transition-all duration-200 cursor-pointer ${
-                  isSelected ? 'scale-105' : 'opacity-70 hover:opacity-100'
+                  isSelected ? 'scale-105' : 'opacity-65 hover:opacity-100'
                 }`}
               >
                 {/* Clean Icon */}
@@ -341,77 +312,52 @@ export default function ImpactManifesto({ onOpenModal }: ImpactManifestoProps) {
           })}
         </div>
 
-        {/* HORIZONTAL MULTI-CARD SLIDER (7 LÁMINAS LADO A LADO) */}
+        {/* HORIZONTAL MULTI-CARD SLIDER (7 LÁMINAS: SOLO TÍTULO, DESCRIPCIÓN Y CTA) */}
         <div 
           ref={sliderRef}
-          className="flex gap-6 overflow-x-auto snap-x snap-mandatory scroll-smooth pb-8 pt-2 no-scrollbar"
+          className="flex gap-6 overflow-x-auto snap-x snap-mandatory scroll-smooth pb-8 pt-2 no-scrollbar items-stretch"
           style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}
         >
           {WORLDS.map((mundo, idx) => {
-            const Icon = mundo.icon;
             const isSelected = activeMundoIndex === idx;
             return (
               <div
                 key={mundo.id}
-                onClick={() => setActiveMundoIndex(idx)}
-                className={`w-[85vw] sm:w-[540px] md:w-[620px] lg:w-[680px] shrink-0 snap-center p-8 sm:p-10 rounded-3xl transition-all duration-300 flex flex-col justify-between border cursor-pointer ${
+                onClick={() => scrollToCard(idx)}
+                className={`w-[85vw] sm:w-[500px] md:w-[580px] lg:w-[620px] shrink-0 snap-center p-8 sm:p-10 rounded-3xl transition-all duration-300 flex flex-col justify-between border cursor-pointer ${
                   isSelected
-                    ? 'bg-gradient-to-br from-[#06264c] via-[#051c38] to-poster-dark border-poster-cyan/60 shadow-2xl shadow-poster-cyan/15 ring-1 ring-poster-cyan/30'
-                    : 'bg-poster-dark/60 border-white/10 hover:border-white/30 hover:bg-poster-dark/80 opacity-85'
+                    ? 'opacity-100 scale-100 bg-gradient-to-br from-[#06264c] via-[#051c38] to-poster-dark border-poster-cyan/60 shadow-2xl shadow-poster-cyan/20 ring-1 ring-poster-cyan/40 z-10'
+                    : 'opacity-30 hover:opacity-60 scale-[0.96] bg-poster-dark/30 border-white/5'
                 }`}
               >
                 <div>
-                  {/* Top Bar of the Slide */}
-                  <div className="flex items-center justify-between gap-4 mb-6">
-                    <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-poster-cyan/20 border border-poster-cyan/50 text-poster-cyan text-xs font-bold uppercase tracking-wider">
-                      <Icon className="w-3.5 h-3.5 text-poster-gold" />
-                      <span>Mundo {mundo.number} · {mundo.tag}</span>
-                    </div>
-
-                    <span className="text-xs font-sans text-slate-300 flex items-center gap-1.5">
-                      <Sparkles className="w-3.5 h-3.5 text-poster-gold" />
-                      {mundo.location}
-                    </span>
-                  </div>
-
-                  {/* Title & Description */}
-                  <h4 className="text-xl sm:text-2xl md:text-3xl font-archivo font-extrabold text-white mb-3.5 leading-snug">
+                  {/* Clean Big Title */}
+                  <h4 className="text-xl sm:text-2xl md:text-3xl font-archivo font-extrabold text-white mb-4 leading-snug">
                     {mundo.title}
                   </h4>
 
-                  <p className="text-slate-300 text-xs sm:text-sm md:text-base leading-relaxed font-sans mb-6">
+                  {/* Clean Narrative Description */}
+                  <p className="text-slate-300 text-sm sm:text-base leading-relaxed font-sans mb-8">
                     {mundo.desc}
                   </p>
-
-                  {/* Tags */}
-                  <div className="flex flex-wrap gap-2 mb-6">
-                    {mundo.tags.map((tag, tIdx) => (
-                      <span
-                        key={tIdx}
-                        className="text-xs px-2.5 py-1 rounded-lg bg-white/5 border border-white/10 text-slate-300 font-sans"
-                      >
-                        {tag}
-                      </span>
-                    ))}
-                  </div>
                 </div>
 
-                {/* Card Action Button */}
-                <div className="pt-5 border-t border-white/10 flex items-center justify-between">
-                  <span className="text-xs text-slate-400 font-sans">
-                    Encuentro oficial en Parque Saval
-                  </span>
-                  
+                {/* Direct Clean CTA */}
+                <div>
                   {onOpenModal && (
                     <button
                       onClick={(e) => {
                         e.stopPropagation();
                         onOpenModal(mundo.modalType);
                       }}
-                      className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-poster-cyan text-poster-midnight text-xs font-bold uppercase tracking-wider hover:bg-white transition-all shadow-md shadow-poster-cyan/20 hover:scale-[1.02]"
+                      className={`inline-flex items-center gap-2 px-6 py-3 rounded-xl text-xs font-bold uppercase tracking-wider transition-all ${
+                        isSelected 
+                          ? 'bg-poster-cyan text-poster-midnight hover:bg-white shadow-lg shadow-poster-cyan/20 hover:scale-[1.02]'
+                          : 'bg-white/10 text-white hover:bg-white/20'
+                      }`}
                     >
-                      <Ticket className="w-3.5 h-3.5" />
                       <span>{mundo.ctaText}</span>
+                      <ArrowRight className="w-3.5 h-3.5" />
                     </button>
                   )}
                 </div>
