@@ -5,7 +5,6 @@ import Header from '@/components/ui/Header';
 import Hero from '@/components/ui/Hero';
 import ImpactManifesto from '@/components/ui/ImpactManifesto';
 import VisitorCompass from '@/components/ui/VisitorCompass';
-import WaterWorlds from '@/components/ui/WaterWorlds';
 import InteractiveVenueMap from '@/components/ui/InteractiveVenueMap';
 import EventTimeline from '@/components/ui/EventTimeline';
 import SponsorsSection from '@/components/ui/SponsorsSection';
@@ -46,25 +45,22 @@ export default function Home() {
         {/* 1. Hero Inmersivo Fluvial con Video, Coordenadas y Cuenta Regresiva */}
         <Hero onOpenModal={handleOpenModal} />
 
-        {/* 2. Manifiesto Fluvial y Cifras de Impacto Dinámicas */}
+        {/* 2. Manifiesto Fluvial, Cifras de Impacto Dinámicas y Slider Interactivo de los 7 Mundos */}
         <ImpactManifesto />
 
         {/* 3. La Brújula del Visitante (Selector Interactivo por Perfil) */}
         <VisitorCompass onOpenModal={handleOpenModal} />
 
-        {/* 4. Mundos del Agua: Grilla Editorial Asimétrica con SEM 2026 Destacado */}
-        <WaterWorlds />
-
-        {/* 5. Mapa Interactivo de la Sede: Parque Saval & Río Calle-Calle */}
+        {/* 4. Mapa Interactivo de la Sede: Parque Saval & Río Calle-Calle */}
         <InteractiveVenueMap />
 
-        {/* 6. Cronograma / Bitácora Interactiva de Actividades por Días */}
+        {/* 5. Cronograma / Bitácora Interactiva de Actividades por Días con Foto de Regata */}
         <EventTimeline onOpenModal={handleOpenModal} />
 
-        {/* 7. Pabellón de Patrocinios B2B: Metales de Transición Energética */}
+        {/* 6. Pabellón de Patrocinios B2B: Metales de Transición Energética */}
         <SponsorsSection onOpenModal={handleOpenModal} />
 
-        {/* 8. Marquesina Institucional */}
+        {/* 7. Marquesina Institucional */}
         <OrganizersBar />
       </main>
 
