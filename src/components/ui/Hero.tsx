@@ -63,13 +63,13 @@ export default function Hero({ onOpenModal }: HeroProps) {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center flex flex-col items-center justify-center">
         
         {/* Prominent Date & Venue */}
-        <div className="flex flex-col items-center justify-center mb-8 max-w-xl mx-auto">
-          <span className="text-lg sm:text-xl md:text-2xl font-archivo font-bold uppercase tracking-[0.25em] text-white drop-shadow-md">
+        <div className="flex flex-col items-center justify-center mb-8 max-w-2xl mx-auto">
+          <span className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-archivo font-extrabold uppercase tracking-[0.18em] sm:tracking-[0.22em] text-white drop-shadow-[0_4px_16px_rgba(0,0,0,0.8)]">
             4 · 5 · 6 DICIEMBRE 2026
           </span>
 
-          <div className="inline-flex items-center gap-1.5 text-xs sm:text-sm font-sans font-medium text-slate-300 tracking-wide mt-2">
-            <MapPin className="w-4 h-4 text-poster-gold" />
+          <div className="inline-flex items-center gap-2 text-sm sm:text-base font-sans font-medium text-slate-200 tracking-wide mt-2.5 drop-shadow">
+            <MapPin className="w-4 h-4 sm:w-5 sm:h-5 text-poster-gold shrink-0" />
             <span>Centro de Ferias Parque Saval · Valdivia, Chile</span>
           </div>
         </div>
