@@ -1,7 +1,7 @@
 'use client';
 
 import React, { useState, useEffect } from 'react';
-import { Anchor, Compass, MapPin, ArrowDown, Sparkles } from 'lucide-react';
+import { Anchor, Compass, MapPin, ArrowDown } from 'lucide-react';
 
 interface HeroProps {
   onOpenModal: (type?: string) => void;
@@ -89,34 +89,33 @@ export default function Hero({ onOpenModal }: HeroProps) {
           El punto de encuentro donde la <span className="text-white font-medium">industria naval</span>, la <span className="text-poster-cyan font-medium">electromovilidad</span>, el <span className="text-poster-gold font-medium">deporte fluvial</span> y la <span className="text-white font-medium">comunidad</span> transforman el sur de Chile.
         </p>
 
-        {/* Action CTAs (Clean 2-Button Action Bar) */}
-        <div className="flex flex-wrap items-center justify-center gap-3.5 mb-12 w-full max-w-md">
+        {/* Action CTAs (Side-by-side Action Bar) */}
+        <div className="flex flex-row items-center justify-center gap-3 sm:gap-4 mb-12 w-full max-w-lg">
           <button
             onClick={() => onOpenModal('expositor')}
-            className="px-8 py-3.5 text-xs font-bold uppercase tracking-wider text-poster-midnight bg-poster-gold rounded-xl shadow-xl shadow-poster-gold/25 hover:bg-poster-goldHover hover:scale-[1.03] transition-all flex items-center justify-center gap-2"
+            className="px-5 sm:px-8 py-3.5 text-xs font-bold uppercase tracking-wider text-poster-midnight bg-poster-gold rounded-xl shadow-xl shadow-poster-gold/25 hover:bg-poster-goldHover hover:scale-[1.03] transition-all flex items-center justify-center gap-2 whitespace-nowrap"
           >
             <Anchor className="w-4 h-4" />
             Quiero Exponer
           </button>
 
           <button
-            onClick={() => scrollTo('brujula')}
-            className="px-8 py-3.5 text-xs font-bold uppercase tracking-wider text-white bg-white/10 hover:bg-white/20 border border-white/20 rounded-xl backdrop-blur-md hover:scale-[1.03] transition-all flex items-center justify-center gap-2"
+            onClick={() => scrollTo('manifiesto')}
+            className="px-5 sm:px-8 py-3.5 text-xs font-bold uppercase tracking-wider text-white bg-white/10 hover:bg-white/20 border border-white/20 rounded-xl backdrop-blur-md hover:scale-[1.03] transition-all flex items-center justify-center gap-2 whitespace-nowrap"
           >
             <Compass className="w-4 h-4 text-poster-cyan" />
-            Personalizar mi Visita
+            Conoce el Evento
           </button>
         </div>
 
         {/* Live Tech Countdown Box */}
         <div className="inline-flex flex-col items-center bg-poster-dark/80 backdrop-blur-xl border border-white/10 rounded-2xl px-6 py-4 shadow-2xl">
-          <div className="flex items-center gap-1.5 text-[10px] uppercase tracking-widest text-poster-cyan mb-2.5 font-bold">
-            <Sparkles className="w-3.5 h-3.5" />
-            <span>Cuenta Regresiva para la Gran Apertura</span>
+          <div className="text-[11px] uppercase tracking-[0.25em] text-slate-300 mb-2 font-bold">
+            QUEDAN
           </div>
           <div className="grid grid-cols-4 gap-3 sm:gap-6 text-center">
             <div className="px-2 sm:px-3">
-              <div className="font-archivo text-2xl sm:text-3xl font-bold text-white tracking-tight">{timeLeft.days}</div>
+              <div className="font-archivo text-2xl sm:text-3xl font-bold text-poster-gold tracking-tight">{timeLeft.days}</div>
               <div className="text-[10px] uppercase tracking-widest text-slate-400">Días</div>
             </div>
             <div className="px-2 sm:px-3 border-l border-white/10">
@@ -128,7 +127,7 @@ export default function Hero({ onOpenModal }: HeroProps) {
               <div className="text-[10px] uppercase tracking-widest text-slate-400">Min</div>
             </div>
             <div className="px-2 sm:px-3 border-l border-white/10">
-              <div className="font-archivo text-2xl sm:text-3xl font-bold text-poster-gold tracking-tight">{String(timeLeft.seconds).padStart(2, '0')}</div>
+              <div className="font-archivo text-2xl sm:text-3xl font-bold text-white tracking-tight">{String(timeLeft.seconds).padStart(2, '0')}</div>
               <div className="text-[10px] uppercase tracking-widest text-slate-400">Seg</div>
             </div>
           </div>
