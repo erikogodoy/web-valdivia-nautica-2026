@@ -147,7 +147,7 @@ export default function ImpactManifesto({ onOpenModal }: ImpactManifestoProps) {
   };
 
   return (
-    <section id="manifiesto" className="relative py-20 sm:py-28 bg-gradient-to-b from-poster-midnight via-[#001744] to-poster-midnight text-white overflow-hidden border-y border-white/10">
+    <section id="manifiesto" className="relative pt-10 sm:pt-16 pb-20 sm:pb-28 bg-gradient-to-b from-poster-midnight via-[#001744] to-poster-midnight text-white overflow-hidden border-b border-white/10">
       {/* Subtle Background Glows */}
       <div className="absolute top-1/4 left-0 -translate-y-1/2 w-96 h-96 bg-poster-cyan/10 rounded-full blur-3xl pointer-events-none" />
       <div className="absolute top-1/4 right-0 -translate-y-1/2 w-96 h-96 bg-poster-gold/10 rounded-full blur-3xl pointer-events-none" />

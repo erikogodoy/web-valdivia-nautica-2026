@@ -58,6 +58,8 @@ export default function Hero({ onOpenModal }: HeroProps) {
       {/* Atmospheric Overlays */}
       <div className="absolute inset-0 bg-gradient-to-b from-poster-midnight/90 via-poster-midnight/55 to-poster-midnight" />
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,transparent_0%,rgba(7,20,38,0.7)_100%)]" />
+      {/* Seamless infinite landing fade into section 2 */}
+      <div className="absolute bottom-0 left-0 right-0 h-44 bg-gradient-to-t from-poster-midnight via-poster-midnight/80 to-transparent pointer-events-none" />
 
       {/* Main Content */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center flex flex-col items-center justify-center">
