@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useState, useRef, useEffect } from 'react';
+import React, { useState, useRef } from 'react';
 import { motion, useScroll, useTransform, AnimatePresence } from 'framer-motion';
 import { 
   Waves, 
@@ -124,7 +124,6 @@ const WORLDS = [
 
 export default function ImpactManifesto({ onOpenModal }: ImpactManifestoProps) {
   const [activeMundoIndex, setActiveMundoIndex] = useState(0);
-  const [isPaused, setIsPaused] = useState(false);
   const parallaxRef = useRef<HTMLDivElement>(null);
 
   const { scrollYProgress } = useScroll({
@@ -132,14 +131,6 @@ export default function ImpactManifesto({ onOpenModal }: ImpactManifestoProps) {
     offset: ["start end", "end start"]
   });
   const parallaxY = useTransform(scrollYProgress, [0, 1], ["-16%", "16%"]);
-
-  useEffect(() => {
-    if (isPaused) return;
-    const timer = setInterval(() => {
-      setActiveMundoIndex((prev) => (prev === WORLDS.length - 1 ? 0 : prev + 1));
-    }, 5500);
-    return () => clearInterval(timer);
-  }, [isPaused]);
 
   const handlePrev = () => {
     setActiveMundoIndex((prev) => (prev === 0 ? WORLDS.length - 1 : prev - 1));
@@ -288,12 +279,8 @@ export default function ImpactManifesto({ onOpenModal }: ImpactManifestoProps) {
           })}
         </div>
 
-        {/* FULL-WIDTH SLIDER WITH SIDE ARROWS & AUTOPLAY */}
-        <div 
-          onMouseEnter={() => setIsPaused(true)}
-          onMouseLeave={() => setIsPaused(false)}
-          className="relative w-full"
-        >
+        {/* FULL-WIDTH SLIDER WITH SIDE ARROWS (MANUAL NAVIGATION) */}
+        <div className="relative w-full">
           {/* Left Control Arrow */}
           <button
             onClick={handlePrev}
