@@ -125,12 +125,19 @@ const WORLDS = [
 export default function ImpactManifesto({ onOpenModal }: ImpactManifestoProps) {
   const [activeMundoIndex, setActiveMundoIndex] = useState(0);
   const parallaxRef = useRef<HTMLDivElement>(null);
+  const parallaxRef2 = useRef<HTMLDivElement>(null);
 
   const { scrollYProgress } = useScroll({
     target: parallaxRef,
     offset: ["start end", "end start"]
   });
   const parallaxY = useTransform(scrollYProgress, [0, 1], ["-16%", "16%"]);
+
+  const { scrollYProgress: scrollYProgress2 } = useScroll({
+    target: parallaxRef2,
+    offset: ["start end", "end start"]
+  });
+  const parallaxY2 = useTransform(scrollYProgress2, [0, 1], ["-16%", "16%"]);
 
   const handlePrev = () => {
     setActiveMundoIndex((prev) => (prev === 0 ? WORLDS.length - 1 : prev - 1));
@@ -361,22 +368,24 @@ export default function ImpactManifesto({ onOpenModal }: ImpactManifestoProps) {
 
       </div>
 
-      {/* 4. TRUE FULL-WIDTH EDGE-TO-EDGE PHOTOGRAPHY 2: Astilleros e Innovación SEM */}
-      <motion.div
-        initial={{ opacity: 0 }}
-        whileInView={{ opacity: 1 }}
-        viewport={{ once: true }}
-        transition={{ duration: 0.8 }}
+      {/* 4. TRUE FULL-WIDTH EDGE-TO-EDGE PHOTOGRAPHY 2: Astilleros e Innovación SEM (100vw Bleed with Parallax) */}
+      <div
+        ref={parallaxRef2}
         className="w-full h-[380px] sm:h-[480px] md:h-[580px] lg:h-[640px] relative overflow-hidden mt-16 border-t border-white/15"
       >
-        <img
-          src="/images/valdivia-astillero-catamaran.jpg"
-          alt="Astillero y catamarán eléctrico solar en Valdivia"
-          className="w-full h-full object-cover filter brightness-95"
-        />
+        <motion.div
+          style={{ y: parallaxY2 }}
+          className="absolute inset-0 -top-[20%] -bottom-[20%] h-[140%] w-full will-change-transform"
+        >
+          <img
+            src="/images/valdivia-astillero-catamaran.jpg"
+            alt="Astillero y catamarán eléctrico solar en Valdivia"
+            className="w-full h-full object-cover filter brightness-95 scale-105"
+          />
+        </motion.div>
         <div className="absolute inset-0 bg-gradient-to-t from-poster-midnight via-transparent to-poster-midnight/50 pointer-events-none" />
         <div className="absolute inset-0 bg-gradient-to-r from-poster-midnight/60 via-transparent to-poster-midnight/60 pointer-events-none" />
-      </motion.div>
+      </div>
 
     </section>
   );
