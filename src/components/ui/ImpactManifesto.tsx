@@ -1,7 +1,7 @@
 'use client';
 
-import React, { useState, useRef } from 'react';
-import { motion, useScroll, useTransform } from 'framer-motion';
+import React, { useState, useRef, useEffect } from 'react';
+import { motion, useScroll, useTransform, AnimatePresence } from 'framer-motion';
 import { 
   Waves, 
   Building2, 
@@ -124,7 +124,7 @@ const WORLDS = [
 
 export default function ImpactManifesto({ onOpenModal }: ImpactManifestoProps) {
   const [activeMundoIndex, setActiveMundoIndex] = useState(0);
-  const sliderRef = useRef<HTMLDivElement>(null);
+  const [isPaused, setIsPaused] = useState(false);
   const parallaxRef = useRef<HTMLDivElement>(null);
 
   const { scrollYProgress } = useScroll({
@@ -133,24 +133,20 @@ export default function ImpactManifesto({ onOpenModal }: ImpactManifestoProps) {
   });
   const parallaxY = useTransform(scrollYProgress, [0, 1], ["-16%", "16%"]);
 
-  const scrollToCard = (index: number) => {
-    setActiveMundoIndex(index);
-    if (sliderRef.current) {
-      const card = sliderRef.current.children[index] as HTMLElement;
-      if (card) {
-        card.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
-      }
-    }
-  };
+  useEffect(() => {
+    if (isPaused) return;
+    const timer = setInterval(() => {
+      setActiveMundoIndex((prev) => (prev === WORLDS.length - 1 ? 0 : prev + 1));
+    }, 5500);
+    return () => clearInterval(timer);
+  }, [isPaused]);
 
   const handlePrev = () => {
-    const nextIdx = activeMundoIndex === 0 ? WORLDS.length - 1 : activeMundoIndex - 1;
-    scrollToCard(nextIdx);
+    setActiveMundoIndex((prev) => (prev === 0 ? WORLDS.length - 1 : prev - 1));
   };
 
   const handleNext = () => {
-    const nextIdx = activeMundoIndex === WORLDS.length - 1 ? 0 : activeMundoIndex + 1;
-    scrollToCard(nextIdx);
+    setActiveMundoIndex((prev) => (prev === WORLDS.length - 1 ? 0 : prev + 1));
   };
 
   return (
@@ -240,68 +236,39 @@ export default function ImpactManifesto({ onOpenModal }: ImpactManifestoProps) {
         </motion.div>
         <div className="absolute inset-0 bg-gradient-to-t from-poster-midnight via-transparent to-poster-midnight/40 pointer-events-none" />
         <div className="absolute inset-0 bg-gradient-to-r from-poster-midnight/60 via-transparent to-poster-midnight/60 pointer-events-none" />
-
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-full flex items-end pb-8 relative z-10">
-          <span className="text-xs sm:text-sm font-archivo font-bold uppercase tracking-widest text-white/95 bg-black/60 backdrop-blur-md px-4 py-2 rounded-full border border-white/20 shadow-xl">
-            Río Calle-Calle · Sede Fluvial Oficial
-          </span>
-        </div>
       </div>
 
-      {/* 3. LOS 7 MUNDOS DEL ENCUENTRO (MENÚ DE ICONOS) + SLIDER DE 7 LÁMINAS */}
+      {/* 3. LOS 7 MUNDOS DEL ENCUENTRO: MENÚ DE CATEGORÍAS + SLIDER DE ANCHO COMPLETO CON AUTOPLAY */}
       <div id="mundos" className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         
-        {/* Title & Section Header */}
-        <div className="flex flex-col md:flex-row md:items-end justify-between mb-10 gap-6">
-          <div>
-            <h3 className="text-3xl sm:text-5xl font-archivo font-extrabold text-white tracking-tight">
-              Los 7 Mundos del <span className="text-transparent bg-clip-text bg-gradient-to-r from-poster-cyan via-white to-poster-gold">Encuentro</span>
-            </h3>
-            <p className="text-xs sm:text-sm text-slate-400 font-sans mt-2">
-              Haz clic en cualquiera de los mundos para navegar directamente a su lámina en el slider.
-            </p>
-          </div>
-
-          {/* Slider Prev / Next Controls */}
-          <div className="flex items-center gap-2 self-start md:self-end">
-            <button
-              onClick={handlePrev}
-              aria-label="Lámina anterior"
-              className="w-10 h-10 rounded-xl bg-poster-dark/80 hover:bg-poster-cyan hover:text-poster-midnight border border-white/15 hover:border-poster-cyan flex items-center justify-center transition-all"
-            >
-              <ChevronLeft className="w-5 h-5" />
-            </button>
-            <span className="text-xs font-mono px-3 py-1 rounded-lg bg-white/5 border border-white/10 text-slate-300">
-              {String(activeMundoIndex + 1).padStart(2, '0')} / 07
-            </span>
-            <button
-              onClick={handleNext}
-              aria-label="Lámina siguiente"
-              className="w-10 h-10 rounded-xl bg-poster-dark/80 hover:bg-poster-cyan hover:text-poster-midnight border border-white/15 hover:border-poster-cyan flex items-center justify-center transition-all"
-            >
-              <ChevronRight className="w-5 h-5" />
-            </button>
-          </div>
+        {/* Title & Section Header (Clean without counter) */}
+        <div className="mb-10 text-center max-w-3xl mx-auto">
+          <h3 className="text-3xl sm:text-5xl font-archivo font-extrabold text-white tracking-tight">
+            Los 7 Mundos del <span className="text-transparent bg-clip-text bg-gradient-to-r from-poster-cyan via-white to-poster-gold">Encuentro</span>
+          </h3>
+          <p className="text-xs sm:text-sm text-slate-300 font-sans mt-2">
+            Explora las áreas temáticas que convergen en la gran fiesta fluvial de Valdivia.
+          </p>
         </div>
 
-        {/* 7 Worlds Icon Menu (Clean frameless row with icons on top) */}
-        <div className="grid grid-cols-2 sm:grid-cols-4 lg:grid-cols-7 gap-4 items-start mb-10">
+        {/* 7 Worlds Icon Menu */}
+        <div className="grid grid-cols-2 sm:grid-cols-4 lg:grid-cols-7 gap-3 sm:gap-4 items-start mb-10">
           {WORLDS.map((mundo, idx) => {
             const Icon = mundo.icon;
             const isSelected = activeMundoIndex === idx;
             return (
               <button
                 key={mundo.id}
-                onClick={() => scrollToCard(idx)}
-                className={`group flex flex-col items-center text-center p-2.5 rounded-2xl transition-all duration-200 cursor-pointer ${
-                  isSelected ? 'scale-105' : 'opacity-65 hover:opacity-100'
+                onClick={() => setActiveMundoIndex(idx)}
+                className={`group flex flex-col items-center text-center p-3 rounded-2xl transition-all duration-200 cursor-pointer ${
+                  isSelected ? 'scale-105 opacity-100' : 'opacity-60 hover:opacity-100'
                 }`}
               >
                 {/* Clean Icon */}
                 <div className={`w-12 h-12 mb-3 flex items-center justify-center rounded-2xl transition-all duration-200 ${
                   isSelected
-                    ? 'bg-poster-cyan text-poster-midnight shadow-lg shadow-poster-cyan/30'
-                    : 'bg-white/5 group-hover:bg-poster-cyan/15 text-slate-300'
+                    ? 'bg-poster-cyan text-poster-midnight shadow-lg shadow-poster-cyan/30 ring-2 ring-poster-cyan/50'
+                    : 'bg-white/5 group-hover:bg-white/10 text-slate-300'
                 }`}>
                   <Icon className={`w-6 h-6 ${isSelected ? 'text-poster-midnight' : mundo.accent === 'poster-gold' ? 'text-poster-gold' : 'text-poster-cyan'}`} />
                 </div>
@@ -321,58 +288,88 @@ export default function ImpactManifesto({ onOpenModal }: ImpactManifestoProps) {
           })}
         </div>
 
-        {/* HORIZONTAL MULTI-CARD SLIDER (7 LÁMINAS: SOLO TÍTULO, DESCRIPCIÓN Y CTA) */}
+        {/* FULL-WIDTH SLIDER WITH SIDE ARROWS & AUTOPLAY */}
         <div 
-          ref={sliderRef}
-          className="flex gap-6 overflow-x-auto snap-x snap-mandatory scroll-smooth pb-8 pt-2 no-scrollbar items-stretch"
-          style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}
+          onMouseEnter={() => setIsPaused(true)}
+          onMouseLeave={() => setIsPaused(false)}
+          className="relative w-full"
         >
-          {WORLDS.map((mundo, idx) => {
-            const isSelected = activeMundoIndex === idx;
-            return (
-              <div
-                key={mundo.id}
-                onClick={() => scrollToCard(idx)}
-                className={`w-[85vw] sm:w-[500px] md:w-[580px] lg:w-[620px] shrink-0 snap-center p-8 sm:p-10 rounded-3xl transition-all duration-300 flex flex-col justify-between border cursor-pointer ${
-                  isSelected
-                    ? 'opacity-100 scale-100 bg-gradient-to-br from-[#06264c] via-[#051c38] to-poster-dark border-poster-cyan/60 shadow-2xl shadow-poster-cyan/20 ring-1 ring-poster-cyan/40 z-10'
-                    : 'opacity-30 hover:opacity-60 scale-[0.96] bg-poster-dark/30 border-white/5'
-                }`}
-              >
-                <div>
-                  {/* Clean Big Title */}
-                  <h4 className="text-xl sm:text-2xl md:text-3xl font-archivo font-extrabold text-white mb-4 leading-snug">
-                    {mundo.title}
-                  </h4>
+          {/* Left Control Arrow */}
+          <button
+            onClick={handlePrev}
+            aria-label="Lámina anterior"
+            className="absolute -left-3 sm:-left-6 top-1/2 -translate-y-1/2 z-30 w-11 h-11 sm:w-13 sm:h-13 rounded-full bg-poster-dark/90 hover:bg-poster-cyan text-white hover:text-poster-midnight border border-white/20 hover:border-poster-cyan shadow-2xl backdrop-blur-md flex items-center justify-center transition-all hover:scale-105 active:scale-95"
+          >
+            <ChevronLeft className="w-6 h-6" />
+          </button>
 
-                  {/* Clean Narrative Description */}
-                  <p className="text-slate-300 text-sm sm:text-base leading-relaxed font-sans mb-8">
-                    {mundo.desc}
-                  </p>
-                </div>
+          {/* Right Control Arrow */}
+          <button
+            onClick={handleNext}
+            aria-label="Lámina siguiente"
+            className="absolute -right-3 sm:-right-6 top-1/2 -translate-y-1/2 z-30 w-11 h-11 sm:w-13 sm:h-13 rounded-full bg-poster-dark/90 hover:bg-poster-cyan text-white hover:text-poster-midnight border border-white/20 hover:border-poster-cyan shadow-2xl backdrop-blur-md flex items-center justify-center transition-all hover:scale-105 active:scale-95"
+          >
+            <ChevronRight className="w-6 h-6" />
+          </button>
 
-                {/* Direct Clean CTA */}
-                <div>
-                  {onOpenModal && (
-                    <button
-                      onClick={(e) => {
-                        e.stopPropagation();
-                        onOpenModal(mundo.modalType);
-                      }}
-                      className={`inline-flex items-center gap-2 px-6 py-3 rounded-xl text-xs font-bold uppercase tracking-wider transition-all ${
-                        isSelected 
-                          ? 'bg-poster-cyan text-poster-midnight hover:bg-white shadow-lg shadow-poster-cyan/20 hover:scale-[1.02]'
-                          : 'bg-white/10 text-white hover:bg-white/20'
-                      }`}
-                    >
-                      <span>{mundo.ctaText}</span>
-                      <ArrowRight className="w-3.5 h-3.5" />
-                    </button>
-                  )}
-                </div>
-              </div>
-            );
-          })}
+          {/* Full-width Single Slide Container */}
+          <div className="w-full min-h-[360px] sm:min-h-[320px] rounded-3xl bg-gradient-to-br from-[#06264c] via-[#051c38] to-poster-dark border border-poster-cyan/30 shadow-2xl shadow-poster-cyan/10 p-8 sm:p-12 md:p-14 relative overflow-hidden flex flex-col justify-between">
+            {/* Subtle inside glow */}
+            <div className="absolute top-0 right-0 w-80 h-80 bg-poster-cyan/10 rounded-full blur-3xl pointer-events-none" />
+            <div className="absolute bottom-0 left-0 w-80 h-80 bg-poster-gold/5 rounded-full blur-3xl pointer-events-none" />
+
+            <AnimatePresence mode="wait">
+              {(() => {
+                const currentMundo = WORLDS[activeMundoIndex];
+                const Icon = currentMundo.icon;
+                return (
+                  <motion.div
+                    key={currentMundo.id}
+                    initial={{ opacity: 0, y: 15 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    exit={{ opacity: 0, y: -15 }}
+                    transition={{ duration: 0.35, ease: "easeInOut" }}
+                    className="w-full max-w-4xl mx-auto flex flex-col justify-between h-full relative z-10"
+                  >
+                    <div>
+                      {/* Mundo Identifier */}
+                      <div className="flex items-center gap-2.5 mb-4">
+                        <div className="w-8 h-8 rounded-xl bg-poster-cyan/15 text-poster-cyan flex items-center justify-center border border-poster-cyan/30">
+                          <Icon className="w-4 h-4" />
+                        </div>
+                        <span className="text-xs font-archivo font-bold uppercase tracking-[0.2em] text-poster-cyan">
+                          {currentMundo.name}
+                        </span>
+                      </div>
+
+                      {/* Main Title */}
+                      <h4 className="text-2xl sm:text-3xl md:text-4xl font-archivo font-extrabold text-white mb-5 leading-snug tracking-tight">
+                        {currentMundo.title}
+                      </h4>
+
+                      {/* Description */}
+                      <p className="text-slate-200 text-sm sm:text-base md:text-lg leading-relaxed font-sans max-w-3xl mb-10">
+                        {currentMundo.desc}
+                      </p>
+                    </div>
+
+                    {/* CTA Button */}
+                    {onOpenModal && (
+                      <div>
+                        <button
+                          onClick={() => onOpenModal(currentMundo.modalType)}
+                          className="inline-flex items-center gap-2.5 px-7 py-3.5 rounded-xl text-xs font-bold uppercase tracking-wider bg-poster-cyan text-poster-midnight hover:bg-white transition-all shadow-lg shadow-poster-cyan/25 hover:scale-[1.03]"
+                        >
+                          <span>{currentMundo.ctaText}</span>
+                          <ArrowRight className="w-4 h-4" />
+                        </button>
+                      </div>
+                    )}
+                  </motion.div>
+                );
+              })()}
+            </AnimatePresence>
+          </div>
         </div>
 
       </div>
@@ -392,12 +389,6 @@ export default function ImpactManifesto({ onOpenModal }: ImpactManifestoProps) {
         />
         <div className="absolute inset-0 bg-gradient-to-t from-poster-midnight via-transparent to-poster-midnight/50 pointer-events-none" />
         <div className="absolute inset-0 bg-gradient-to-r from-poster-midnight/60 via-transparent to-poster-midnight/60 pointer-events-none" />
-
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-full flex items-end pb-8 relative z-10">
-          <span className="text-xs sm:text-sm font-archivo font-bold uppercase tracking-widest text-white/95 bg-black/60 backdrop-blur-md px-4 py-2 rounded-full border border-white/20 shadow-xl">
-            Vanguardia Naval & Electromovilidad Marítima (SEM)
-          </span>
-        </div>
       </motion.div>
 
     </section>
