@@ -1,7 +1,7 @@
 'use client';
 
 import React, { useState, useEffect } from 'react';
-import { Anchor, Compass, MapPin, ArrowDown } from 'lucide-react';
+import { Anchor, Compass, MapPin } from 'lucide-react';
 
 interface HeroProps {
   onOpenModal: (type?: string) => void;
@@ -42,7 +42,7 @@ export default function Hero({ onOpenModal }: HeroProps) {
   };
 
   return (
-    <section id="hero" className="relative min-h-[92vh] w-full flex items-center justify-center overflow-hidden bg-poster-midnight pt-28 pb-16">
+    <section id="hero" className="relative min-h-[95vh] w-full flex items-center justify-center overflow-hidden bg-poster-midnight pt-36 sm:pt-40 md:pt-44 pb-20 sm:pb-24">
       {/* Cinematic Background Video */}
       <video
         autoPlay
@@ -134,15 +134,6 @@ export default function Hero({ onOpenModal }: HeroProps) {
             </div>
           </div>
         </div>
-
-        {/* Bottom Discover Prompt */}
-        <button
-          onClick={() => scrollTo('manifiesto')}
-          className="mt-10 flex items-center gap-2 text-slate-400 hover:text-poster-cyan text-xs uppercase tracking-widest transition-colors group"
-        >
-          <span>Descubrir la experiencia</span>
-          <ArrowDown className="w-3.5 h-3.5 group-hover:translate-y-1 transition-transform text-poster-cyan" />
-        </button>
 
       </div>
     </section>
