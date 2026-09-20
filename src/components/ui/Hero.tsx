@@ -49,17 +49,17 @@ export default function Hero({ onOpenModal }: HeroProps) {
         loop
         muted
         playsInline
-        className="absolute inset-0 w-full h-full object-cover scale-105 filter brightness-[0.75] contrast-105"
+        className="absolute inset-0 w-full h-full object-cover scale-105 filter brightness-[0.92] contrast-105"
       >
         <source src="/videos/vnback.webm" type="video/webm" />
         <source src="https://valdivianautica.cl/wp-content/uploads/2023/08/VNBACK_converted1.webm" type="video/webm" />
       </video>
 
-      {/* Atmospheric Overlays */}
-      <div className="absolute inset-0 bg-gradient-to-b from-poster-midnight/90 via-poster-midnight/55 to-poster-midnight" />
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,transparent_0%,rgba(7,20,38,0.7)_100%)]" />
+      {/* Atmospheric Overlays - Lighter opacity for enhanced background visibility */}
+      <div className="absolute inset-0 bg-gradient-to-b from-poster-midnight/65 via-poster-midnight/35 to-poster-midnight/80" />
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,transparent_0%,rgba(7,20,38,0.4)_100%)]" />
       {/* Seamless infinite landing fade into section 2 */}
-      <div className="absolute bottom-0 left-0 right-0 h-44 bg-gradient-to-t from-poster-midnight via-poster-midnight/80 to-transparent pointer-events-none" />
+      <div className="absolute bottom-0 left-0 right-0 h-44 bg-gradient-to-t from-poster-midnight via-poster-midnight/70 to-transparent pointer-events-none" />
 
       {/* Main Content */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center flex flex-col items-center justify-center">
@@ -87,7 +87,7 @@ export default function Hero({ onOpenModal }: HeroProps) {
         </h1>
 
         {/* Dynamic Slogan / Hook */}
-        <p className="text-slate-200 text-sm sm:text-lg md:text-xl font-sans max-w-2xl mx-auto mb-8 font-light leading-relaxed">
+        <p className="text-slate-100 text-sm sm:text-lg md:text-xl font-sans max-w-2xl mx-auto mb-8 font-light leading-relaxed drop-shadow-[0_2px_8px_rgba(0,0,0,0.8)]">
           El punto de encuentro donde la <span className="text-white font-medium">industria naval</span>, la <span className="text-poster-cyan font-medium">electromovilidad</span>, el <span className="text-poster-gold font-medium">deporte fluvial</span> y la <span className="text-white font-medium">comunidad</span> transforman el sur de Chile.
         </p>
 
