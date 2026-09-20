@@ -1,7 +1,7 @@
 'use client';
 
 import React, { useState, useRef } from 'react';
-import { motion } from 'framer-motion';
+import { motion, useScroll, useTransform } from 'framer-motion';
 import { 
   Waves, 
   Building2, 
@@ -125,6 +125,13 @@ const WORLDS = [
 export default function ImpactManifesto({ onOpenModal }: ImpactManifestoProps) {
   const [activeMundoIndex, setActiveMundoIndex] = useState(0);
   const sliderRef = useRef<HTMLDivElement>(null);
+  const parallaxRef = useRef<HTMLDivElement>(null);
+
+  const { scrollYProgress } = useScroll({
+    target: parallaxRef,
+    offset: ["start end", "end start"]
+  });
+  const parallaxY = useTransform(scrollYProgress, [0, 1], ["-16%", "16%"]);
 
   const scrollToCard = (index: number) => {
     setActiveMundoIndex(index);
@@ -216,19 +223,21 @@ export default function ImpactManifesto({ onOpenModal }: ImpactManifestoProps) {
 
       </div>
 
-      {/* 2. TRUE FULL-WIDTH EDGE-TO-EDGE PHOTOGRAPHY: Río Calle-Calle (100vw Bleed) */}
-      <motion.div
-        initial={{ opacity: 0 }}
-        whileInView={{ opacity: 1 }}
-        viewport={{ once: true }}
-        transition={{ duration: 0.8 }}
+      {/* 2. TRUE FULL-WIDTH EDGE-TO-EDGE PHOTOGRAPHY: Río Calle-Calle (100vw Bleed with Parallax) */}
+      <div
+        ref={parallaxRef}
         className="w-full h-[380px] sm:h-[480px] md:h-[580px] lg:h-[640px] relative overflow-hidden my-14 sm:my-20 border-y border-white/15"
       >
-        <img
-          src="/images/valdivia-calle-calle-rio.jpg"
-          alt="Río Calle-Calle al amanecer en Valdivia"
-          className="w-full h-full object-cover filter brightness-95"
-        />
+        <motion.div
+          style={{ y: parallaxY }}
+          className="absolute inset-0 -top-[20%] -bottom-[20%] h-[140%] w-full will-change-transform"
+        >
+          <img
+            src="/images/valdivia-calle-calle-rio.jpg"
+            alt="Río Calle-Calle al amanecer en Valdivia"
+            className="w-full h-full object-cover filter brightness-95 scale-105"
+          />
+        </motion.div>
         <div className="absolute inset-0 bg-gradient-to-t from-poster-midnight via-transparent to-poster-midnight/40 pointer-events-none" />
         <div className="absolute inset-0 bg-gradient-to-r from-poster-midnight/60 via-transparent to-poster-midnight/60 pointer-events-none" />
 
@@ -237,7 +246,7 @@ export default function ImpactManifesto({ onOpenModal }: ImpactManifestoProps) {
             Río Calle-Calle · Sede Fluvial Oficial
           </span>
         </div>
-      </motion.div>
+      </div>
 
       {/* 3. LOS 7 MUNDOS DEL ENCUENTRO (MENÚ DE ICONOS) + SLIDER DE 7 LÁMINAS */}
       <div id="mundos" className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
