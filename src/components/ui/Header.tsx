@@ -3,7 +3,7 @@
 import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
-import { Menu, X, ChevronDown, Zap, Fish, Ship, Sailboat, Hammer } from 'lucide-react';
+import { Menu, X, ChevronDown } from 'lucide-react';
 
 interface HeaderProps {
   onOpenModal: (type?: string) => void;
@@ -65,95 +65,46 @@ export default function Header({ onOpenModal }: HeaderProps) {
             />
           </Link>
 
-          {/* Clean Minimal 4-Item Primary Nav */}
+          {/* Clean Primary Nav */}
           <nav aria-label="Navegación principal" className="hidden lg:flex items-center gap-8">
             
-            {/* 1. EL EVENTO (Minimal Dropdown: DESCÚBRENOS, LA CIUDAD) */}
-            <div className="relative py-2" onMouseEnter={() => setActiveDropdown('evento')}>
-              <button
-                className={`flex items-center gap-1.5 text-xs font-bold uppercase tracking-wider transition-colors py-1 border-b-2 ${
-                  pathname.startsWith('/evento') || activeDropdown === 'evento'
-                    ? 'text-poster-gold border-poster-gold'
-                    : 'text-slate-200 hover:text-poster-cyan border-transparent'
-                }`}
-              >
-                El Evento
-                <ChevronDown className="w-3.5 h-3.5 text-poster-cyan" />
-              </button>
+            {/* 1. EL EVENTO (Inicio directo sin dropdown) */}
+            <Link
+              href="/"
+              className={`text-xs font-bold uppercase tracking-wider transition-colors py-1 border-b-2 ${
+                pathname === '/'
+                  ? 'text-poster-gold border-poster-gold'
+                  : 'text-slate-200 hover:text-poster-cyan border-transparent'
+              }`}
+            >
+              El Evento
+            </Link>
 
-              {activeDropdown === 'evento' && (
-                <div className="absolute top-full left-0 w-48 glass-panel p-3 rounded-2xl shadow-2xl border-white/10 mt-1 animate-fadeIn space-y-1">
-                  <Link
-                    href="/evento"
-                    className="block font-bold text-xs uppercase tracking-wider text-white hover:text-poster-gold hover:bg-white/5 p-2.5 rounded-xl transition-colors"
-                  >
-                    Descúbrenos
-                  </Link>
-                  <Link
-                    href="/valdivia"
-                    className="block font-bold text-xs uppercase tracking-wider text-white hover:text-poster-cyan hover:bg-white/5 p-2.5 rounded-xl transition-colors"
-                  >
-                    La Ciudad
-                  </Link>
-                </div>
-              )}
-            </div>
+            {/* 2. SEM */}
+            <Link
+              href="/sem"
+              className={`text-xs font-bold uppercase tracking-wider transition-colors py-1 border-b-2 ${
+                pathname.startsWith('/sem')
+                  ? 'text-poster-gold border-poster-gold'
+                  : 'text-slate-200 hover:text-poster-cyan border-transparent'
+              }`}
+            >
+              SEM
+            </Link>
 
-            {/* 2. MUNDOS DEL EVENTO (Mega-Menu) */}
-            <div className="relative py-2" onMouseEnter={() => setActiveDropdown('mundos')}>
-              <button
-                className={`flex items-center gap-1.5 text-xs font-bold uppercase tracking-wider transition-colors py-1 border-b-2 ${
-                  activeDropdown === 'mundos'
-                    ? 'text-poster-gold border-poster-gold'
-                    : 'text-slate-200 hover:text-poster-cyan border-transparent'
-                }`}
-              >
-                Mundos del Evento
-                <ChevronDown className="w-3.5 h-3.5 text-poster-cyan" />
-              </button>
+            {/* 3. EXPO PESCA */}
+            <Link
+              href="/expo-pesca"
+              className={`text-xs font-bold uppercase tracking-wider transition-colors py-1 border-b-2 ${
+                pathname.startsWith('/expo-pesca')
+                  ? 'text-poster-gold border-poster-gold'
+                  : 'text-slate-200 hover:text-poster-cyan border-transparent'
+              }`}
+            >
+              Expo Pesca
+            </Link>
 
-              {activeDropdown === 'mundos' && (
-                <div className="absolute top-full -left-20 w-[500px] glass-panel p-5 rounded-2xl shadow-2xl border-white/10 mt-1 animate-fadeIn grid grid-cols-2 gap-4">
-                  <div>
-                    <div className="text-[10px] font-bold uppercase tracking-widest text-poster-cyan mb-2.5">
-                      Innovación & Producción
-                    </div>
-                    <div className="space-y-1">
-                      <Link href="/sem" className="flex items-center gap-2 p-2 rounded-xl hover:bg-white/5 transition-colors group">
-                        <Zap className="w-4 h-4 text-poster-cyan" />
-                        <span className="font-bold text-xs text-white group-hover:text-poster-cyan">SEM 2026</span>
-                      </Link>
-                      <Link href="/expo-pesca" className="flex items-center gap-2 p-2 rounded-xl hover:bg-white/5 transition-colors group">
-                        <Fish className="w-4 h-4 text-poster-gold" />
-                        <span className="font-bold text-xs text-white group-hover:text-poster-gold">Expo Pesca</span>
-                      </Link>
-                      <Link href="/industria-naval" className="flex items-center gap-2 p-2 rounded-xl hover:bg-white/5 transition-colors group">
-                        <Ship className="w-4 h-4 text-white" />
-                        <span className="font-bold text-xs text-white group-hover:text-poster-cyan">Industria Naval</span>
-                      </Link>
-                    </div>
-                  </div>
-
-                  <div>
-                    <div className="text-[10px] font-bold uppercase tracking-widest text-poster-gold mb-2.5">
-                      Comunidad & Vivencias
-                    </div>
-                    <div className="space-y-1">
-                      <Link href="/deporte-turismo" className="flex items-center gap-2 p-2 rounded-xl hover:bg-white/5 transition-colors group">
-                        <Sailboat className="w-4 h-4 text-poster-gold" />
-                        <span className="font-bold text-xs text-white group-hover:text-poster-gold">Deporte & Remo</span>
-                      </Link>
-                      <Link href="/oficios" className="flex items-center gap-2 p-2 rounded-xl hover:bg-white/5 transition-colors group">
-                        <Hammer className="w-4 h-4 text-poster-cyan" />
-                        <span className="font-bold text-xs text-white group-hover:text-poster-cyan">Oficios de Ribera</span>
-                      </Link>
-                    </div>
-                  </div>
-                </div>
-              )}
-            </div>
-
-            {/* 3. PARTICIPA (Minimal Dropdown: EXPOSITORES, AUSPICIADORES) */}
+            {/* 4. PARTICIPA */}
             <div className="relative py-2" onMouseEnter={() => setActiveDropdown('participa')}>
               <button
                 className={`flex items-center gap-1.5 text-xs font-bold uppercase tracking-wider transition-colors py-1 border-b-2 ${
@@ -168,23 +119,24 @@ export default function Header({ onOpenModal }: HeaderProps) {
 
               {activeDropdown === 'participa' && (
                 <div className="absolute top-full right-0 w-48 glass-panel p-3 rounded-2xl shadow-2xl border-white/10 mt-1 animate-fadeIn space-y-1">
-                  <Link
-                    href="/expositores"
-                    className="block font-bold text-xs uppercase tracking-wider text-white hover:text-poster-gold hover:bg-white/5 p-2.5 rounded-xl transition-colors"
+                  <button
+                    onClick={() => { setActiveDropdown(null); onOpenModal('expositor'); }}
+                    className="w-full text-left block font-bold text-xs uppercase tracking-wider text-white hover:text-poster-gold hover:bg-white/5 p-2.5 rounded-xl transition-colors"
                   >
                     Expositores
-                  </Link>
-                  <Link
-                    href="/sponsors"
+                  </button>
+                  <a
+                    href="/#sponsors"
+                    onClick={() => setActiveDropdown(null)}
                     className="block font-bold text-xs uppercase tracking-wider text-white hover:text-poster-cyan hover:bg-white/5 p-2.5 rounded-xl transition-colors"
                   >
                     Auspiciadores
-                  </Link>
+                  </a>
                 </div>
               )}
             </div>
 
-            {/* 4. CONTACTO DIRECTO */}
+            {/* 5. CONTACTO DIRECTO */}
             <button
               onClick={() => onOpenModal('general')}
               className="text-xs font-bold uppercase tracking-wider text-slate-200 hover:text-poster-cyan transition-colors"
@@ -194,7 +146,7 @@ export default function Header({ onOpenModal }: HeaderProps) {
 
           </nav>
 
-          {/* Social Media Links (Replaces duplicate CTAs) */}
+          {/* Social Media Links */}
           <div className="hidden lg:flex items-center gap-4">
             <a
               href="https://facebook.com/valdivianautica"
@@ -239,32 +191,23 @@ export default function Header({ onOpenModal }: HeaderProps) {
         <div className="lg:hidden glass-panel border-t border-white/10 px-4 pt-4 pb-6 space-y-3 max-h-[80vh] overflow-y-auto">
           <nav className="flex flex-col space-y-2">
             <Link href="/" onClick={() => setIsMobileMenuOpen(false)} className="text-slate-200 hover:text-poster-cyan py-2 text-sm font-semibold border-b border-white/5">
-              Portada (Inicio)
-            </Link>
-            <Link href="/evento" onClick={() => setIsMobileMenuOpen(false)} className="text-slate-200 hover:text-poster-cyan py-2 text-sm font-semibold border-b border-white/5">
-              Descúbrenos
-            </Link>
-            <Link href="/valdivia" onClick={() => setIsMobileMenuOpen(false)} className="text-slate-200 hover:text-poster-cyan py-2 text-sm font-semibold border-b border-white/5">
-              La Ciudad
+              El Evento (Inicio)
             </Link>
             <Link href="/sem" onClick={() => setIsMobileMenuOpen(false)} className="text-slate-200 hover:text-poster-cyan py-2 text-sm font-semibold border-b border-white/5">
-              SEM 2026 (Electromovilidad)
+              SEM (Electromovilidad)
             </Link>
             <Link href="/expo-pesca" onClick={() => setIsMobileMenuOpen(false)} className="text-slate-200 hover:text-poster-cyan py-2 text-sm font-semibold border-b border-white/5">
               Expo Pesca
             </Link>
-            <Link href="/industria-naval" onClick={() => setIsMobileMenuOpen(false)} className="text-slate-200 hover:text-poster-cyan py-2 text-sm font-semibold border-b border-white/5">
-              Industria Naval
-            </Link>
-            <Link href="/deporte-turismo" onClick={() => setIsMobileMenuOpen(false)} className="text-slate-200 hover:text-poster-cyan py-2 text-sm font-semibold border-b border-white/5">
-              Deporte & Remo
-            </Link>
-            <Link href="/expositores" onClick={() => setIsMobileMenuOpen(false)} className="text-slate-200 hover:text-poster-cyan py-2 text-sm font-semibold border-b border-white/5">
-              Expositores
-            </Link>
-            <Link href="/sponsors" onClick={() => setIsMobileMenuOpen(false)} className="text-slate-200 hover:text-poster-cyan py-2 text-sm font-semibold border-b border-white/5">
+            <button onClick={() => { setIsMobileMenuOpen(false); onOpenModal('expositor'); }} className="text-left text-slate-200 hover:text-poster-cyan py-2 text-sm font-semibold border-b border-white/5">
+              Quiero Exponer
+            </button>
+            <a href="/#sponsors" onClick={() => setIsMobileMenuOpen(false)} className="text-slate-200 hover:text-poster-cyan py-2 text-sm font-semibold border-b border-white/5">
               Auspiciadores
-            </Link>
+            </a>
+            <button onClick={() => { setIsMobileMenuOpen(false); onOpenModal('general'); }} className="text-left text-slate-200 hover:text-poster-cyan py-2 text-sm font-semibold">
+              Contacto & Prensa
+            </button>
           </nav>
         </div>
       )}

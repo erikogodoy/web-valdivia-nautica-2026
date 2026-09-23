@@ -46,16 +46,14 @@ export default function Footer({ onOpenModal }: FooterProps) {
             </div>
           </div>
 
-          {/* Col 2: Secciones & Rutas SEO */}
+          {/* Col 2: Secciones & Rutas */}
           <div>
             <h4 className="font-bold text-white text-sm uppercase tracking-wider mb-4">Pilares del Evento</h4>
             <ul className="space-y-2.5 text-xs text-slate-300">
-              <li><Link href="/evento" className="hover:text-poster-cyan transition-colors">El Evento</Link></li>
+              <li><Link href="/" className="hover:text-poster-cyan transition-colors">El Evento (Inicio)</Link></li>
               <li><Link href="/sem" className="hover:text-poster-cyan transition-colors">SEM (Electromovilidad)</Link></li>
               <li><Link href="/expo-pesca" className="hover:text-poster-cyan transition-colors">Expo Pesca</Link></li>
-              <li><Link href="/industria-naval" className="hover:text-poster-cyan transition-colors">Industria Naval</Link></li>
-              <li><Link href="/deporte-turismo" className="hover:text-poster-cyan transition-colors">Deporte & Turismo</Link></li>
-              <li><Link href="/oficios" className="hover:text-poster-cyan transition-colors">Oficios & Patrimonio</Link></li>
+              <li><a href="/#sponsors" className="hover:text-poster-cyan transition-colors">Sponsors Oficiales</a></li>
             </ul>
           </div>
 
@@ -63,9 +61,27 @@ export default function Footer({ onOpenModal }: FooterProps) {
           <div>
             <h4 className="font-bold text-white text-sm uppercase tracking-wider mb-4">Participa</h4>
             <ul className="space-y-2.5 text-xs text-slate-300">
-              <li><Link href="/expositores" className="hover:text-poster-cyan transition-colors">Ficha de Expositores</Link></li>
-              <li><Link href="/sponsors" className="hover:text-poster-cyan transition-colors">Categorías de Auspicio</Link></li>
-              <li><Link href="/valdivia" className="hover:text-poster-cyan transition-colors">Cómo Llegar & Parque Saval</Link></li>
+              <li>
+                <button onClick={() => onOpenModal('expositor')} className="hover:text-poster-cyan transition-colors text-left">
+                  Quiero Exponer (Stands)
+                </button>
+              </li>
+              <li>
+                <a href="/#sponsors" className="hover:text-poster-cyan transition-colors">
+                  Matriz de Auspicios
+                </a>
+              </li>
+              <li>
+                <a
+                  href="/documents/Valdivia_Nautica_2026_Dossier_Sponsors.pdf"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  download="Valdivia_Nautica_2026_Matriz_Auspicios_Sponsors.pdf"
+                  className="hover:text-poster-gold transition-colors"
+                >
+                  Descargar Dossier (PDF)
+                </a>
+              </li>
               <li>
                 <button onClick={() => onOpenModal('general')} className="hover:text-poster-cyan transition-colors text-left">
                   Contacto & Prensa
