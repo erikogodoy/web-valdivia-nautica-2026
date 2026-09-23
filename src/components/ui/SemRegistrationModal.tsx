@@ -18,7 +18,7 @@ const TICKET_LEVELS = [
     formattedPrice: '$100.000 CLP',
     tag: 'Acceso Total 3 Días',
     detail: 'Acceso completo a conferencias en Parque Saval, acreditación oficial, coffee breaks y networking.',
-    border: 'border-poster-cyan/60 hover:border-poster-cyan',
+    border: 'border-poster-semGreen/60 hover:border-poster-semGreen',
   },
   {
     id: 'streaming',
@@ -27,7 +27,7 @@ const TICKET_LEVELS = [
     formattedPrice: '$50.000 CLP',
     tag: 'Transmisión HD',
     detail: 'Acceso a la señal en vivo HD de todos los paneles técnicos, repositorio de ponencias y certificado digital.',
-    border: 'border-poster-gold/60 hover:border-poster-gold',
+    border: 'border-white/20 hover:border-poster-semGreen/50',
   },
   {
     id: 'estudiante',
@@ -36,7 +36,7 @@ const TICKET_LEVELS = [
     formattedPrice: '$25.000 CLP',
     tag: 'Tarifa Rebajada',
     detail: 'Tarifa preferencial para alumnos regulares universitarios y de CFT. Requiere credencial estudiantil vigente.',
-    border: 'border-white/20 hover:border-white/40',
+    border: 'border-white/20 hover:border-poster-semGreen/40',
   },
 ];
 
@@ -205,11 +205,11 @@ ${formDataState.nombre}`;
         {step === 'form' && (
           <div>
             <div className="mb-6">
-              <span className="text-[11px] font-archivo font-bold uppercase tracking-[0.2em] text-poster-cyan">
+              <span className="text-[11px] font-archivo font-bold uppercase tracking-[0.2em] text-poster-semGreen">
                 Acreditación Oficial · Parque Saval
               </span>
               <h3 className="font-archivo text-2xl sm:text-3xl font-extrabold text-white mt-1">
-                Inscripción Seminario <span className="text-poster-cyan">SEM 2026</span>
+                Inscripción Seminario <span className="text-poster-semGreen">SEM 2026</span>
               </h3>
               <p className="text-xs sm:text-sm text-slate-300 font-sans mt-1">
                 Paso 1 de 2: Selecciona tu modalidad e ingresa los datos del participante.
@@ -227,7 +227,7 @@ ${formDataState.nombre}`;
                     onClick={() => setSelectedLevelId(t.id)}
                     className={`p-4 rounded-2xl text-left border transition-all flex flex-col justify-between ${
                       isSelected
-                        ? 'bg-poster-cyan/15 border-poster-cyan shadow-lg shadow-poster-cyan/20 ring-1 ring-poster-cyan'
+                        ? 'bg-poster-semGreen/15 border-poster-semGreen shadow-lg shadow-poster-semGreen/20 ring-1 ring-poster-semGreen'
                         : 'bg-white/5 border-white/10 hover:border-white/20'
                     }`}
                   >
@@ -239,7 +239,7 @@ ${formDataState.nombre}`;
                         {t.name}
                       </div>
                     </div>
-                    <div className="font-archivo font-extrabold text-base text-poster-gold mt-3">
+                    <div className={`font-archivo font-extrabold text-base mt-3 ${isSelected ? 'text-poster-semGreen' : 'text-white'}`}>
                       {t.formattedPrice}
                     </div>
                   </button>
@@ -269,7 +269,7 @@ ${formDataState.nombre}`;
                     value={formDataState.nombre}
                     onChange={handleInputChange}
                     placeholder="Ej. Juan Pérez González"
-                    className="w-full px-3.5 py-2.5 rounded-xl bg-white/5 border border-white/10 focus:border-poster-cyan focus:outline-none text-white text-xs sm:text-sm font-sans"
+                    className="w-full px-3.5 py-2.5 rounded-xl bg-white/5 border border-white/10 focus:border-poster-semGreen focus:outline-none text-white text-xs sm:text-sm font-sans"
                   />
                 </div>
 
@@ -284,7 +284,7 @@ ${formDataState.nombre}`;
                     value={formDataState.rut}
                     onChange={handleInputChange}
                     placeholder="Ej. 12.345.678-9"
-                    className="w-full px-3.5 py-2.5 rounded-xl bg-white/5 border border-white/10 focus:border-poster-cyan focus:outline-none text-white text-xs sm:text-sm font-sans"
+                    className="w-full px-3.5 py-2.5 rounded-xl bg-white/5 border border-white/10 focus:border-poster-semGreen focus:outline-none text-white text-xs sm:text-sm font-sans"
                   />
                 </div>
               </div>
@@ -301,7 +301,7 @@ ${formDataState.nombre}`;
                     value={formDataState.email}
                     onChange={handleInputChange}
                     placeholder="nombre@empresa.cl"
-                    className="w-full px-3.5 py-2.5 rounded-xl bg-white/5 border border-white/10 focus:border-poster-cyan focus:outline-none text-white text-xs sm:text-sm font-sans"
+                    className="w-full px-3.5 py-2.5 rounded-xl bg-white/5 border border-white/10 focus:border-poster-semGreen focus:outline-none text-white text-xs sm:text-sm font-sans"
                   />
                 </div>
 
@@ -315,7 +315,7 @@ ${formDataState.nombre}`;
                     value={formDataState.telefono}
                     onChange={handleInputChange}
                     placeholder="+56 9 1234 5678"
-                    className="w-full px-3.5 py-2.5 rounded-xl bg-white/5 border border-white/10 focus:border-poster-cyan focus:outline-none text-white text-xs sm:text-sm font-sans"
+                    className="w-full px-3.5 py-2.5 rounded-xl bg-white/5 border border-white/10 focus:border-poster-semGreen focus:outline-none text-white text-xs sm:text-sm font-sans"
                   />
                 </div>
               </div>
@@ -330,7 +330,7 @@ ${formDataState.nombre}`;
                   value={formDataState.institucion}
                   onChange={handleInputChange}
                   placeholder="Ej. UACh / Astilleros del Sur / Independiente"
-                  className="w-full px-3.5 py-2.5 rounded-xl bg-white/5 border border-white/10 focus:border-poster-cyan focus:outline-none text-white text-xs sm:text-sm font-sans"
+                  className="w-full px-3.5 py-2.5 rounded-xl bg-white/5 border border-white/10 focus:border-poster-semGreen focus:outline-none text-white text-xs sm:text-sm font-sans"
                 />
               </div>
 
@@ -338,7 +338,7 @@ ${formDataState.nombre}`;
               <div className="pt-4 border-t border-white/10 flex flex-col sm:flex-row items-center justify-between gap-4">
                 <div className="text-left w-full sm:w-auto">
                   <div className="text-[11px] text-slate-400 uppercase tracking-wider font-semibold">Total a Pagar</div>
-                  <div className="text-xl sm:text-2xl font-archivo font-extrabold text-poster-gold">
+                  <div className="text-xl sm:text-2xl font-archivo font-extrabold text-poster-semGreen">
                     {currentLevel.formattedPrice}
                   </div>
                 </div>
@@ -346,7 +346,7 @@ ${formDataState.nombre}`;
                 <button
                   type="submit"
                   disabled={isSubmitting}
-                  className="w-full sm:w-auto inline-flex items-center justify-center gap-2.5 px-8 py-3.5 rounded-xl bg-poster-gold text-poster-midnight text-xs font-bold uppercase tracking-wider hover:bg-poster-goldHover hover:scale-[1.02] transition-all shadow-xl shadow-poster-gold/25 disabled:opacity-50"
+                  className="w-full sm:w-auto inline-flex items-center justify-center gap-2.5 px-8 py-3.5 rounded-xl bg-poster-semGreen text-poster-midnight text-xs font-bold uppercase tracking-wider hover:bg-white hover:scale-[1.02] transition-all shadow-xl shadow-poster-semGreen/25 disabled:opacity-50"
                 >
                   {isSubmitting ? (
                     <>
@@ -373,26 +373,26 @@ ${formDataState.nombre}`;
               <div className="w-12 h-12 rounded-2xl bg-emerald-500/15 border border-emerald-500/30 text-emerald-400 flex items-center justify-center mx-auto mb-3">
                 <CheckCircle2 className="w-6 h-6" />
               </div>
-              <span className="text-[11px] font-archivo font-bold uppercase tracking-[0.2em] text-poster-cyan">
+              <span className="text-[11px] font-archivo font-bold uppercase tracking-[0.2em] text-poster-semGreen">
                 ¡Pre-inscripción Registrada!
               </span>
               <h3 className="font-archivo text-2xl sm:text-3xl font-extrabold text-white mt-1">
                 Datos para la Transferencia Bancaria
               </h3>
               <p className="text-xs text-slate-300 font-sans mt-1">
-                Orden <span className="font-mono font-bold text-poster-gold bg-poster-gold/10 px-2 py-0.5 rounded-lg border border-poster-gold/30">{orderCode}</span> · Asistente: <span className="text-white font-semibold">{formDataState.nombre}</span>
+                Orden <span className="font-mono font-bold text-poster-semGreen bg-poster-semGreen/10 px-2 py-0.5 rounded-lg border border-poster-semGreen/30">{orderCode}</span> · Asistente: <span className="text-white font-semibold">{formDataState.nombre}</span>
               </p>
             </div>
 
             {/* Resumen de Monto */}
-            <div className="mb-5 p-4 rounded-2xl bg-poster-midnight/80 border border-poster-cyan/30 flex items-center justify-between">
+            <div className="mb-5 p-4 rounded-2xl bg-poster-midnight/80 border border-poster-semGreen/30 flex items-center justify-between">
               <div>
                 <div className="text-[10px] font-bold uppercase tracking-wider text-slate-400">Modalidad</div>
                 <div className="font-archivo font-bold text-sm text-white">{currentLevel.name}</div>
               </div>
               <div className="text-right">
                 <div className="text-[10px] font-bold uppercase tracking-wider text-slate-400">Monto Exacto</div>
-                <div className="text-2xl font-archivo font-extrabold text-poster-gold">{currentLevel.formattedPrice}</div>
+                <div className="text-2xl font-archivo font-extrabold text-poster-semGreen">{currentLevel.formattedPrice}</div>
               </div>
             </div>
 
@@ -416,7 +416,7 @@ ${formDataState.nombre}`;
               </div>
               <div className="flex items-center justify-between pb-2 border-b border-white/10">
                 <span className="text-slate-400">N° de Cuenta:</span>
-                <span className="font-mono font-bold text-poster-cyan text-sm">{bankData.numeroCuenta}</span>
+                <span className="font-mono font-bold text-poster-semGreen text-sm">{bankData.numeroCuenta}</span>
               </div>
               <div className="flex items-center justify-between pb-2 border-b border-white/10">
                 <span className="text-slate-400">Giro:</span>
@@ -424,7 +424,7 @@ ${formDataState.nombre}`;
               </div>
               <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-1 pt-1">
                 <span className="text-slate-400">Correos para comprobante:</span>
-                <span className="font-mono text-xs text-poster-gold">{bankData.correos.join('  ·  ')}</span>
+                <span className="font-mono text-xs text-poster-semGreen">{bankData.correos.join('  ·  ')}</span>
               </div>
             </div>
 
@@ -440,7 +440,7 @@ ${formDataState.nombre}`;
                 </>
               ) : (
                 <>
-                  <Copy className="w-4 h-4 text-poster-cyan" />
+                  <Copy className="w-4 h-4 text-poster-semGreen" />
                   <span>Copiar todos los datos de transferencia</span>
                 </>
               )}
@@ -465,7 +465,7 @@ ${formDataState.nombre}`;
 
               <a
                 href={mailUrl}
-                className="inline-flex items-center justify-center gap-2.5 px-5 py-3.5 rounded-xl bg-poster-cyan hover:bg-white text-poster-midnight font-bold text-xs uppercase tracking-wider transition-all shadow-lg shadow-poster-cyan/20 hover:scale-[1.02]"
+                className="inline-flex items-center justify-center gap-2.5 px-5 py-3.5 rounded-xl bg-white/10 hover:bg-poster-semGreen hover:text-poster-midnight border border-poster-semGreen/50 text-white font-bold text-xs uppercase tracking-wider transition-all shadow-lg hover:scale-[1.02]"
               >
                 <Mail className="w-4 h-4" />
                 <span>Enviar por Correo</span>

@@ -18,6 +18,8 @@ const config: Config = {
           gold: "#FFB800",
           goldHover: "#E6A600",
           sand: "#E5C396",
+          semGreen: "#BAED39",
+          semGreenHover: "#A6DC2A",
         },
       },
       fontFamily: {
