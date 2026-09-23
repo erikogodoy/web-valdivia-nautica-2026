@@ -82,7 +82,7 @@ const TIERS = [
 
 export default function SponsorsSection({ onOpenModal }: SponsorsSectionProps) {
   return (
-    <section id="sponsors" className="py-20 bg-gradient-to-b from-poster-midnight via-[#010c1c] to-poster-midnight relative border-t border-white/10">
+    <section id="sponsors" className="py-20 bg-gradient-to-b from-poster-midnight via-[#010c1c] to-poster-midnight relative">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         
         {/* Section Header */}
@@ -115,7 +115,7 @@ export default function SponsorsSection({ onOpenModal }: SponsorsSectionProps) {
                   {t.description}
                 </p>
 
-                <ul className="space-y-2 mb-6 pt-4 border-t border-white/10">
+                <ul className="space-y-2 pt-4 border-t border-white/10">
                   {t.benefits.map((b, idx) => (
                     <li key={idx} className="flex items-start gap-2 text-xs text-slate-200">
                       <Check className="w-3.5 h-3.5 text-poster-cyan shrink-0 mt-0.5" />
@@ -124,24 +124,20 @@ export default function SponsorsSection({ onOpenModal }: SponsorsSectionProps) {
                   ))}
                 </ul>
               </div>
-
-              <button
-                onClick={() => onOpenModal('sponsor', t.name)}
-                className={`w-full py-3 text-xs font-bold uppercase tracking-wider rounded-xl transition-all flex items-center justify-center gap-1.5 ${
-                  t.featured
-                    ? 'bg-poster-cyan text-poster-midnight hover:bg-white shadow-lg shadow-poster-cyan/20'
-                    : 'bg-white/10 text-white hover:bg-white/20 border border-white/10'
-                }`}
-              >
-                <span>Postular Nivel</span>
-                <ArrowRight className="w-3.5 h-3.5" />
-              </button>
             </div>
           ))}
         </div>
 
-        {/* Prominent Bottom CTA: Descargar Dossier Comercial */}
+        {/* Prominent Bottom CTAs */}
         <div className="flex flex-col sm:flex-row items-center justify-center gap-4 pt-8">
+          <button
+            onClick={() => onOpenModal('sponsor')}
+            className="inline-flex items-center gap-2.5 px-8 py-4 rounded-xl bg-poster-cyan text-poster-midnight text-xs font-bold uppercase tracking-wider hover:bg-white hover:scale-[1.03] transition-all shadow-xl shadow-poster-cyan/25"
+          >
+            <span>Conviértete en Sponsor</span>
+            <ArrowRight className="w-4 h-4" />
+          </button>
+
           <a
             href="/documents/Valdivia_Nautica_2026_Dossier_Sponsors.pdf"
             target="_blank"

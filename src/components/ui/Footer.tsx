@@ -2,7 +2,7 @@
 
 import React from 'react';
 import Link from 'next/link';
-import { Waves, MapPin, Mail, Calendar } from 'lucide-react';
+import { Waves, MapPin, Mail, Calendar, Phone, Download } from 'lucide-react';
 
 interface FooterProps {
   onOpenModal: (type?: string) => void;
@@ -10,105 +10,140 @@ interface FooterProps {
 
 export default function Footer({ onOpenModal }: FooterProps) {
   return (
-    <footer className="bg-poster-midnight text-slate-300 pt-16 pb-12 border-t border-white/10 relative z-20">
+    <footer className="bg-poster-midnight text-slate-300 pt-14 pb-10 border-t border-white/10 relative z-20">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-10 pb-12 border-b border-white/5">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-10 pb-10 border-b border-white/10">
           
-          {/* Col 1: Brand & Identity */}
-          <div className="lg:col-span-2 space-y-4">
+          {/* Col 1: Identidad y Sede */}
+          <div className="space-y-4">
             <Link href="/" className="flex items-center gap-3">
-              <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-poster-cyan to-poster-blue flex items-center justify-center text-white shadow-lg shadow-poster-cyan/20">
-                <Waves className="w-6 h-6 text-white" />
+              <div className="w-9 h-9 rounded-xl bg-gradient-to-br from-poster-cyan to-poster-blue flex items-center justify-center text-white shadow-lg shadow-poster-cyan/20">
+                <Waves className="w-5 h-5 text-white" />
               </div>
-              <span className="font-bold text-2xl tracking-tight text-white font-sans">
-                VALDIVIA NĀUTICA 2026
+              <span className="font-archivo font-extrabold text-xl tracking-tight text-white">
+                VALDIVIA NÁUTICA 2026
               </span>
             </Link>
 
-            <p className="text-sm text-slate-300 leading-relaxed max-w-md">
-              4 · 5 · 6 de Diciembre de 2026 — Parque Saval, Valdivia. Una feria abierta a la comunidad que reúne industria naval, electromovilidad marítima (SEM), pesca, remo, turismo y oficios de ribera.
+            <p className="text-xs text-slate-300 leading-relaxed font-sans max-w-sm">
+              Feria Náutica y Seminario de Electromovilidad Marítima (SEM). El gran punto de encuentro fluvial y marítimo del sur austral.
             </p>
 
-            <div className="pt-2 flex flex-col space-y-2 text-xs text-slate-400">
+            <div className="space-y-2 text-xs text-slate-400 pt-1">
               <span className="flex items-center gap-2">
-                <Calendar className="w-4 h-4 text-poster-gold" />
+                <Calendar className="w-4 h-4 text-poster-gold shrink-0" />
                 4, 5 y 6 de Diciembre de 2026
               </span>
               <span className="flex items-center gap-2">
-                <MapPin className="w-4 h-4 text-poster-cyan" />
-                Centro de Ferias Parque Saval, Isla Teja, Valdivia, Chile
-              </span>
-              <span className="flex items-center gap-2">
-                <Mail className="w-4 h-4 text-poster-gold" />
-                info@valdivianautica.cl
+                <MapPin className="w-4 h-4 text-poster-cyan shrink-0" />
+                Centro de Ferias Parque Saval · Isla Teja, Valdivia
               </span>
             </div>
           </div>
 
-          {/* Col 2: Secciones & Rutas */}
+          {/* Col 2: Contacto & Coordinación de Auspicios */}
           <div>
-            <h4 className="font-bold text-white text-sm uppercase tracking-wider mb-4">Pilares del Evento</h4>
-            <ul className="space-y-2.5 text-xs text-slate-300">
-              <li><Link href="/" className="hover:text-poster-cyan transition-colors">El Evento (Inicio)</Link></li>
-              <li><Link href="/sem" className="hover:text-poster-cyan transition-colors">SEM (Electromovilidad)</Link></li>
-              <li><Link href="/expo-pesca" className="hover:text-poster-cyan transition-colors">Expo Pesca</Link></li>
-              <li><a href="/#sponsors" className="hover:text-poster-cyan transition-colors">Sponsors Oficiales</a></li>
-            </ul>
-          </div>
-
-          {/* Col 3: Participación */}
-          <div>
-            <h4 className="font-bold text-white text-sm uppercase tracking-wider mb-4">Participa</h4>
+            <h4 className="font-archivo font-bold text-white text-xs uppercase tracking-wider mb-4">
+              Contacto & Auspicios
+            </h4>
             <ul className="space-y-2.5 text-xs text-slate-300">
               <li>
-                <button onClick={() => onOpenModal('expositor')} className="hover:text-poster-cyan transition-colors text-left">
-                  Quiero Exponer (Stands)
-                </button>
-              </li>
-              <li>
-                <a href="/#sponsors" className="hover:text-poster-cyan transition-colors">
-                  Matriz de Auspicios
+                <a
+                  href="mailto:info@valdivianautica.cl"
+                  className="flex items-center gap-2 hover:text-poster-cyan transition-colors"
+                >
+                  <Mail className="w-4 h-4 text-poster-gold shrink-0" />
+                  info@valdivianautica.cl
                 </a>
               </li>
               <li>
+                <a
+                  href="mailto:ventasajcck@gmail.com"
+                  className="flex items-center gap-2 hover:text-poster-cyan transition-colors"
+                >
+                  <Mail className="w-4 h-4 text-poster-cyan shrink-0" />
+                  ventasajcck@gmail.com
+                </a>
+              </li>
+              <li className="pt-1">
+                <a
+                  href="tel:+56981363976"
+                  className="flex items-center gap-2 hover:text-poster-cyan transition-colors"
+                >
+                  <Phone className="w-4 h-4 text-poster-gold shrink-0" />
+                  +56 9 8136 3976
+                </a>
+              </li>
+              <li>
+                <a
+                  href="tel:+56976436618"
+                  className="flex items-center gap-2 hover:text-poster-cyan transition-colors"
+                >
+                  <Phone className="w-4 h-4 text-poster-cyan shrink-0" />
+                  +56 9 7643 6618
+                </a>
+              </li>
+            </ul>
+          </div>
+
+          {/* Col 3: Accesos Rápidos */}
+          <div>
+            <h4 className="font-archivo font-bold text-white text-xs uppercase tracking-wider mb-4">
+              Enlaces Directos
+            </h4>
+            <ul className="space-y-2.5 text-xs text-slate-300">
+              <li>
+                <Link href="/" className="hover:text-poster-cyan transition-colors">
+                  El Evento (Inicio)
+                </Link>
+              </li>
+              <li>
+                <Link href="/sem" className="hover:text-poster-cyan transition-colors">
+                  SEM (Seminario de Electromovilidad)
+                </Link>
+              </li>
+              <li>
+                <Link href="/expo-pesca" className="hover:text-poster-cyan transition-colors">
+                  Expo Pesca
+                </Link>
+              </li>
+              <li>
+                <a href="/#sponsors" className="hover:text-poster-cyan transition-colors">
+                  Auspicios & Alianzas
+                </a>
+              </li>
+              <li className="pt-1">
                 <a
                   href="/documents/Valdivia_Nautica_2026_Dossier_Sponsors.pdf"
                   target="_blank"
                   rel="noopener noreferrer"
                   download="Valdivia_Nautica_2026_Matriz_Auspicios_Sponsors.pdf"
-                  className="hover:text-poster-gold transition-colors"
+                  className="inline-flex items-center gap-1.5 text-poster-gold hover:text-poster-goldHover font-bold transition-colors"
                 >
-                  Descargar Dossier (PDF)
+                  <Download className="w-3.5 h-3.5" />
+                  Descargar Dossier Oficial (PDF)
                 </a>
-              </li>
-              <li>
-                <button onClick={() => onOpenModal('general')} className="hover:text-poster-cyan transition-colors text-left">
-                  Contacto & Prensa
-                </button>
               </li>
             </ul>
           </div>
 
-          {/* Col 4: Alianzas */}
-          <div>
-            <h4 className="font-bold text-white text-sm uppercase tracking-wider mb-4">Organiza</h4>
-            <p className="text-xs text-slate-400 leading-relaxed mb-3">
-              Valdivia Náutica es impulsada junto a la Municipalidad de Valdivia, GORE Los Ríos, UACh, THEMS, ASENAV y la comunidad ribereña.
-            </p>
-            <div className="px-3 py-2 rounded-lg glass-panel border-white/5 text-[11px] text-poster-cyan font-mono">
-              Base Datos: GV Databases (São Paulo)
-            </div>
-          </div>
-
         </div>
 
-        {/* Bottom copyright */}
-        <div className="pt-8 flex flex-col sm:flex-row items-center justify-between text-xs text-slate-400 gap-4">
+        {/* Bottom Bar: Copyright & Gatovisual credit */}
+        <div className="pt-6 flex flex-col sm:flex-row items-center justify-between text-xs text-slate-400 gap-4">
           <p>© 2026 Valdivia Náutica. Todos los derechos reservados.</p>
-          <div className="flex gap-6">
-            <Link href="/" className="hover:text-white transition-colors">Volver a la Portada</Link>
-          </div>
+          <p className="text-slate-400">
+            Diseñado y desarrollado en Valdivia por{' '}
+            <a
+              href="https://gatovisual.cl"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-poster-gold hover:text-white font-semibold transition-colors underline decoration-poster-gold/40 underline-offset-4"
+            >
+              Gatovisual
+            </a>
+          </p>
         </div>
 
       </div>

@@ -54,9 +54,9 @@ const WORLDS = [
     id: 'sem',
     name: 'Electromovilidad Marítima',
     modalType: 'sem',
-    title: 'La transición energética fluvial nace en los ríos del sur',
-    desc: 'Salón de Electromovilidad Marítima co-organizado con la Universidad Austral de Chile (UACh) y THEMS. Conferencias con expertos internacionales, exhibición del catamarán solar en vivo en el Calle-Calle y rondas técnicas de descarbonización de flotas.',
-    ctaText: 'Acreditación SEM 2026',
+    title: '(SEM) Seminario de Electromovilidad Marítima',
+    desc: 'El principal encuentro técnico y académico del Cono Sur para la transición energética y descarbonización del transporte fluvial y marítimo. Co-organizado con la Universidad Austral de Chile (UACh) y THEMS, reúne a expertos internacionales, astilleros, armadores y autoridades para debatir sobre propulsión eléctrica y soluciones sostenibles para cuencas navegables.',
+    ctaText: 'Inscríbete',
     icon: Zap,
     accent: 'poster-cyan',
   },
@@ -64,9 +64,9 @@ const WORLDS = [
     id: 'pesca',
     name: 'Pesca y Acuicultura',
     modalType: 'general',
-    title: 'Pesca deportiva sustentable y saberes de la cuenca',
+    title: 'EXPO PESCA',
     desc: 'El gran punto de encuentro para pescadores aficionados y profesionales. Campeonatos de orilla y embarcada en la confluencia de los ríos Cruces y Calle-Calle, equipamiento de marcas líderes, señuelos de última generación y clínicas de atado de moscas.',
-    ctaText: 'Información de Campeonatos',
+    ctaText: '',
     icon: Fish,
     accent: 'poster-gold',
   },
@@ -76,7 +76,7 @@ const WORLDS = [
     modalType: 'general',
     title: 'La capital del remo chileno en plena competencia',
     desc: 'Espectáculo náutico de primer nivel con los históricos clubes centenarios valdivianos (Phoenix, Arturo Prat, Centenario) y remeros olímpicos. Incluye bautizos náuticos abiertos de kayak para jóvenes y paseos fluviales guiados.',
-    ctaText: 'Ver Actividades Deportivas',
+    ctaText: '',
     icon: Sailboat,
     accent: 'poster-cyan',
   },
@@ -86,7 +86,7 @@ const WORLDS = [
     modalType: 'expositor',
     title: 'Vanguardia en construcción naval y proveeduría técnica',
     desc: 'Exhibición de la potente industria de astilleros encabezada por ASENAV, armadores comerciales, motores marinos de alta eficiencia, soluciones de telemetría y ruedas de negocios nacionales e internacionales.',
-    ctaText: 'Solicitar Stand B2B',
+    ctaText: '',
     icon: Ship,
     accent: 'white',
   },
@@ -94,9 +94,9 @@ const WORLDS = [
     id: 'comunidad',
     name: 'Comunidad y Educación',
     modalType: 'general',
-    title: 'Integración ciudadana, escuelas y futuro fluvial',
-    desc: 'Espacio de divulgación y encuentro donde universidades, centros de formación técnica, colegios de la región y organizaciones ciudadanas dialogan sobre la relación histórica y futura de Valdivia con sus ríos y humedales.',
-    ctaText: 'Participar con Escuela / Universidad',
+    title: 'Valdivia Ciudad Humedal & Conciencia Fluvial',
+    desc: 'Valdivia se proyecta como la primera Ciudad Humedal Ramsar de Latinoamérica y próxima sede del Encuentro Mundial Ramsar. Un espacio ciudadano donde la ciencia, las escuelas, universidades y comunidades ribereñas dialogan y protegen el ecosistema de nuestros ríos y humedales.',
+    ctaText: '',
     icon: Users,
     accent: 'poster-cyan',
   },
@@ -104,9 +104,9 @@ const WORLDS = [
     id: 'turismo',
     name: 'Turismo y Experiencias',
     modalType: 'general',
-    title: 'Sabores ribereños, cerveza artesanal y navegación',
-    desc: 'La experiencia sensorial de Valdivia: paseos en embarcaciones turísticas por el Santuario de la Naturaleza Carlos Anwandter, patio de gastronomía marina y fluvial en vivo, y degustación de cervecerías artesanales de Los Ríos.',
-    ctaText: 'Descubrir Experiencias',
+    title: 'Sabores ribereños, humedales y navegación',
+    desc: 'La experiencia sensorial de Valdivia: paseos fluviales por el Santuario de la Naturaleza Carlos Anwandter y su red de humedales protegidos, patio de gastronomía marina y fluvial en vivo, y degustación de cervecerías artesanales de Los Ríos.',
+    ctaText: '',
     icon: Compass,
     accent: 'poster-gold',
   },
@@ -116,7 +116,7 @@ const WORLDS = [
     modalType: 'general',
     title: 'Carpintería de ribera y memoria viva en madera nativa',
     desc: 'Demostraciones magistrales en directo donde maestros carpinteros de ribera construyen y calafatean embarcaciones tradicionales de madera. Un tributo al patrimonio vivo que define la identidad fluvial del sur austral.',
-    ctaText: 'Ver Talleres de Oficios',
+    ctaText: '',
     icon: Hammer,
     accent: 'poster-gold',
   },
@@ -148,7 +148,7 @@ export default function ImpactManifesto({ onOpenModal }: ImpactManifestoProps) {
   };
 
   return (
-    <section id="manifiesto" className="relative pt-10 sm:pt-16 pb-20 sm:pb-28 bg-gradient-to-b from-poster-midnight via-[#001744] to-poster-midnight text-white overflow-hidden border-b border-white/10">
+    <section id="manifiesto" className="relative pt-10 sm:pt-16 pb-20 sm:pb-28 bg-gradient-to-b from-poster-midnight via-[#001744] to-poster-midnight text-white overflow-hidden">
       {/* Subtle Background Glows */}
       <div className="absolute top-1/4 left-0 -translate-y-1/2 w-96 h-96 bg-poster-cyan/10 rounded-full blur-3xl pointer-events-none" />
       <div className="absolute top-1/4 right-0 -translate-y-1/2 w-96 h-96 bg-poster-gold/10 rounded-full blur-3xl pointer-events-none" />
@@ -326,16 +326,6 @@ export default function ImpactManifesto({ onOpenModal }: ImpactManifestoProps) {
                     className="w-full max-w-4xl mx-auto flex flex-col justify-between h-full relative z-10"
                   >
                     <div>
-                      {/* Mundo Identifier */}
-                      <div className="flex items-center gap-2.5 mb-4">
-                        <div className="w-8 h-8 rounded-xl bg-poster-cyan/15 text-poster-cyan flex items-center justify-center border border-poster-cyan/30">
-                          <Icon className="w-4 h-4" />
-                        </div>
-                        <span className="text-xs font-archivo font-bold uppercase tracking-[0.2em] text-poster-cyan">
-                          {currentMundo.name}
-                        </span>
-                      </div>
-
                       {/* Main Title */}
                       <h4 className="text-2xl sm:text-3xl md:text-4xl font-archivo font-extrabold text-white mb-5 leading-snug tracking-tight">
                         {currentMundo.title}
@@ -347,14 +337,14 @@ export default function ImpactManifesto({ onOpenModal }: ImpactManifestoProps) {
                       </p>
                     </div>
 
-                    {/* CTA Button */}
-                    {onOpenModal && (
+                    {/* CTA Button ONLY for SEM */}
+                    {currentMundo.id === 'sem' && onOpenModal && (
                       <div>
                         <button
-                          onClick={() => onOpenModal(currentMundo.modalType)}
+                          onClick={() => onOpenModal('sem')}
                           className="inline-flex items-center gap-2.5 px-7 py-3.5 rounded-xl text-xs font-bold uppercase tracking-wider bg-poster-cyan text-poster-midnight hover:bg-white transition-all shadow-lg shadow-poster-cyan/25 hover:scale-[1.03]"
                         >
-                          <span>{currentMundo.ctaText}</span>
+                          <span>Inscríbete</span>
                           <ArrowRight className="w-4 h-4" />
                         </button>
                       </div>
