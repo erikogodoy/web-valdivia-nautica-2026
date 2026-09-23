@@ -1,12 +1,30 @@
 'use client';
 
-import React, { useState } from 'react';
+import React, { useState, useRef } from 'react';
+import { motion, useScroll, useTransform } from 'framer-motion';
 import Header from '@/components/ui/Header';
 import Footer from '@/components/ui/Footer';
 import ContactModal from '@/components/ui/ContactModal';
 import SemRegistrationModal from '@/components/ui/SemRegistrationModal';
 import SponsorsSection from '@/components/ui/SponsorsSection';
-import { Zap, Calendar, MapPin, Download, ArrowRight, BatteryCharging, Ship, Cpu, Check, CreditCard, Video, GraduationCap, Ticket } from 'lucide-react';
+import {
+  Zap,
+  Calendar,
+  MapPin,
+  Download,
+  ArrowRight,
+  BatteryCharging,
+  Ship,
+  Cpu,
+  Check,
+  CreditCard,
+  Ticket,
+  ShieldCheck,
+  Waves,
+  Users,
+  Anchor,
+  Sparkles,
+} from 'lucide-react';
 
 export default function SemPage() {
   const [modalState, setModalState] = useState<{
@@ -26,6 +44,14 @@ export default function SemPage() {
     isOpen: false,
     level: 'general',
   });
+
+  // Parallax setup for the full-width auditorium photograph
+  const parallaxRef = useRef<HTMLDivElement>(null);
+  const { scrollYProgress } = useScroll({
+    target: parallaxRef,
+    offset: ['start end', 'end start'],
+  });
+  const parallaxY = useTransform(scrollYProgress, [0, 1], ['-16%', '16%']);
 
   const handleOpenModal = (type = 'sponsor', level = '') => {
     if (type === 'sem') {
@@ -62,108 +88,246 @@ export default function SemPage() {
       <Header onOpenModal={handleOpenModal} />
 
       <main className="flex-grow pt-32 pb-16 bg-poster-midnight text-white min-h-screen">
-        {/* SEM Hero Header */}
-        <section className="relative py-16 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto overflow-hidden">
-          <div className="text-center max-w-3xl mx-auto">
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-poster-cyan/10 border border-poster-cyan/30 text-poster-cyan text-xs font-bold uppercase tracking-wider mb-6">
-              <Zap className="w-4 h-4 text-poster-cyan" />
-              <span>Seminario Oficial · Valdivia Náutica 2026</span>
+        {/* 1. SEM HERO HEADER CON LOGO OFICIAL */}
+        <section className="relative py-12 sm:py-16 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto overflow-hidden">
+          <div className="text-center max-w-4xl mx-auto">
+            
+            {/* Logo Oficial SEM 2026 con SEO semantic H1 */}
+            <div className="flex justify-center items-center mb-8">
+              <h1 className="sr-only">SEM 2026 — Seminario de Electromovilidad Marítima · Valdivia Náutica</h1>
+              <img
+                src="/images/logo-sem-2026.png"
+                alt="Logo SEM 2026 — Seminario de Electromovilidad Marítima"
+                className="w-full max-w-[340px] sm:max-w-[440px] md:max-w-[520px] h-auto object-contain mx-auto filter drop-shadow-[0_20px_45px_rgba(0,180,216,0.3)] transition-transform duration-300"
+              />
             </div>
 
-            <h1 className="text-4xl sm:text-6xl font-archivo font-extrabold tracking-tight mb-6">
-              SEM <span className="text-poster-cyan">2026</span>
-            </h1>
-
-            <p className="text-xl sm:text-2xl font-light text-slate-200 mb-6 font-sans">
-              Seminario de Electromovilidad Marítima
-            </p>
-
-            <p className="text-slate-300 text-sm sm:text-base leading-relaxed max-w-2xl mx-auto mb-8 font-sans">
-              El principal foro del Cono Sur dedicado a la descarbonización del transporte fluvial y marítimo, propulsión eléctrica y solar, tecnología portuaria e innovación naval sostenible.
-            </p>
-
-            <div className="flex flex-wrap items-center justify-center gap-4 text-xs sm:text-sm text-slate-300 mb-10">
-              <span className="flex items-center gap-2 bg-white/5 border border-white/10 px-4 py-2 rounded-xl">
+            {/* Pastillas de Fecha y Lugar */}
+            <div className="flex flex-wrap items-center justify-center gap-3 sm:gap-4 text-xs sm:text-sm text-slate-300 mb-10">
+              <span className="flex items-center gap-2 bg-white/5 border border-white/10 px-4 py-2 rounded-xl backdrop-blur-sm">
                 <Calendar className="w-4 h-4 text-poster-gold" />
-                4, 5 y 6 de Diciembre 2026
+                <span>4, 5 y 6 de Diciembre 2026</span>
               </span>
-              <span className="flex items-center gap-2 bg-white/5 border border-white/10 px-4 py-2 rounded-xl">
+              <span className="flex items-center gap-2 bg-white/5 border border-white/10 px-4 py-2 rounded-xl backdrop-blur-sm">
                 <MapPin className="w-4 h-4 text-poster-cyan" />
-                Centro de Ferias Parque Saval · Isla Teja, Valdivia
+                <span>Centro de Ferias Parque Saval · Isla Teja, Valdivia</span>
               </span>
             </div>
 
-            <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
+            {/* CTAs Principales: 1. Inscripción | 2. Ser Sponsor */}
+            <div className="flex flex-col sm:flex-row items-center justify-center gap-4 max-w-lg mx-auto">
               <button
                 onClick={() => handleOpenSemModal('general')}
-                className="w-full sm:w-auto inline-flex items-center justify-center gap-2.5 px-8 py-4 rounded-xl bg-poster-gold text-poster-midnight text-xs font-bold uppercase tracking-wider hover:bg-poster-goldHover hover:scale-[1.03] transition-all shadow-xl shadow-poster-gold/25"
+                className="w-full sm:w-auto flex-1 inline-flex items-center justify-center gap-2.5 px-8 py-4 rounded-xl bg-poster-gold text-poster-midnight text-xs font-bold uppercase tracking-wider hover:bg-poster-goldHover hover:scale-[1.03] transition-all shadow-xl shadow-poster-gold/25"
               >
                 <Ticket className="w-4 h-4" />
                 <span>Inscribirme en SEM 2026</span>
               </button>
 
+              <button
+                onClick={() => handleOpenModal('sponsor', 'Bronce')}
+                className="w-full sm:w-auto flex-1 inline-flex items-center justify-center gap-2.5 px-8 py-4 rounded-xl bg-poster-cyan text-poster-midnight text-xs font-bold uppercase tracking-wider hover:bg-white hover:scale-[1.03] transition-all shadow-xl shadow-poster-cyan/25"
+              >
+                <ShieldCheck className="w-4 h-4" />
+                <span>Ser Sponsor / Auspiciador</span>
+              </button>
+            </div>
+
+            {/* Enlace secundario para descarga del Dossier */}
+            <div className="mt-5 flex items-center justify-center">
               <a
                 href="/documents/Valdivia_Nautica_2026_Dossier_Sponsors.pdf"
                 target="_blank"
                 rel="noopener noreferrer"
                 download="Valdivia_Nautica_2026_Matriz_Auspicios_Sponsors.pdf"
-                className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-7 py-4 rounded-xl bg-white/10 hover:bg-white/20 border border-white/20 text-xs font-bold uppercase tracking-wider text-white transition-all"
+                className="text-xs text-slate-400 hover:text-poster-cyan transition-colors inline-flex items-center gap-1.5 underline decoration-white/20 underline-offset-4"
               >
-                <Download className="w-4 h-4 text-poster-cyan" />
-                <span>Descargar Dossier SEM</span>
+                <Download className="w-3.5 h-3.5" />
+                <span>Descargar Dossier Oficial de Auspicios SEM (PDF)</span>
               </a>
             </div>
+
           </div>
         </section>
 
-        {/* Ejes Temáticos del SEM */}
-        <section className="py-16 border-t border-white/10 bg-poster-dark/40">
+        {/* 2. DESCRIPCIÓN AMPLIADA DEL SEM */}
+        <section className="py-16 sm:py-20 border-t border-white/10 bg-gradient-to-b from-poster-midnight via-[#011438] to-poster-midnight relative">
+          <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="text-center max-w-3xl mx-auto mb-12">
+              <span className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-poster-cyan/10 border border-poster-cyan/30 text-poster-cyan text-xs font-bold uppercase tracking-widest mb-4">
+                <Zap className="w-3.5 h-3.5" />
+                Foro de Vanguardia Naval & Transición Energética
+              </span>
+              <h2 className="text-3xl sm:text-4xl md:text-5xl font-archivo font-extrabold text-white tracking-tight leading-tight">
+                El Epicentro de la <span className="text-transparent bg-clip-text bg-gradient-to-r from-poster-cyan via-white to-poster-gold">Descarbonización Marítima y Fluvial</span>
+              </h2>
+            </div>
+
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-stretch text-slate-300 text-sm sm:text-base leading-relaxed font-sans mb-12">
+              <div className="space-y-5 bg-white/[0.02] border border-white/10 p-7 sm:p-9 rounded-3xl flex flex-col justify-center">
+                <p>
+                  Valdivia, reconocida históricamente como la capital de la construcción y diseño naval en Chile, se posiciona hoy como el <strong>laboratorio natural por excelencia</strong> para la transición energética en el agua. Con su vasta red de ríos navegables y su acceso privilegiado al océano, la región reúne las condiciones óptimas para liderar la adopción de tecnologías limpias en navegación.
+                </p>
+                <p>
+                  El <strong>Seminario de Electromovilidad Marítima (SEM 2026)</strong> es el punto de encuentro anual donde convergen los principales astilleros, centros de investigación universitaria, armadores, proveedores globales de sistemas de propulsión eléctrica y los organismos rectores del Estado (Ministerio de Transportes, Corfo y la Dirección General del Territorio Marítimo y Marina Mercante, DIRECTEMAR).
+                </p>
+              </div>
+
+              <div className="space-y-5 bg-white/[0.03] border border-poster-cyan/20 p-7 sm:p-9 rounded-3xl flex flex-col justify-center relative overflow-hidden">
+                <div className="absolute top-0 right-0 w-48 h-48 bg-poster-cyan/10 rounded-full blur-3xl pointer-events-none" />
+                <p>
+                  Durante tres jornadas intensivas en el Centro de Ferias Parque Saval, SEM 2026 abordará los desafíos técnicos y regulatorios de la descarbonización: desde la reconversión (retrofitting) de transbordadores, naves turísticas y embarcaciones acuícolas, hasta el despliegue de infraestructura de carga rápida en muelles y normativas de seguridad de baterías marinas.
+                </p>
+                <p className="text-white font-medium border-l-2 border-poster-gold pl-4 py-1">
+                  El programa incluye ponencias magistrales internacionales, paneles de debate sobre políticas públicas, mesas de negocios B2B y demostraciones reales de navegación cero emisiones sobre las aguas del río Calle-Calle.
+                </p>
+              </div>
+            </div>
+
+            {/* 3 Pilares destacados del evento */}
+            <div className="grid grid-cols-1 sm:grid-cols-3 gap-5">
+              <div className="p-6 rounded-2xl bg-poster-dark/80 border border-white/10 flex items-start gap-4 hover:border-poster-cyan/40 transition-all">
+                <div className="w-11 h-11 rounded-xl bg-poster-cyan/15 text-poster-cyan flex items-center justify-center shrink-0">
+                  <Calendar className="w-5 h-5" />
+                </div>
+                <div>
+                  <h3 className="font-archivo font-bold text-white text-base mb-1">3 Días de Ponencias</h3>
+                  <p className="text-xs text-slate-300 font-sans leading-relaxed">
+                    Especialistas internacionales, científicos y líderes de la industria debatiendo en Parque Saval.
+                  </p>
+                </div>
+              </div>
+
+              <div className="p-6 rounded-2xl bg-poster-dark/80 border border-white/10 flex items-start gap-4 hover:border-poster-gold/40 transition-all">
+                <div className="w-11 h-11 rounded-xl bg-poster-gold/15 text-poster-gold flex items-center justify-center shrink-0">
+                  <Waves className="w-5 h-5" />
+                </div>
+                <div>
+                  <h3 className="font-archivo font-bold text-white text-base mb-1">Demostraciones en Agua</h3>
+                  <p className="text-xs text-slate-300 font-sans leading-relaxed">
+                    Pruebas en vivo en el río Calle-Calle de embarcaciones eléctricas, solares e híbridas.
+                  </p>
+                </div>
+              </div>
+
+              <div className="p-6 rounded-2xl bg-poster-dark/80 border border-white/10 flex items-start gap-4 hover:border-white/40 transition-all">
+                <div className="w-11 h-11 rounded-xl bg-white/15 text-white flex items-center justify-center shrink-0">
+                  <Users className="w-5 h-5" />
+                </div>
+                <div>
+                  <h3 className="font-archivo font-bold text-white text-base mb-1">Mesas B2B & Clúster</h3>
+                  <p className="text-xs text-slate-300 font-sans leading-relaxed">
+                    Conexión directa entre armadores, astilleros, banca de desarrollo y proveedores tecnológicos.
+                  </p>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </section>
+
+        {/* 3. FOTOGRAFÍA A ANCHO COMPLETO CON PARALLAX: AUDITORIO Y CONFERENCIAS SEM */}
+        <div
+          ref={parallaxRef}
+          className="w-full h-[380px] sm:h-[480px] md:h-[580px] lg:h-[640px] relative overflow-hidden border-y border-white/15"
+        >
+          <motion.div
+            style={{ y: parallaxY }}
+            className="absolute inset-0 -top-[20%] -bottom-[20%] h-[140%] w-full will-change-transform"
+          >
+            <img
+              src="/images/sem-auditorio-conferencia.jpg"
+              alt="Auditorio y conferencias del Seminario de Electromovilidad Marítima SEM en Parque Saval, Valdivia"
+              className="w-full h-full object-cover object-[center_60%] filter brightness-95 scale-105"
+            />
+          </motion.div>
+          {/* Suaves gradientes en bordes para fundir armoniosamente con el fondo medianoche */}
+          <div className="absolute inset-0 bg-gradient-to-t from-poster-midnight via-transparent to-poster-midnight/40 pointer-events-none" />
+          <div className="absolute inset-0 bg-gradient-to-r from-poster-midnight/60 via-transparent to-poster-midnight/60 pointer-events-none" />
+        </div>
+
+        {/* 4. EJES ESTRATÉGICOS DEL SEMINARIO */}
+        <section className="py-20 border-b border-white/10 bg-poster-dark/40 relative">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <h2 className="text-2xl sm:text-4xl font-archivo font-bold text-center mb-12">
-              Ejes Estratégicos del <span className="text-poster-cyan">Seminario</span>
-            </h2>
+            <div className="text-center max-w-3xl mx-auto mb-14">
+              <span className="text-xs font-archivo font-bold uppercase tracking-[0.2em] text-poster-cyan">
+                Pilares Temáticos
+              </span>
+              <h2 className="text-3xl sm:text-5xl font-archivo font-extrabold text-white tracking-tight mt-2">
+                Ejes Estratégicos del <span className="text-poster-cyan">Seminario</span>
+              </h2>
+              <p className="text-slate-300 text-sm sm:text-base mt-3 font-sans leading-relaxed">
+                Cuatro áreas clave que marcarán el rumbo de la transformación tecnológica naval durante el encuentro.
+              </p>
+            </div>
 
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-              <div className="p-7 rounded-2xl bg-poster-dark/80 border border-white/10 hover:border-poster-cyan/40 transition-all">
-                <div className="w-12 h-12 rounded-xl bg-poster-cyan/10 flex items-center justify-center mb-5 text-poster-cyan">
-                  <BatteryCharging className="w-6 h-6" />
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+              
+              {/* Eje 1 */}
+              <div className="p-7 rounded-2xl bg-poster-dark/80 border border-white/10 hover:border-poster-cyan/40 transition-all flex flex-col justify-between">
+                <div>
+                  <div className="w-12 h-12 rounded-xl bg-poster-cyan/10 flex items-center justify-center mb-5 text-poster-cyan">
+                    <BatteryCharging className="w-6 h-6" />
+                  </div>
+                  <h3 className="font-archivo text-lg font-bold text-white mb-2">
+                    Propulsión Eléctrica & Baterías
+                  </h3>
+                  <p className="text-xs text-slate-300 leading-relaxed font-sans">
+                    Sistemas de tracción limpia para embarcaciones fluviales, transbordadores y naves de pasaje. Bancos de baterías LiFePO4, almacenamiento seguro y autonomía.
+                  </p>
                 </div>
-                <h3 className="font-archivo text-lg font-bold text-white mb-2">
-                  Propulsión Eléctrica & Baterías
-                </h3>
-                <p className="text-xs text-slate-300 leading-relaxed font-sans">
-                  Sistemas de tracción limpia para embarcaciones fluviales, transbordadores y naves de pasaje. Bancos de baterías, autonomía y carga rápida en muelles.
-                </p>
               </div>
 
-              <div className="p-7 rounded-2xl bg-poster-dark/80 border border-white/10 hover:border-poster-gold/40 transition-all">
-                <div className="w-12 h-12 rounded-xl bg-poster-gold/10 flex items-center justify-center mb-5 text-poster-gold">
-                  <Ship className="w-6 h-6" />
+              {/* Eje 2 */}
+              <div className="p-7 rounded-2xl bg-poster-dark/80 border border-white/10 hover:border-poster-gold/40 transition-all flex flex-col justify-between">
+                <div>
+                  <div className="w-12 h-12 rounded-xl bg-poster-gold/10 flex items-center justify-center mb-5 text-poster-gold">
+                    <Zap className="w-6 h-6" />
+                  </div>
+                  <h3 className="font-archivo text-lg font-bold text-white mb-2">
+                    Electrificación de Muelles & Carga
+                  </h3>
+                  <p className="text-xs text-slate-300 leading-relaxed font-sans">
+                    Infraestructura de carga rápida en puertos fluviales y costeros, microrredes con energías renovables y conexión de energía a tierra (cold ironing).
+                  </p>
                 </div>
-                <h3 className="font-archivo text-lg font-bold text-white mb-2">
-                  Astilleros e Innovación Naval
-                </h3>
-                <p className="text-xs text-slate-300 leading-relaxed font-sans">
-                  La experiencia de astilleros líderes del cono sur en diseño y construcción de naves con menor huella de carbono, optimización hidrodinámica y nuevos materiales.
-                </p>
               </div>
 
-              <div className="p-7 rounded-2xl bg-poster-dark/80 border border-white/10 hover:border-white/30 transition-all">
-                <div className="w-12 h-12 rounded-xl bg-white/10 flex items-center justify-center mb-5 text-white">
-                  <Cpu className="w-6 h-6" />
+              {/* Eje 3 */}
+              <div className="p-7 rounded-2xl bg-poster-dark/80 border border-white/10 hover:border-white/30 transition-all flex flex-col justify-between">
+                <div>
+                  <div className="w-12 h-12 rounded-xl bg-white/10 flex items-center justify-center mb-5 text-white">
+                    <Ship className="w-6 h-6" />
+                  </div>
+                  <h3 className="font-archivo text-lg font-bold text-white mb-2">
+                    Astilleros & Arquitectura Naval
+                  </h3>
+                  <p className="text-xs text-slate-300 leading-relaxed font-sans">
+                    Diseño de cascos hidrodinámicos en aluminio y materiales ligeros, reconversión (retrofitting) de flota existente y optimización de eficiencia de casco.
+                  </p>
                 </div>
-                <h3 className="font-archivo text-lg font-bold text-white mb-2">
-                  Políticas Públicas & Red Fluvial
-                </h3>
-                <p className="text-xs text-slate-300 leading-relaxed font-sans">
-                  Modelos de concesión, infraestructura de puertos fluviales, normativa de seguridad marítima y articulación público-privada para la descarbonización.
-                </p>
               </div>
+
+              {/* Eje 4 */}
+              <div className="p-7 rounded-2xl bg-poster-dark/80 border border-white/10 hover:border-poster-cyan/30 transition-all flex flex-col justify-between">
+                <div>
+                  <div className="w-12 h-12 rounded-xl bg-poster-cyan/10 flex items-center justify-center mb-5 text-poster-cyan">
+                    <Cpu className="w-6 h-6" />
+                  </div>
+                  <h3 className="font-archivo text-lg font-bold text-white mb-2">
+                    Marco Regulatorio & Políticas Públicas
+                  </h3>
+                  <p className="text-xs text-slate-300 leading-relaxed font-sans">
+                    Normativa de seguridad marítima DIRECTEMAR, modelos de concesión de transporte público fluvial, incentivos tributarios y articulación público-privada.
+                  </p>
+                </div>
+              </div>
+
             </div>
           </div>
         </section>
 
-        {/* SECCIÓN OFICIAL DE INSCRIPCIÓN Y PASES SEM 2026 */}
+        {/* 5. SECCIÓN OFICIAL DE INSCRIPCIÓN Y PASES SEM 2026 */}
         <section id="inscripcion" className="py-20 border-t border-white/10 bg-gradient-to-b from-poster-midnight via-[#031530] to-poster-midnight relative">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
             
@@ -329,7 +493,7 @@ export default function SemPage() {
           </div>
         </section>
 
-        {/* Sponsor Packages Section */}
+        {/* 6. SPONSOR PACKAGES SECTION */}
         <SponsorsSection onOpenModal={handleOpenModal} />
       </main>
 
