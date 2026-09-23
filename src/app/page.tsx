@@ -11,6 +11,7 @@ import SponsorsSection from '@/components/ui/SponsorsSection';
 import OrganizersBar from '@/components/ui/OrganizersBar';
 import Footer from '@/components/ui/Footer';
 import ContactModal from '@/components/ui/ContactModal';
+import SemRegistrationModal from '@/components/ui/SemRegistrationModal';
 
 export default function Home() {
   const [modalState, setModalState] = useState<{
@@ -63,12 +64,18 @@ export default function Home() {
       {/* Footer Editorial */}
       <Footer onOpenModal={handleOpenModal} />
 
-      {/* Interactive Modal */}
+      {/* Interactive Contact & Registration Modals */}
       <ContactModal
-        isOpen={modalState.isOpen}
+        isOpen={modalState.isOpen && modalState.type !== 'sem'}
         onClose={handleCloseModal}
         initialType={modalState.type}
         initialLevel={modalState.level}
+      />
+
+      <SemRegistrationModal
+        isOpen={modalState.isOpen && modalState.type === 'sem'}
+        onClose={handleCloseModal}
+        initialLevel={modalState.level || 'general'}
       />
     </>
   );

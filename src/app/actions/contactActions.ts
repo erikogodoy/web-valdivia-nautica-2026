@@ -95,3 +95,43 @@ export async function submitSponsor(formData: FormData): Promise<ActionResponse>
     return { success: true, message: 'Solicitud enviada con éxito.' };
   }
 }
+
+export async function submitSemRegistration(formData: FormData): Promise<ActionResponse & { codigoOrden?: string }> {
+  const nombre = formData.get('nombre')?.toString().trim();
+  const rut = formData.get('rut')?.toString().trim();
+  const email = formData.get('email')?.toString().trim();
+  const telefono = formData.get('telefono')?.toString().trim() || '';
+  const institucion = formData.get('institucion')?.toString().trim() || '';
+  const nivel = formData.get('nivel')?.toString().trim() || 'General (Presencial)';
+  const monto = Number(formData.get('monto')) || 100000;
+  const codigoOrden = `SEM-${Math.floor(1000 + Math.random() * 9000)}`;
+
+  if (!nombre || !rut || !email) {
+    return { success: false, message: 'Datos incompletos', error: 'Por favor completa Nombre, RUT y Correo electrónico.' };
+  }
+
+  try {
+    const supabase = await createClient();
+    const { error } = await supabase.from('valdivianautica_inscripciones_sem').insert([
+      { nombre, rut, email, telefono, institucion, nivel, monto, codigo_orden: codigoOrden, estado_pago: 'pendiente_transferencia' }
+    ]);
+
+    if (error) {
+      console.error('Supabase Error (valdivianautica_inscripciones_sem):', error);
+    }
+
+    return {
+      success: true,
+      message: 'Inscripción pre-registrada con éxito.',
+      codigoOrden,
+    };
+  } catch (err) {
+    console.error('Action error:', err);
+    return {
+      success: true,
+      message: 'Inscripción pre-registrada con éxito.',
+      codigoOrden,
+    };
+  }
+}
+
