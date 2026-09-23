@@ -1,7 +1,6 @@
 'use client';
 
-import React, { useState, useRef } from 'react';
-import { motion, useScroll, useTransform } from 'framer-motion';
+import React, { useState } from 'react';
 import Header from '@/components/ui/Header';
 import Footer from '@/components/ui/Footer';
 import ContactModal from '@/components/ui/ContactModal';
@@ -40,14 +39,6 @@ export default function SemPage() {
     isOpen: false,
     level: 'general',
   });
-
-  // Parallax setup for the full-width auditorium photograph
-  const parallaxRef = useRef<HTMLDivElement>(null);
-  const { scrollYProgress } = useScroll({
-    target: parallaxRef,
-    offset: ['start end', 'end start'],
-  });
-  const parallaxY = useTransform(scrollYProgress, [0, 1], ['-16%', '16%']);
 
   const handleOpenModal = (type = 'sponsor', level = '') => {
     if (type === 'sem') {
@@ -146,37 +137,24 @@ export default function SemPage() {
           </div>
         </section>
 
-        {/* 2. DESCRIPCIÓN DEL SEM CON FONDO FOTOGRÁFICO Y OVERLAY DIRECCIONAL */}
-        <section
-          ref={parallaxRef}
-          className="relative py-24 sm:py-32 lg:py-40 border-t border-white/10 overflow-hidden bg-poster-midnight"
-        >
-          {/* Fondo fotográfico con Parallax y Overlay direccional */}
-          <div className="absolute inset-0 overflow-hidden pointer-events-none">
-            <motion.div
-              style={{ y: parallaxY }}
-              className="absolute inset-0 -top-[15%] -bottom-[15%] h-[130%] w-full will-change-transform"
-            >
-              <img
-                src="/images/sem-auditorio-conferencia.jpg"
-                alt="Auditorio y conferencias del Seminario de Electromovilidad Marítima SEM en Parque Saval"
-                className="w-full h-full object-cover object-[70%_center] sm:object-right filter brightness-[0.82] contrast-[1.08]"
-              />
-            </motion.div>
-            {/* Overlay direccional: oscuro a la izquierda detrás del texto, más clara/despejada la foto a la derecha */}
-            <div className="absolute inset-0 bg-gradient-to-r from-poster-midnight via-poster-midnight/95 via-45% md:via-55% to-poster-midnight/30 sm:to-transparent" />
-            {/* Suave degradado superior e inferior para transición fluida */}
-            <div className="absolute inset-0 bg-gradient-to-b from-poster-midnight via-transparent via-20% to-poster-midnight" />
+        {/* 2. DESCRIPCIÓN DEL SEM CON FONDO FOTOGRÁFICO DE MÁXIMA AMPLITUD Y OVERLAY */}
+        <section className="relative py-20 sm:py-28 lg:py-36 overflow-hidden bg-poster-midnight">
+          {/* Fondo fotográfico ampliado a la derecha sin recorte por parallax */}
+          <div className="absolute right-0 top-0 bottom-0 w-full md:w-[64%] lg:w-[60%] h-full overflow-hidden pointer-events-none">
+            <img
+              src="/images/sem-auditorio-conferencia.jpg"
+              alt="Auditorio y conferencias del Seminario de Electromovilidad Marítima SEM en Parque Saval"
+              className="w-full h-full object-cover object-[center_72%] filter brightness-95 contrast-[1.05]"
+            />
+            {/* Gradiente direccional para fundir suavemente con el fondo medianoche de la izquierda */}
+            <div className="absolute inset-0 bg-gradient-to-r from-poster-midnight via-poster-midnight/80 via-20% md:via-28% to-transparent" />
+            {/* Suave degradado superior e inferior para transición perfecta */}
+            <div className="absolute inset-0 bg-gradient-to-b from-poster-midnight via-transparent via-15% to-poster-midnight" />
           </div>
 
-          {/* Contenido alineado a la izquierda con solo los párrafos 2 y 4 */}
+          {/* Contenido limpio alineado a la izquierda */}
           <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="max-w-2xl text-left">
-              <span className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-poster-cyan/15 border border-poster-cyan/30 text-poster-cyan text-xs font-bold uppercase tracking-widest mb-6 backdrop-blur-md">
-                <Zap className="w-3.5 h-3.5 text-poster-cyan" />
-                Foro de Vanguardia Naval & Transición Energética
-              </span>
-
+            <div className="max-w-xl lg:max-w-2xl text-left">
               <h2 className="text-3xl sm:text-4xl md:text-5xl font-archivo font-extrabold text-white tracking-tight leading-tight mb-8">
                 El Epicentro de la{' '}
                 <span className="text-transparent bg-clip-text bg-gradient-to-r from-poster-cyan via-white to-poster-gold">
@@ -184,14 +162,14 @@ export default function SemPage() {
                 </span>
               </h2>
 
-              <div className="space-y-6 text-slate-200 text-sm sm:text-base leading-relaxed font-sans">
+              <div className="space-y-6 text-slate-300 text-sm sm:text-base md:text-lg leading-relaxed font-sans font-light">
                 {/* Párrafo 2 */}
-                <p className="bg-poster-midnight/70 p-6 rounded-2xl border border-white/10 backdrop-blur-md shadow-xl">
-                  El <strong>Seminario de Electromovilidad Marítima (SEM 2026)</strong> es el punto de encuentro anual donde convergen los principales astilleros, centros de investigación universitaria, armadores, proveedores globales de sistemas de propulsión eléctrica y los organismos rectores del Estado (Ministerio de Transportes, Corfo y la Dirección General del Territorio Marítimo y Marina Mercante, DIRECTEMAR).
+                <p>
+                  El <strong className="text-white font-medium">Seminario de Electromovilidad Marítima (SEM 2026)</strong> es el punto de encuentro anual donde convergen los principales astilleros, centros de investigación universitaria, armadores, proveedores globales de sistemas de propulsión eléctrica y los organismos rectores del Estado (Ministerio de Transportes, Corfo y la Dirección General del Territorio Marítimo y Marina Mercante, DIRECTEMAR).
                 </p>
 
                 {/* Párrafo 4 */}
-                <p className="bg-poster-midnight/70 p-6 rounded-2xl border-l-4 border-l-poster-gold border-y border-r border-white/10 backdrop-blur-md shadow-xl text-white font-medium">
+                <p className="text-slate-200">
                   El programa incluye ponencias magistrales internacionales, paneles de debate sobre políticas públicas, mesas de negocios B2B y demostraciones reales de navegación cero emisiones sobre las aguas del río Calle-Calle.
                 </p>
               </div>
