@@ -379,8 +379,8 @@ export default function ImpactManifesto({ onOpenModal }: ImpactManifestoProps) {
         >
           <img
             src="/images/valdivia-astillero-catamaran.jpg"
-            alt="Astillero y catamarán eléctrico solar en Valdivia"
-            className="w-full h-full object-cover filter brightness-95 scale-105"
+            alt="Seminario de Electromovilidad Marítima (SEM) y Feria Valdivia Náutica en Centro de Ferias Parque Saval"
+            className="w-full h-full object-cover object-[center_35%] filter brightness-95 scale-105"
           />
         </motion.div>
         <div className="absolute inset-0 bg-gradient-to-t from-poster-midnight via-transparent to-poster-midnight/50 pointer-events-none" />
