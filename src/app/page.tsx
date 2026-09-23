@@ -48,19 +48,15 @@ export default function Home() {
         {/* 2. Manifiesto Fluvial, Cifras de Impacto Dinámicas y Slider Interactivo de los 7 Mundos */}
         <ImpactManifesto onOpenModal={handleOpenModal} />
 
-        {/* 3. La Brújula del Visitante (Selector Interactivo por Perfil) */}
-        <VisitorCompass onOpenModal={handleOpenModal} />
+        {/* Bloques reservados para fases posteriores (preservados en componentes): */}
+        {/* <VisitorCompass onOpenModal={handleOpenModal} /> */}
+        {/* <InteractiveVenueMap /> */}
+        {/* <EventTimeline onOpenModal={handleOpenModal} /> */}
 
-        {/* 4. Mapa Interactivo de la Sede: Parque Saval & Río Calle-Calle */}
-        <InteractiveVenueMap />
-
-        {/* 5. Cronograma / Bitácora Interactiva de Actividades por Días con Foto de Regata */}
-        <EventTimeline onOpenModal={handleOpenModal} />
-
-        {/* 6. Pabellón de Patrocinios B2B: Metales de Transición Energética */}
+        {/* 3. Pabellón de Patrocinios B2B: Metales de Transición Energética */}
         <SponsorsSection onOpenModal={handleOpenModal} />
 
-        {/* 7. Marquesina Institucional */}
+        {/* 4. Marquesina Institucional: Organizan, Patrocinan e Impulsan */}
         <OrganizersBar />
       </main>
 
