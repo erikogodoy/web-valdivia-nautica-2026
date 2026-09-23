@@ -368,25 +368,23 @@ export default function ImpactManifesto({ onOpenModal }: ImpactManifestoProps) {
 
       </div>
 
-      {/* 4. TRUE FULL-WIDTH EDGE-TO-EDGE PHOTOGRAPHY 2: Astilleros e Innovación SEM (100vw Bleed with Parallax) */}
+      {/* 4. TRUE FULL-WIDTH EDGE-TO-EDGE PHOTOGRAPHY 2: Navegación Fluvial en Valdivia (100vw Bleed with Parallax) */}
       <div
         ref={parallaxRef2}
-        className="w-full h-[420px] sm:h-[520px] md:h-[620px] lg:h-[700px] relative overflow-hidden mt-16 border-t border-white/15"
+        className="w-full h-[380px] sm:h-[480px] md:h-[580px] lg:h-[640px] relative overflow-hidden mt-16 border-t border-white/15"
       >
         <motion.div
           style={{ y: parallaxY2 }}
-          className="absolute inset-0 -top-[15%] -bottom-[15%] h-[130%] w-full will-change-transform"
+          className="absolute inset-0 -top-[20%] -bottom-[20%] h-[140%] w-full will-change-transform"
         >
           <img
             src="/images/valdivia-astillero-catamaran.jpg"
-            alt="Seminario de Electromovilidad Marítima (SEM) y Feria Valdivia Náutica en Centro de Ferias Parque Saval"
-            className="w-full h-full object-cover object-[center_68%] filter brightness-95 scale-105"
+            alt="Embarcaciones y navegación fluvial en Valdivia"
+            className="w-full h-full object-cover filter brightness-95 scale-105"
           />
         </motion.div>
-        {/* Soft edge feathering so the photo content remains crystal clear without dark bottom fog */}
-        <div className="absolute top-0 left-0 right-0 h-20 bg-gradient-to-b from-poster-midnight to-transparent pointer-events-none" />
-        <div className="absolute bottom-0 left-0 right-0 h-24 bg-gradient-to-t from-poster-midnight to-transparent pointer-events-none" />
-        <div className="absolute inset-0 bg-gradient-to-r from-poster-midnight/30 via-transparent to-poster-midnight/30 pointer-events-none" />
+        <div className="absolute inset-0 bg-gradient-to-t from-poster-midnight via-transparent to-poster-midnight/50 pointer-events-none" />
+        <div className="absolute inset-0 bg-gradient-to-r from-poster-midnight/50 via-transparent to-poster-midnight/50 pointer-events-none" />
       </div>
 
     </section>
