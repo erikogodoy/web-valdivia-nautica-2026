@@ -1,0 +1,20 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Valdivia Nautica//SEM 2026//ES
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+X-WR-CALNAME:SEM 2026 - Valdivia Náutica
+X-WR-TIMEZONE:America/Santiago
+BEGIN:VEVENT
+UID:sem-2026-valdivianautica@valdivianautica.cl
+DTSTAMP:20260930T130000Z
+DTSTART;VALUE=DATE:20261204
+DTEND;VALUE=DATE:20261207
+SUMMARY:SEM 2026 — Seminario de Electromovilidad Marítima & Valdivia Náutica
+DESCRIPTION:Seminario de Electromovilidad Marítima (SEM 2026) en el marco de Valdivia Náutica 2026.\nLugar: Centro de Ferias Parque Saval, Isla Teja, Valdivia, Chile.\nMás información y programa en https://www.valdivianautica.cl/sem
+LOCATION:Centro de Ferias Parque Saval, Isla Teja, Valdivia, Chile
+URL:https://www.valdivianautica.cl/sem
+STATUS:CONFIRMED
+TRANSP:OPAQUE
+END:VEVENT
+END:VCALENDAR

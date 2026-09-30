@@ -91,14 +91,25 @@ export default function SemPage() {
 
             {/* Pastillas de Fecha y Lugar */}
             <div className="flex flex-wrap items-center justify-center gap-3 sm:gap-4 text-xs sm:text-sm text-slate-300 mb-10">
-              <span className="flex items-center gap-2 bg-white/5 border border-white/10 px-4 py-2 rounded-xl backdrop-blur-sm">
-                <Calendar className="w-4 h-4 text-poster-semGreen" />
-                <span>4, 5 y 6 de Diciembre 2026</span>
-              </span>
-              <span className="flex items-center gap-2 bg-white/5 border border-white/10 px-4 py-2 rounded-xl backdrop-blur-sm">
-                <MapPin className="w-4 h-4 text-poster-semGreen" />
-                <span>Centro de Ferias Parque Saval · Isla Teja, Valdivia</span>
-              </span>
+              <a
+                href="/sem-2026-valdivia.ics"
+                download="sem-2026-valdivia.ics"
+                title="Descargar evento a tu calendario (.ics)"
+                className="flex items-center gap-2 bg-white/5 hover:bg-white/10 border border-white/10 hover:border-poster-semGreen/50 px-4 py-2 rounded-xl backdrop-blur-sm transition-all group cursor-pointer"
+              >
+                <Calendar className="w-4 h-4 text-poster-semGreen group-hover:scale-110 transition-transform" />
+                <span className="group-hover:text-white transition-colors">4, 5 y 6 de Diciembre 2026</span>
+              </a>
+              <a
+                href="https://maps.google.com/?q=Centro+de+Ferias+Parque+Saval,+Valdivia"
+                target="_blank"
+                rel="noopener noreferrer"
+                title="Ver ubicación en Google Maps"
+                className="flex items-center gap-2 bg-white/5 hover:bg-white/10 border border-white/10 hover:border-poster-semGreen/50 px-4 py-2 rounded-xl backdrop-blur-sm transition-all group cursor-pointer"
+              >
+                <MapPin className="w-4 h-4 text-poster-semGreen group-hover:scale-110 transition-transform" />
+                <span className="group-hover:text-white transition-colors">Centro de Ferias Parque Saval · Isla Teja, Valdivia</span>
+              </a>
             </div>
 
             {/* CTAs Principales: 1. Inscripción | 2. Ser Sponsor */}
@@ -165,7 +176,7 @@ export default function SemPage() {
               <div className="space-y-6 text-slate-300 text-sm sm:text-base md:text-lg leading-relaxed font-sans font-light">
                 {/* Párrafo 2 */}
                 <p>
-                  El <strong className="text-white font-medium">Seminario de Electromovilidad Marítima (SEM 2026)</strong> es el punto de encuentro anual donde convergen los principales astilleros, centros de investigación universitaria, armadores, proveedores globales de sistemas de propulsión eléctrica y los organismos rectores del Estado (Ministerio de Transportes, Corfo y la Dirección General del Territorio Marítimo y Marina Mercante, DIRECTEMAR).
+                  El <strong className="text-white font-medium">Seminario de Electromovilidad Marítima (SEM 2026)</strong> es el punto de encuentro anual donde convergen los principales astilleros, centros de investigación universitaria, armadores, proveedores globales de sistemas de propulsión eléctrica y los organismos rectores del Estado (Ministerio de Transportes y Telecomunicaciones, Ministerio de Energía, Ministerio del Medio Ambiente, Agencia de Sostenibilidad Energética, Corfo y la Dirección General del Territorio Marítimo y Marina Mercante, DIRECTEMAR).
                 </p>
 
                 {/* Párrafo 4 */}
@@ -204,7 +215,7 @@ export default function SemPage() {
                     Propulsión Eléctrica & Baterías
                   </h3>
                   <p className="text-xs text-slate-300 leading-relaxed font-sans">
-                    Sistemas de tracción limpia para embarcaciones fluviales, transbordadores y naves de pasaje. Bancos de baterías LiFePO4, almacenamiento seguro y autonomía.
+                    Sistemas de propulsión limpia para embarcaciones fluviales, transbordadores y naves de pasaje. Bancos de baterías LiFePO4, almacenamiento seguro y autonomía.
                   </p>
                 </div>
               </div>

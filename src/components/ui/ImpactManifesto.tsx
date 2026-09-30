@@ -55,7 +55,7 @@ const WORLDS = [
     name: 'Electromovilidad Marítima',
     modalType: 'sem',
     title: '(SEM) Seminario de Electromovilidad Marítima',
-    desc: 'El principal encuentro técnico y académico del Cono Sur para la transición energética y descarbonización del transporte fluvial y marítimo. Co-organizado con la Universidad Austral de Chile (UACh) y THEMS, reúne a expertos internacionales, astilleros, armadores y autoridades para debatir sobre propulsión eléctrica y soluciones sostenibles para cuencas navegables.',
+    desc: 'El principal encuentro técnico y académico del Cono Sur para la transición energética y descarbonización del transporte fluvial y marítimo. Organizado por THEMS, reúne a expertos internacionales, astilleros, armadores y autoridades para debatir sobre propulsión eléctrica y soluciones sostenibles para cuencas navegables.',
     ctaText: 'Inscríbete',
     icon: Zap,
     accent: 'poster-cyan',

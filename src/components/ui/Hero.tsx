@@ -66,14 +66,25 @@ export default function Hero({ onOpenModal }: HeroProps) {
         
         {/* Prominent Date & Venue */}
         <div className="flex flex-col items-center justify-center mb-8 w-full max-w-4xl mx-auto px-2">
-          <span className="text-xl sm:text-2xl md:text-3xl font-archivo font-bold uppercase tracking-[0.1em] sm:tracking-[0.14em] text-white whitespace-nowrap drop-shadow-md">
+          <a
+            href="/sem-2026-valdivia.ics"
+            download="valdivia-nautica-2026.ics"
+            title="Guardar fechas en tu calendario (.ics)"
+            className="text-xl sm:text-2xl md:text-3xl font-archivo font-bold uppercase tracking-[0.1em] sm:tracking-[0.14em] text-white hover:text-poster-gold transition-colors whitespace-nowrap drop-shadow-md cursor-pointer group"
+          >
             4 · 5 · 6 DICIEMBRE 2026
-          </span>
+          </a>
 
-          <div className="inline-flex items-center gap-2 text-xs sm:text-sm md:text-base font-sans font-medium text-slate-200 tracking-wide mt-2 drop-shadow">
-            <MapPin className="w-4 h-4 sm:w-4.5 sm:h-4.5 text-poster-gold shrink-0" />
-            <span>Centro de Ferias Parque Saval · Valdivia, Chile</span>
-          </div>
+          <a
+            href="https://maps.google.com/?q=Centro+de+Ferias+Parque+Saval,+Valdivia"
+            target="_blank"
+            rel="noopener noreferrer"
+            title="Ver ubicación en Google Maps"
+            className="inline-flex items-center gap-2 text-xs sm:text-sm md:text-base font-sans font-medium text-slate-200 hover:text-white transition-colors tracking-wide mt-2 drop-shadow group cursor-pointer"
+          >
+            <MapPin className="w-4 h-4 sm:w-4.5 sm:h-4.5 text-poster-gold shrink-0 group-hover:scale-110 transition-transform" />
+            <span className="underline decoration-white/20 underline-offset-4 group-hover:decoration-poster-gold">Centro de Ferias Parque Saval · Valdivia, Chile</span>
+          </a>
         </div>
 
         {/* Official Hero SVG Logo */}
