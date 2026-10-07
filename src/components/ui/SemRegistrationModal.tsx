@@ -329,7 +329,7 @@ ${formDataState.nombre}`;
                   name="institucion"
                   value={formDataState.institucion}
                   onChange={handleInputChange}
-                  placeholder="Ej. UACh / Astilleros del Sur / Independiente"
+                  placeholder="Ej. Universidad / Astilleros del Sur / Independiente"
                   className="w-full px-3.5 py-2.5 rounded-xl bg-white/5 border border-white/10 focus:border-poster-semGreen focus:outline-none text-white text-xs sm:text-sm font-sans"
                 />
               </div>

@@ -52,7 +52,7 @@ const SCHEDULE_DAYS: Record<string, { label: string; date: string; summary: stri
         category: 'sem',
         categoryLabel: 'SEM Innovación',
         location: 'Pabellón SEM & Auditorio',
-        description: 'Exposiciones de expertos de Noruega, Países Bajos y la UACh sobre electrificación de flotas fluviales e hidrógeno verde.',
+        description: 'Exposiciones de expertos de Noruega, Países Bajos y especialistas nacionales sobre electrificación de flotas fluviales e hidrógeno verde.',
         badge: 'Transmisión en Directo',
         isLiveHighlight: true,
       },
@@ -96,7 +96,7 @@ const SCHEDULE_DAYS: Record<string, { label: string; date: string; summary: stri
       {
         id: 's2',
         time: '11:00 - 13:30',
-        title: 'Pruebas y Navegación del Catamarán Solar UACh',
+        title: 'Pruebas y Navegación del Catamarán Solar Experimental',
         category: 'sem',
         categoryLabel: 'SEM / Pruebas en Vivo',
         location: 'Muelle Fluvial Parque Saval',

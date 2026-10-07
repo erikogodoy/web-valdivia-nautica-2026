@@ -39,10 +39,10 @@ const ZONES = [
     icon: Zap,
     color: 'poster-gold',
     coords: 'Zona Norte Parque Saval',
-    description: 'Espacio climatizado de conferencias co-organizado con la UACh y THEMS. Charlas de transición energética, hidrógeno verde y propulsión limpia.',
+    description: 'Espacio climatizado de conferencias organizado por THEMS y el comité técnico. Charlas de transición energética, hidrógeno verde y propulsión limpia.',
     activities: [
       'Seminarios magistrales internacionales',
-      'Presentación del Catamarán Solar UACh',
+      'Presentación del Catamarán Solar Experimental',
       'Paneles ministeriales de descarbonización',
     ],
     facilities: ['Traducción simultánea', 'Cafetería de networking', 'Grabación y streaming'],

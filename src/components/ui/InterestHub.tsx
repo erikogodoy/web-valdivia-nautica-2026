@@ -22,7 +22,7 @@ const INTERESTS = [
     icon: Zap,
     tag: 'SEM 2026',
     title: '¿Buscas Innovación & Electromovilidad?',
-    description: 'Salón de Electromovilidad Marítima, pruebas del catamarán solar y conferencias de descarbonización UACh/THEMS.',
+    description: 'Salón de Electromovilidad Marítima, pruebas del catamarán solar y conferencias de descarbonización con THEMS.',
     color: 'border-poster-cyan/40 hover:border-poster-cyan text-poster-cyan',
     btnBg: 'bg-poster-cyan text-poster-midnight hover:bg-white',
   },

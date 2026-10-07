@@ -58,7 +58,7 @@ const AUDIENCES = [
     label: 'SEM / Innovación',
     icon: Cpu,
     heading: 'Salón de Electromovilidad Marítima (SEM)',
-    description: 'La vitrina de vanguardia desarrollada junto a la Universidad Austral de Chile (UACh) y THEMS, acelerando el transporte acuático sustentable.',
+    description: 'La vitrina de vanguardia desarrollada junto a THEMS e investigadores náuticos, acelerando el transporte acuático sustentable.',
     highlights: [
       'Primeras pruebas navegadas de catamaranes eléctricos en Chile',
       'Ponencias con expertos en propulsión marina limpia e hidrógeno verde',

@@ -29,7 +29,7 @@ export default function SEMHighlight({ onOpenModal }: SEMHighlightProps) {
             </h2>
 
             <p className="text-slate-300 text-base sm:text-lg leading-relaxed mb-8">
-              Organizado en alianza con <strong className="text-cyanic-400">THEMS</strong> (Test-bench for Hybrid Electric Marine System), spin-off de la Universidad Austral de Chile (UACh), y con la participación activa de universidades como PUCV, UTFSM y UFRO, además de los Ministerios de Transportes y Energía.
+              Organizado en alianza con <strong className="text-cyanic-400">THEMS</strong> (Test-bench for Hybrid Electric Marine System), y con la participación activa de universidades como PUCV, UTFSM y UFRO, además de los Ministerios de Transportes y Energía.
             </p>
 
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-8">

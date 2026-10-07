@@ -25,14 +25,13 @@ const TIERS = [
   {
     name: 'Cobalto',
     price: '$3.000.000',
-    description: 'Alta presencia corporativa con visibilidad audiovisual continua, entrevistas con prensa, pendón en rotonda y vinculación con estudiantes de Ing. Naval UACh.',
+    description: 'Alta presencia corporativa con visibilidad audiovisual continua, entrevistas con prensa y pendón en rotonda.',
     border: 'border-poster-gold/60 hover:border-poster-gold shadow-lg shadow-poster-gold/10',
     benefits: [
       '4 Pases SEM + 4 Almuerzos',
       'Pendón en Rotonda Isla Teja',
       'Logo en obsequio oficial',
       'Video continuo en pantallas',
-      'Cupos a estudiantes Ing. Naval',
     ],
     featured: false,
   },

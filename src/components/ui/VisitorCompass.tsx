@@ -78,7 +78,7 @@ const PERSONAS = [
     color: 'poster-cyan',
     badgeBg: 'bg-poster-cyan/10 text-poster-cyan border-poster-cyan/30',
     title: 'Salón de Electromovilidad Marítima & Nuevas Energías',
-    description: 'Encuentro pionero co-organizado con la Universidad Austral de Chile (UACh) y THEMS, enfocado en propulsión marina limpia, hidrógeno verde y catamaranes solares.',
+    description: 'Encuentro pionero impulsado junto a THEMS, enfocado en propulsión marina limpia, hidrógeno verde y catamaranes solares.',
     scheduleHighlights: [
       { time: '09:00 - 11:30', activity: 'Paneles internacionales: Casos de éxito en Europa y América' },
       { time: '12:00 - 13:30', activity: 'Pruebas de navegación en vivo de embarcaciones eléctricas' },
